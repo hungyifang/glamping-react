@@ -38,12 +38,22 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
+/* 預計清理 */
+
 /* 小圖示對齊 */
 
 .material-icons, .material-icons-outlined {
   display: inline-flex;
   vertical-align: top;
 }
+
+.material-icons.cart {
+  font-size: 40px;
+  /* margin-right: 60px; */
+  color: var(--c-pri);
+}
+
+/* 預計清理 */
 
 /* 大按鈕 */
 
@@ -71,6 +81,7 @@ code {
 
 .btn-action, .btn-outline {
   font-size: 1.125rem;
+  cursor: pointer;
 }
 
 /* ! 背景色 */
@@ -184,9 +195,8 @@ a {
   left: 50px;
 }
 
-.material-icons.cart {
+.header-icon {
   font-size: 40px;
-  /* margin-right: 60px; */
   color: var(--c-pri);
 }
 
@@ -256,4 +266,28 @@ a {
 
 .h5 {
   font-size: 1rem;
+}
+
+/* ReactModal */
+
+.ReactModal__Overlay {
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.ReactModal__Overlay--after-open {
+  opacity: 1;
+}
+
+.ReactModal__Overlay--before-close {
+  opacity: 0;
+}
+
+.Overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
 }

@@ -1,0 +1,119 @@
+.login-modal {
+    position: absolute;
+    top: 4%;
+    left: 30%;
+    right: 30%;
+    /* bottom: 4%; */
+    background-color: var(--c-bg-light);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.login-modal:focus {
+    outline: none;
+}
+
+.login-modal-title {
+    height: 56px;
+    /* background: var(--c-bg-deep); */
+}
+
+.login-modal-h1 {
+    font-size: 2rem;
+    color: var(--c-sec-deep);
+    text-align: center;
+    font-weight: bold;
+}
+
+.icon-login {
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+
+.icon-login img {
+    margin: 25px;
+}
+
+.login-input {
+    outline-style: none;
+    border: 1px solid var(--c-sec-light);
+    border-radius: 12px;
+    height: 60px;
+    margin-bottom: 24px;
+}
+
+::placeholder {
+    color: var(--c-sec-light);
+}
+
+.login-input:focus {
+    border-color: var(--c-sec-mid);
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05), 0 0 8px #fab751;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05), 0 0 8px #fab751
+}
+
+.login-btn-group {
+    margin-bottom: 12px;
+}
+
+.login-btn {
+    /* width: 685px; */
+    height: 60px;
+    color: var(--c-bg-light);
+    border: 0px;
+    border-radius: 12px;
+    transition: 0.1s;
+    /* margin: 10px auto; */
+}
+
+.login-btn-link {
+    width: 28%;
+    color: var(--c-sec-deep);
+    background: none;
+}
+
+.login-btn-link:hover {
+    color: var(--c-sec-light);
+}
+
+.login-btn-signin {
+    width: 40%;
+    background: var(--c-sec-deep);
+}
+
+.login-btn-signin:hover {
+    background: var(--c-sec-mid);
+}
+
+/* 分隔線 */
+
+.demarcation {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.demarcation .line {
+    display: inline-block;
+    width: 40%;
+    border-top: 3px solid var(--c-sec-light);
+}
+
+.demarcation .txt {
+    margin: 10px;
+    color: var(--c-sec-light);
+    vertical-align: middle;
+}
+
+@media screen and (max-width:768px) {
+    .forget-password {
+        margin-right: 60px;
+    }
+    .sign-up {
+        margin-left: 60px;
+    }
+    .login-input {
+        width: 550px;
+    }
+}
