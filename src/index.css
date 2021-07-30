@@ -308,6 +308,11 @@ ul {
         padding: 15px 60px;
         border-radius: 10px;
     }
+    .main-menu-a:hover {
+        background-color: var(--c-pri);
+        color: var(--c-bg-light);
+        border-bottom: none;
+    }
     .main-menu ul li .btn-outline.rwd {
         display: flex;
     }
