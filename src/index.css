@@ -70,6 +70,17 @@ body {
     background: none;
 }
 
+/* 觸碰變色 */
+
+.btn-action:hover {
+    background: var(--c-bg-deep);
+}
+
+.btn-outline:hover {
+    border: 3px solid var(--c-bg-deep);
+    color: var(--c-bg-deep);
+}
+
 .btn-outline a {
     color: var(--c-pri);
 }
