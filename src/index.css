@@ -212,7 +212,9 @@ a {
 .avatar {
     width: 60px;
     height: 60px;
-    display: none;
+    overflow: hidden;
+    border-radius: 50%;
+    /* display: none; */
 }
 
 .fix-right {
@@ -280,13 +282,12 @@ ul {
     .main-menu {
         display: none;
         position: fixed;
-        right: 0px;
+        right: -500px;
         top: 80px;
         font-size: 1.25rem;
         font-weight: bold;
         z-index: 1;
-        animation-name: goLeft;
-        animation-duration: 0.3s;
+        transition: 0.3s;
     }
     .main-menu ul {
         flex-flow: column;
@@ -351,17 +352,6 @@ ul {
     }
     .footer-link.menu li {
         display: none;
-    }
-}
-
-/* RWD NAV 動畫 */
-
-@keyframes goLeft {
-    from {
-        right: -100px;
-    }
-    to {
-        right: 0px;
     }
 }
 
