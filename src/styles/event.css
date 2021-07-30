@@ -1,46 +1,3 @@
-/* 共用 */
-
-.berger-list {
-    display: none;
-    align-items: center;
-    color: var(--c-pri);
-}
-
-.berger-list .material-icons {
-    font-size: 40px;
-}
-
-@media screen and (max-width: 1064px) {
-    .main-menu {
-        display: none;
-    }
-    .berger-list {
-        display: flex;
-    }
-    .btn-outline {
-        /* 覆蓋 bootstrap d-flex important 屬性 */
-        display: none !important;
-    }
-    nav .col {
-        padding: 0;
-    }
-    .day-night-switch {
-        margin-right: 20px;
-    }
-    .material-icons.cart {
-        margin-right: 20px;
-    }
-    .banner {
-        margin-top: 80px;
-    }
-    .footer {
-        margin: 0;
-    }
-    .footer-link.menu li {
-        display: none;
-    }
-}
-
 /* 快速選單 */
 
 .quick-list-wrapper {
@@ -260,5 +217,21 @@
         width: 300px;
         height: 300px;
         border-radius: 50px;
+    }
+    .card-tag-hot::before {
+        padding: 0 5px;
+        left: -50px;
+    }
+    .card-tag-new::after {
+        padding: 0 5px;
+        left: -50px;
+    }
+    .card-tag-new.card-tag-hot::before {
+        padding: 0 5px;
+        left: -50px;
+    }
+    .card-tag-hot.card-tag-new::after {
+        padding: 0 5px;
+        left: -50px;
     }
 }

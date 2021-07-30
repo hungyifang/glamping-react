@@ -1,63 +1,3 @@
-/* 共用 */
-
-.berger-list {
-    display: none;
-    align-items: center;
-    color: var(--c-pri);
-}
-
-.berger-list .material-icons {
-    font-size: 40px;
-}
-
-.text-bg-deep {
-    color: var(--c-bg-deep)
-}
-
-.text-pri {
-    color: var(--c-pri);
-}
-
-.text-sec-deep {
-    color: var(--c-sec-deep);
-}
-
-.cover-fit {
-    object-fit: cover;
-}
-
-ul {
-    list-style: none;
-}
-
-@media screen and (max-width: 1064px) {
-    .main-menu {
-        display: none;
-    }
-    .berger-list {
-        display: flex;
-    }
-    .btn-outline {
-        /* 覆蓋 bootstrap d-flex important 屬性 */
-        display: none !important;
-    }
-    nav .col {
-        padding: 0;
-    }
-    .day-night-switch {
-        margin-right: 20px;
-    }
-    .material-icons.cart {
-        margin-right: 20px;
-    }
-    .footer {
-        margin: 0;
-    }
-    .footer-link.menu li {
-        display: none;
-    }
-}
-
 /* banner */
 
 .banner-carousel {
@@ -66,8 +6,7 @@ ul {
 }
 
 .banner-title {
-    padding: 30px 100px;
-    /* font-size: 1.5rem; */
+    padding: 30px 4%;
     font-weight: bold;
     color: var(--c-sec-deep);
 }
@@ -83,7 +22,7 @@ ul {
     .banner-title {
         display: none;
     }
-    .banner {
+    .banner-carousel {
         height: 530px;
         margin-top: 80px;
         padding: 20px 0;
@@ -167,12 +106,28 @@ ul {
     margin: 10px 0;
 }
 
+.event-name svg {
+    margin: 0 10px;
+}
+
+.event-name.favorite svg {
+    color: palevioletred;
+}
+
 .event-title i {
     font-style: normal;
 }
 
 .event-subtitle {
     margin: 10px 0;
+}
+
+.event-subtitle svg {
+    font-size: 1.25rem;
+}
+
+.event-subtitle span {
+    margin: 0 5px;
 }
 
 .event-subtitle i {
@@ -189,6 +144,14 @@ ul {
     margin: 10px 5px;
 }
 
+#checkDate {
+    margin: 10px 0;
+}
+
+.rwd-menu {
+    height: 43px;
+}
+
 .rwd-menu, .rwd-calendar {
     display: none;
 }
@@ -198,19 +161,19 @@ ul {
 }
 
 .rwd-menu ul li {
-    margin: 10px 15px;
+    margin: 5px 1%;
     white-space: nowrap;
-    font-size: 1.5rem;
-    font-weight: bold;
+    font-size: 1.25rem;
+    /* font-weight: bold; */
 }
 
-.rwd-menu ul li a {
+.rwd-menu ul li div {
     color: var(--c-pri);
 }
 
-.rwd-menu ul li:hover a {
+.rwd-menu ul li:hover div {
     color: var(--c-bg-deep);
-    border-bottom: var(--c-bg-deep) solid 3px;
+    border-bottom: var(--c-sec-light) solid 3px;
 }
 
 .rwd-calendar {
@@ -221,28 +184,121 @@ ul {
     margin: 20px 0;
 }
 
-.rwd-calendar div {
+.rwd-calendar .population {
     margin: 10px 0;
-    padding: 10px 0;
+}
+
+.rwd-calendar .price-wrapper {
+    height: 25px;
+}
+
+.rwd-calendar .price {
+    right: 15%;
+    bottom: -5px;
 }
 
 .rwd-calendar input {
-    padding-left: 55px;
-    width: 90%;
+    width: 500px;
     border-radius: 10px;
 }
 
-.rwd-calendar span {
-    left: 7.5%;
+.rwd-calendar .population {
+    height: 55px;
+    border: transparent;
+    width: 549px;
+    padding-left: 60px;
+    font-size: 1.1875rem;
 }
 
-@media screen and (max-width: 768px) {
+.rwd-calendar .user-icon {
+    top: 16px;
+    left: 3%;
+}
+
+.rwd-calendar .population-counter {
+    top: 22px;
+    right: 3%;
+}
+
+.datePicker {
+    margin-top: 50px;
+}
+
+.input-population {
+    width: 395px;
+    height: 50px;
+    border-radius: 10px;
+    border: none;
+}
+
+.input-population:focus {
+    outline: none;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
+}
+
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+    outline: none;
+    box-shadow: none;
+}
+
+@media screen and (max-width: 1064px) {
     .rwd-menu {
         display: flex;
         justify-content: center;
     }
     .rwd-calendar {
         display: block;
+    }
+}
+
+.calendar {
+    background-color: var(--c-bg-mid);
+    margin: 30px 0;
+    border-radius: 20px;
+}
+
+.calendar-wrapper .price, .calendar-wrapper .review {
+    padding: 0 13%;
+}
+
+.calendar-wrapper .input-population {
+    padding-left: 185px;
+    padding-right: 100px;
+}
+
+.calendar-wrapper .population {
+    left: 16%;
+}
+
+.calendar-wrapper .population-counter {
+    right: 16%;
+}
+
+.btn-calendar {
+    border: 1px soild var(--c-pri);
+}
+
+/* 星星填入 % 顏色模組 */
+
+.star-rate-bg {
+    background-color: var(--c-pri);
+    background: linear-gradient(to right, var(--c-pri) 50%, transparent 50%);
+    mask: url('http://localhost:8080/images/star_black.svg') repeat-x;
+}
+
+@media screen and (max-width: 1064px) {
+    .calendar, .calendar-wrapper {
+        display: none;
+    }
+    .description-title {
+        text-align: center;
+        font-size: 1.75rem;
     }
 }
 
@@ -279,29 +335,17 @@ ul {
     color: var(--c-sec-mid);
 }
 
-.calendar {
-    height: 600px;
-    background-color: var(--c-bg-light);
-    margin: 30px 0;
-}
-
 .description-warning {
     background-color: var(--c-pri-light);
     border-radius: 20px;
     color: var(--c-pri);
 }
 
-@media screen and (max-width: 768px) {
-    .calendar {
-        display: none;
-    }
-    .description-title {
-        text-align: center;
-        font-size: 1.75rem;
-    }
-}
-
 /* 旅客評價 */
+
+/* .review-card-wrapper{
+    height: 620px;
+} */
 
 .consumer-review .description-title {
     color: var(--c-pri);
@@ -312,7 +356,6 @@ ul {
     background-color: var(--c-bg-deep);
     color: var(--c-bg-light);
     padding: 15px 20px;
-    margin-left: 100px;
     border-radius: 20px;
 }
 
@@ -345,9 +388,42 @@ ul {
 .review-page {
     border-radius: 10px;
     font-size: 1.125rem;
-    padding: 15px;
+    padding: 5px 10px;
     margin-top: 20px;
     margin-bottom: 50px;
+}
+
+.review-page-number {
+    border-radius: 10px;
+    transition: 0.2s;
+}
+
+.review-page-number.active, .review-page-number:hover {
+    background-color: white;
+}
+
+@media screen and (max-width: 1064px) {
+    .review-page-wrapper, .review-page {
+        display: none !important;
+    }
+    .review-card-wrapper {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow: scroll;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        /* Firefox */
+    }
+    .review-card-wrapper::-webkit-scrollbar {
+        display: none;
+    }
+    .rwd-height {
+        height: 250px;
+        display: flex;
+    }
+    .review-title-wrapper {
+        justify-content: center;
+    }
 }
 
 /* 更多推薦 */
@@ -361,17 +437,36 @@ ul {
     margin: 10px 0;
 }
 
-@media screen and (max-width: 768px) {
+.suggest-card-wrapper {
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+@media screen and (max-width: 1064px) {
     .suggestion {
         padding: 10px 0 60px 0;
     }
+    .suggest-card-wrapper {
+        overflow: scroll;
+        flex-wrap: nowrap;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        justify-content: flex-start;
+        /* Firefox */
+    }
+    .suggest-card-wrapper::-webkit-scrollbar {
+        display: none;
+    }
+    .suggestion-title {
+        margin: 20px 0;
+    }
 }
 
-/* 卡片模組 */
+/* 卡片 */
 
 .card-wrapper {
     padding: 50px 0;
-    max-width: 1840px;
+    /* max-width: 1840px; */
 }
 
 .event-card {
@@ -379,7 +474,7 @@ ul {
     height: 490px;
     border-radius: 50px;
     background-color: var(--c-bg-mid);
-    margin: 20px 10px;
+    margin: 0 14px 50px 14px;
     padding: 31px;
 }
 
@@ -404,13 +499,13 @@ ul {
     margin-bottom: 0;
 }
 
-.card-tag::before {
+.card-tag-hot::before {
     content: "熱銷中";
     color: white;
-    font-weight: lighter;
     font-size: 0.75rem;
+    font-weight: lighter;
     display: flex;
-    align-items: center;
+    align-items: top;
     justify-content: center;
     background-color: var(--c-sec-deep);
     border-radius: 5px;
@@ -418,7 +513,58 @@ ul {
     height: 60%;
     position: absolute;
     left: -65px;
-    top: 9px;
+    top: 5px;
+}
+
+.card-tag-new::after {
+    content: "新活動";
+    color: white;
+    font-size: 0.75rem;
+    font-weight: lighter;
+    display: flex;
+    align-items: top;
+    justify-content: center;
+    background-color: var(--c-sec-light);
+    border-radius: 5px;
+    padding: 0 10px;
+    height: 60%;
+    position: absolute;
+    left: -65px;
+    top: 5px;
+}
+
+.card-tag-new.card-tag-hot::before {
+    content: "熱銷中";
+    color: white;
+    font-size: 0.75rem;
+    font-weight: lighter;
+    display: flex;
+    align-items: top;
+    justify-content: center;
+    background-color: var(--c-sec-deep);
+    border-radius: 5px;
+    padding: 0 10px;
+    height: 60%;
+    position: absolute;
+    left: -65px;
+    top: 5px;
+}
+
+.card-tag-hot.card-tag-new::after {
+    content: "新活動";
+    color: white;
+    font-size: 0.75rem;
+    font-weight: lighter;
+    display: flex;
+    align-items: top;
+    justify-content: center;
+    background-color: var(--c-sec-light);
+    border-radius: 5px;
+    padding: 0 10px;
+    height: 60%;
+    position: absolute;
+    left: -65px;
+    top: 30px;
 }
 
 .card-content {
@@ -426,12 +572,18 @@ ul {
     margin-top: 5px;
 }
 
-.card-content i {
-    font-size: 1.5rem;
+.card-content svg {
+    font-size: 1.375rem;
 }
 
-.review-times, .attend-times {
+.card-content span {
+    margin: 0 2.5px;
+}
+
+.card-content .review-times, .card-content .attend-times {
     font-size: 0.75rem;
+    align-self: flex-end;
+    margin: 0 5px;
 }
 
 .event-price {
@@ -440,10 +592,9 @@ ul {
     padding: 0 20px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1064px) {
     .card-wrapper {
         padding: 0;
-        overflow: hidden;
         /* max-width: 1840px; */
     }
     .event-card {
@@ -451,12 +602,28 @@ ul {
         height: 490px;
         border-radius: 50px;
         background-color: var(--c-bg-mid);
-        margin: 0 5px 20px 5px;
+        margin: 0 10px 20px 10px;
         padding: 25px;
     }
     .card-img {
         width: 300px;
         height: 300px;
         border-radius: 50px;
+    }
+    .card-tag-hot::before {
+        padding: 0 5px;
+        left: -50px;
+    }
+    .card-tag-new::after {
+        padding: 0 5px;
+        left: -50px;
+    }
+    .card-tag-new.card-tag-hot::before {
+        padding: 0 5px;
+        left: -50px;
+    }
+    .card-tag-hot.card-tag-new::after {
+        padding: 0 5px;
+        left: -50px;
     }
 }
