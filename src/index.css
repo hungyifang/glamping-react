@@ -1,6 +1,6 @@
 @import url(https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap);
 @import url(https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined);
-@import url(./fontello.css);
+
 :root {
     /* 背景顏色 */
     --c-bg-light: #fefbe6;
@@ -68,6 +68,14 @@ body {
     border: 3px solid var(--c-pri);
     border-radius: 25px;
     background: none;
+}
+
+.btn-outline a {
+    color: var(--c-pri);
+}
+
+.btn-action, .btn-outline {
+    font-size: 1.125rem;
 }
 
 /* 觸碰變色 */
@@ -360,7 +368,7 @@ ul {
 .footer {
     margin-top: 290px;
     height: 800px;
-    background-image: url('./banner+footer/footer早上.svg');
+    background-image: url("http://localhost:8080/images/banner/light/footer.svg");
     background-size: cover;
 }
 
