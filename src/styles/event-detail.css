@@ -164,7 +164,6 @@
     margin: 5px 1%;
     white-space: nowrap;
     font-size: 1.25rem;
-    /* font-weight: bold; */
 }
 
 .rwd-menu ul li div {
@@ -252,8 +251,15 @@ input[type=number] {
         display: flex;
         justify-content: center;
     }
+    .rwd-menu ul li {
+        cursor: pointer;
+    }
     .rwd-calendar {
         display: block;
+    }
+    .rwd-title{
+        display: flex;
+        justify-content: center;
     }
 }
 
@@ -293,7 +299,7 @@ input[type=number] {
 }
 
 @media screen and (max-width: 1064px) {
-    .calendar, .calendar-wrapper {
+    .calendar-wrapper {
         display: none;
     }
     .description-title {

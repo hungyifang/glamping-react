@@ -55,7 +55,7 @@
     padding-left: 3.5%;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1064px) {
     .section-title, .section-subtitle {
         text-align: center;
     }

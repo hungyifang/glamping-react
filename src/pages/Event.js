@@ -26,7 +26,7 @@ function Event() {
         <div className="banner">
           <img
             className="cover-fit w-100"
-            src="..//images/Illustrator/banner+footer/當地活動-日.png"
+            src="http://localhost:8080/images/banner/light/event.png"
             alt=""
           />
         </div>

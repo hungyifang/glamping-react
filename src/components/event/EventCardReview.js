@@ -5,6 +5,7 @@ const axios = require("axios").default;
 
 function EventCardReview(props) {
   const [reviews, setReviews] = useState([]);
+
   //從API SERVER抓資料
   async function loadEventCardReview() {
     const i_id = props.i_id;
@@ -51,6 +52,7 @@ function EventCardReview(props) {
   return (
     <>
       <span className="event-star-avg">
+        {/* 是 0 顯示符號 */}
         {starAvg === "0.0" ? <FaRegQuestionCircle /> : starAvg}
       </span>
       <span className="review-times">{reviews.length}&nbsp;則評論</span>

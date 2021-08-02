@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-// import { withRouter } from 'react-router-dom';
 import EventCard from "./EventCard";
 const axios = require("axios").default;
 
@@ -23,20 +22,18 @@ function EventSection() {
     return (
       <section
         className="bg-deep section"
-        id="section1"
+        id={`section${index + 1}`}
         key={index}
-        s_id={section.s_id}
+        c_id={section.c_id}
       >
-        <div className="h1 section-title col">
-          {section.s_id === 4 ? "動態活動" : "靜態活動"}
-        </div>
+        <div className="h1 section-title col">{section.title}</div>
         <div className="h4 section-subtitle col">
-          {section.s_id === 4
+          {section.c_id === 23
             ? "活著是一種美好, 應該用盡全力去珍惜, 從生活中體驗學習, 快來報名活動 !"
             : "生活是否太繁忙需要喘口氣, 別猶豫快來放鬆一下找回自我 !"}
         </div>
         <div className="card-wrapper d-flex flex-wrap col-auto justify-content-center mx-auto">
-          <EventCard s_id={section.s_id} />
+          <EventCard c_id={section.c_id} suggestion={false} />
         </div>
       </section>
     );

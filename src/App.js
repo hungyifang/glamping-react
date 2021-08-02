@@ -40,11 +40,11 @@ function App() {
             <Route exact path="/">
               <Home />
             </Route>
+            <Route auth={auth} path="/event-detail/:i_id">
+              <EventDetail />
+            </Route>
             <Route exact path="/event">
               <Event />
-            </Route>
-            <Route path="/event/:i_id?">
-              <EventDetail />
             </Route>
             <Route path="/member">
               <Member auth={auth} />

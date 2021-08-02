@@ -1,8 +1,18 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import $ from "jquery";
+import {
+  IoBagHandle,
+  IoReorderFourSharp,
+  IoCloseSharp,
+  IoLogOutOutline,
+} from "react-icons/io5";
 
-function NavBar() {
+function NavBar(props) {
+  const login = props.auth || false;
+  const [auth, setAuth] = useState(login);
+  const [hamberger, setHamberger] = useState(true);
+
   // componentDidMount
   useEffect(() => {
     // jquery程式碼寫在這裡
@@ -26,25 +36,56 @@ function NavBar() {
     });
   }, []);
 
+  // RWD 漢堡選單
+  function clickHamberger() {
+    let status = hamberger;
+    setHamberger(!status);
+    // if ($('body').width() >= 1043) setHamberger(false);
+    if ($("body").width() >= 1043) $(".main-menu").css("display", "none");
+    $(".main-menu").css("display", "flex");
+    if (hamberger) $(".main-menu").css("right", "0");
+    if (!hamberger) $(".main-menu").css("right", "-500px");
+  }
+
+  // useEffect(() => {
+  //   console.log(hamberger);
+  // }, [hamberger]);
   return (
     <>
-      {/* <!--! 導覽列 --> */}
       <nav>
         <div className="container-fluid ">
           <div className="col nav d-flex align-items-center justify-content-between">
             <div className="logo">
-              {/* <!--! 網址 --> */}
               <NavLink exact to="/">
                 <img
                   className="img-fluid"
-                  src="./images/logo/logo-日.svg"
+                  src="http://localhost:8080/images/logo-日.svg"
                   alt=""
                 />
               </NavLink>
             </div>
             <div className="main-menu">
               <ul className="d-flex align-items-center m-0 p-0">
-                {/* <!--! 網址 --> */}
+                <li>
+                  {auth ? (
+                    <div className="logout-icon rwd">
+                      <IoLogOutOutline />
+                      <span className="text-pri mx-2">登出</span>
+                    </div>
+                  ) : (
+                    <div
+                      className="
+                justify-content-center
+                align-items-center
+                btn-outline
+                rwd
+                mx-2
+              "
+                    >
+                      <NavLink to="/login">登入</NavLink>
+                    </div>
+                  )}
+                </li>
                 <li>
                   <NavLink
                     className="fw-bold main-menu-a mx-4"
@@ -83,7 +124,7 @@ function NavBar() {
                 </li>
               </ul>
             </div>
-            <div className="d-flex align-items-center">
+            <div className="d-flex align-items-center function-icon">
               <div
                 className="day-night-switch bg-pri d-flex align-items-center justify-content-between position-relative mx-2"
                 id="day-night-switch"
@@ -96,23 +137,44 @@ function NavBar() {
                 </div>
                 <div className="switch-ball bg-white"></div>
               </div>
-              <span className="material-icons cart mx-2"> local_mall </span>
-              <div className="avatar mx-2">
-                <img src="" alt="" />
-              </div>
-              <div
-                className="
-                d-flex
+              <IoBagHandle />
+              {auth ? (
+                <div className="logout-icon pc" title="登出">
+                  <IoLogOutOutline />
+                </div>
+              ) : (
+                <div
+                  className="
                 justify-content-center
                 align-items-center
                 btn-outline
+                pc
                 mx-2
               "
+                >
+                  <NavLink to="/login">登入</NavLink>
+                </div>
+              )}
+              {auth === true && (
+                <>
+                  <div className="avatar mx-2 d-flex align-items-center">
+                    <img
+                      src="http://localhost:8080/images/jules-a-lmydvgKiorI-unsplash.jpg"
+                      alt=""
+                      className="cover-fit w-100 h-100"
+                    />
+                  </div>
+                  <span className="text-pri">hi, 123</span>
+                </>
+              )}
+
+              <div
+                className="berger-list"
+                onClick={() => {
+                  clickHamberger();
+                }}
               >
-                <NavLink to="/login">登入</NavLink>
-              </div>
-              <div className="berger-list">
-                <span className="material-icons"> reorder </span>
+                {hamberger ? <IoReorderFourSharp /> : <IoCloseSharp />}
               </div>
             </div>
           </div>
