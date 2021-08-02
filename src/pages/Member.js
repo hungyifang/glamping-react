@@ -1,6 +1,5 @@
 import React from "react";
-import { Route, Switch, withRouter } from "react-router-dom";
-// import "../styles/Member.css";
+import { Redirect, Route, Switch } from "react-router-dom";
 import "../styles/member.css";
 import MemberLayout from "../components/MemberLayout";
 import Settings from "../components/member/Settings";
@@ -9,8 +8,9 @@ import RewardPoints from "../components/point/RewardPoints";
 import Myfav from "../components/fav/Myfav";
 import Comment from "./Comment";
 
-function Member() {
-  return (
+function Member(props) {
+  const { auth } = props;
+  const display = (
     <Switch>
       <Route path="/member/comment/:id">
         <Comment />
@@ -31,6 +31,8 @@ function Member() {
       </MemberLayout>
     </Switch>
   );
+
+  return <>{auth ? display : <Redirect to="/" />}</>;
 }
 
-export default withRouter(Member);
+export default Member;

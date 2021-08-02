@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { MdLocalMall, MdMenu } from "react-icons/md";
 import $ from "jquery";
 import Login from "./Login";
-// import { ReactComponent as Logo } from "../logo.svg";
+import { ReactComponent as Logo } from "../logo.svg";
 
-function Header() {
+function Header(props) {
+  const { auth, setAuth } = props;
   const [modalIsOpen, setIsOpen] = useState(false);
 
   function openModal() {
@@ -15,6 +16,46 @@ function Header() {
   function closeModal() {
     setIsOpen(false);
   }
+
+  async function logout() {
+    const url = `http://localhost:8080/api/auth/logout`;
+    const request = new Request(url, {
+      method: "GET",
+      withCredentials: true,
+      credentials: "include",
+      headers: new Headers({
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      }),
+    });
+    const response = await fetch(request);
+    const data = await response.json();
+    console.log("伺服器回傳的json資料", data.status);
+    if (data.status === 1) {
+      localStorage.removeItem("u_id");
+      setAuth(false);
+    }
+  }
+
+  const loginBtn = (
+    <div
+      className="d-flex justify-content-center align-items-center btn-outline mx-2"
+      onClick={openModal}
+    >
+      登入
+    </div>
+  );
+
+  const avatar = (
+    <>
+      <Link to="/member" className="avatar mx-2">
+        <img src="http://localhost:8080/images/example.jpg" alt="" />
+      </Link>
+      <Link className="fw-bold main-menu-a mx-2" onClick={() => logout()}>
+        登出
+      </Link>
+    </>
+  );
 
   // componentDidMount
   useEffect(() => {
@@ -41,24 +82,16 @@ function Header() {
 
   return (
     <>
-      {/* <!--! 導覽列 --> */}
       <nav>
         <div className="container-fluid ">
           <div className="col nav d-flex align-items-center justify-content-between">
             <div className="logo">
-              {/* <!--! 網址 --> */}
               <NavLink exact to="/">
-                {/* <img
-                  className="img-fluid"
-                  src="./images/logo/logo-日.svg"
-                  alt=""
-                /> */}
-                {/* <Logo /> */}
+                <Logo />
               </NavLink>
             </div>
             <div className="main-menu">
               <ul className="d-flex align-items-center m-0 p-0">
-                {/* <!--! 網址 --> */}
                 <li>
                   <NavLink
                     className="fw-bold main-menu-a mx-4"
@@ -111,21 +144,7 @@ function Header() {
                 <div className="switch-ball bg-white"></div>
               </div>
               <MdLocalMall className="header-icon mx-2" />
-              <div className="avatar mx-2">
-                <img src="" alt="" />
-              </div>
-              <div
-                className="
-                d-flex
-                justify-content-center
-                align-items-center
-                btn-outline
-                mx-2
-              "
-                onClick={openModal}
-              >
-                登入
-              </div>
+              {auth ? avatar : loginBtn}
               <div className="header-icon berger-list">
                 <MdMenu />
               </div>
@@ -133,7 +152,11 @@ function Header() {
           </div>
         </div>
       </nav>
-      <Login modalIsOpen={modalIsOpen} onRequestClose={closeModal} />
+      <Login
+        modalIsOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        setAuth={setAuth}
+      />
     </>
   );
 }
