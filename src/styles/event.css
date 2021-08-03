@@ -43,27 +43,27 @@
     margin: 0 auto;
 }
 
-.section-title {
+.event-section-title {
     color: var(--c-bg-light);
-    padding-left: 3.5%;
+    padding-left: 3.2%;
     padding-top: 50px;
     padding-bottom: 10px;
 }
 
-.section-subtitle {
+.event-section-subtitle {
     color: var(--c-bg-mid);
-    padding-left: 3.5%;
+    padding-left: 3.2%;
 }
 
 @media screen and (max-width: 1064px) {
-    .section-title, .section-subtitle {
+    .event-section-title, .event-section-subtitle {
         text-align: center;
     }
-    .section-title {
+    .event-section-title {
         padding-right: 150px;
         padding: 20px;
     }
-    .section-subtitle {
+    .event-section-subtitle {
         display: flex;
         justify-content: center;
         padding-bottom: 30px;

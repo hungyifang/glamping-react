@@ -5,10 +5,14 @@ import { FaRegHeart, FaHeart } from "react-icons/fa";
 const axios = require("axios").default;
 
 function EventDetailTitle(props) {
-  const [fav, setFav] = useState(props.fav);
+  const auth = props.auth;
+  const like = props.fav;
+  console.log(like);
+  const [login, setLogin] = useState(false);
+  const [fav, setFav] = useState(false);
 
   async function clickFav() {
-    if (!props.auth) {
+    if (!auth) {
       return alert("請先登入");
     }
     let switchFav = !fav;
@@ -19,10 +23,25 @@ function EventDetailTitle(props) {
       params: {
         u_id: u_id,
         i_id: i_id,
-        fav: fav,
+        fav: switchFav,
       },
     });
     console.log(result);
+  }
+
+  async function checkFav() {
+    //有登入的話確認狀態
+    // console.log(login);
+    // console.log(auth);
+    if (!login) return setFav(false);
+    let result = await axios.get("http://localhost:8080/api/event/checkFav", {
+      params: {
+        i_id: props.i_id,
+        u_id: props.u_id,
+      },
+    });
+    parseInt(result.data) === 1 ? setFav(true) : setFav(false);
+    console.log(result.data);
   }
 
   function switchLevel(value) {
@@ -38,12 +57,31 @@ function EventDetailTitle(props) {
     }
   }
 
+  //登入後重新整理重抓資料
+  function checkAuth() {
+    let curAuth = props.auth;
+    setLogin(curAuth);
+  }
+  function recheckFav() {
+    let curFav = props.fav;
+    setFav(curFav);
+  }
+
   useEffect(() => {
-    // handleRWD();
+    checkAuth();
+    checkFav();
   }, []);
-  // useEffect(() => {
-  //   console.log(RWD);
-  // }, [RWD]);
+
+  useEffect(() => {
+    checkFav();
+  }, [login]);
+
+  useEffect(() => {
+    console.log(login);
+  }, [login]);
+  useEffect(() => {
+    console.log(fav);
+  }, [fav]);
 
   return (
     <div className="container rwd-title">

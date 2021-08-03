@@ -26,8 +26,8 @@ function EventSection() {
         key={index}
         c_id={section.c_id}
       >
-        <div className="h1 section-title col">{section.title}</div>
-        <div className="h4 section-subtitle col">
+        <div className="h1 event-section-title col">{section.title}</div>
+        <div className="h4 event-section-subtitle col">
           {section.c_id === 23
             ? "活著是一種美好, 應該用盡全力去珍惜, 從生活中體驗學習, 快來報名活動 !"
             : "生活是否太繁忙需要喘口氣, 別猶豫快來放鬆一下找回自我 !"}

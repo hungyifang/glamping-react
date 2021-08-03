@@ -13,30 +13,17 @@ import EventDetailSuggestion from "../components/event/EventDetailSuggestion";
 const axios = require("axios").default;
 
 function EventDetail(props) {
-  const login = props.auth || false;
-  const [auth, setAuth] = useState(login);
+  const auth = props.auth;
+  const [login, setLogin] = useState(false);
   const [events, setEvents] = useState([]);
   const [fav, setFav] = useState(false);
   const [parentStar, setParentStar] = useState(0);
   const i_id = +props.match.params.i_id;
-  const u_id = props.u_id;
+  const u_id = localStorage.getItem("u_id");
   // const handleSubmit = (e) => {
   //   e.preventDefault();
   //   const data = new FormData(e.target);
   // };
-
-  async function checkFav() {
-    //有登入的話確認狀態
-    if (!auth) return setFav(false);
-
-    let result = await axios.get("http://localhost:8080/api/event/checkFav", {
-      params: {
-        i_id: i_id,
-        u_id: u_id,
-      },
-    });
-    parseInt(result) === 1 ? setFav(true) : setFav(false);
-  }
 
   async function loadEvent() {
     let result = await axios.get("http://localhost:8080/api/event/detail", {
@@ -48,9 +35,16 @@ function EventDetail(props) {
     setEvents(result);
   }
 
+  //登入後重新整理重抓資料
+  function checkAuth() {
+    let curAuth = props.auth;
+    setLogin(curAuth);
+  }
+
   useEffect(() => {
+    checkAuth();
     loadEvent();
-    checkFav();
+
     // RWD旅客評論
     $(window).on("load resize", function () {
       if ($("body").width() <= 1043) {
@@ -62,8 +56,12 @@ function EventDetail(props) {
   }, []);
 
   // useEffect(() => {
-  //   console.log(RWD);
-  // }, [RWD]);
+  //   console.log(login);
+  //   checkFav();
+  // }, [login]);
+  // useEffect(() => {
+  //   console.log(fav);
+  // }, [fav]);
 
   const display = events.map((result, index) => {
     return (
@@ -84,6 +82,7 @@ function EventDetail(props) {
             level={result.level}
             title={result.title}
             subtitle={result.subtitle}
+            key={i_id}
           />
           {/* 手機板快速選單 */}
           <EventDetailQuickListRWD />

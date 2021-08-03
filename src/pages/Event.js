@@ -5,7 +5,7 @@ import { withRouter } from "react-router-dom";
 import EventQuickList from "../components/event/EventQuickList";
 import EventSection from "../components/event/EventSection";
 
-function Event() {
+function Event(props) {
   useEffect(() => {
     // jquery程式碼寫在這裡
     $(window).on("load resize", function () {
@@ -34,7 +34,7 @@ function Event() {
       </header>
       {/* <!--! main --> */}
       <main>
-        <EventSection />
+        <EventSection auth={props.auth} />
       </main>
     </>
   );

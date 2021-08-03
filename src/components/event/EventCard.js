@@ -6,8 +6,9 @@ import moment from "moment";
 const axios = require("axios").default;
 
 function EventCard(props) {
-  const login = props.auth || false;
-  const [auth, setAuth] = useState(login);
+  const auth = props.auth;
+  const u_id = localStorage.getItem("u_id");
+  const [login, setLogin] = useState(false);
   const [events, setEvents] = useState([]);
   const [hotTags, setHotTags] = useState([]);
   const [newTags, setNewTags] = useState([]);
@@ -62,7 +63,7 @@ function EventCard(props) {
   async function loadUserDeg() {
     if (!auth) return "未登入";
     // let u_id = props.u_id;
-    let u_id = 1;
+    // let u_id = 1;
     let userDeg = await axios.get(
       "http://localhost:8080/api/event/card/userDeg",
       {
@@ -74,16 +75,7 @@ function EventCard(props) {
     userDeg = userDeg.data[0];
     setDegrees(userDeg);
   }
-  /*eslint-disable */
-  useEffect(() => {
-    loadEventCard();
-    loadNewTag();
-    loadHotTag();
-    loadUserDeg();
-  }, []);
-  /*eslint-enable */
-
-  useEffect(() => {
+  function countAbs() {
     //抓出所有商品之deg及排除此頁顯示之i_id
     const eventDeg = events
       .map((item, index) => {
@@ -122,11 +114,39 @@ function EventCard(props) {
 
       setDegRank(DegRank);
     }
-  }, [degrees]);
+  }
+  //更新Auth狀態
+  function checkAuth() {
+    let curAuth = props.auth;
+    setLogin(curAuth);
+  }
+  /*eslint-disable */
+  useEffect(() => {
+    checkAuth();
+    loadEventCard();
+    loadNewTag();
+    loadHotTag();
+    loadUserDeg();
+  }, []);
 
+  useEffect(() => {
+    loadUserDeg();
+  }, [login]);
+  
+  useEffect(() => {
+    countAbs();
+  }, [degrees]);
+  /*eslint-enable */
+
+  // useEffect(() => {
+  //   console.log(login);
+  // }, [login]);
   // useEffect(() => {
   //   console.log(degRank);
   // }, [degRank]);
+  // useEffect(() => {
+  //   console.log(degrees);
+  // }, [degrees]);
 
   //處理 loadNewTag 得到資料,找 7 日內 最新生成前三 i_id
   function dateDiff(date1, date2) {
