@@ -51,7 +51,7 @@ function FavoriteList(props) {
         {/* 從資料庫串接圖片 */}
         <img
           className="fav-order-image"
-          src="../images/member/748bc867eb74afbc7015d1c4f23c8a12.jpg"
+          src="http://localhost:8080/images/pic/event/015.jpg"
           alt=""
         />
         <div className="order-content my-auto">

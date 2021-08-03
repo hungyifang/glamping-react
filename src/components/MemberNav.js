@@ -1,26 +1,23 @@
 import React, { useState, useEffect, useRef } from "react";
 import { NavLink } from "react-router-dom";
-// import "../styles/member.css";
 import { VscSettingsGear } from "react-icons/vsc";
 import { HiOutlineTicket } from "react-icons/hi";
 import { FaRegListAlt } from "react-icons/fa";
 import { FaRegHeart } from "react-icons/fa";
 import { MdPhotoCamera } from "react-icons/md";
 import { Modal, Form } from "react-bootstrap";
-// import { TiDelete } from "react-icons/ti";
 
-function MemberNav() {
-  const userid = 3;
-
-  const [userData, setUserData] = useState([]);
+function MemberNav(props) {
+  const u_id = localStorage.getItem("u_id");
   const [show, setShow] = useState(false);
+  const [userData, setUserData] = useState([]);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  async function getUserDataFromServer(userid) {
+  async function getUserDataFromServer(u_id) {
     // 連接的伺服器資料網址
-    const url = `http://localhost:8080/api/users/${userid}`;
+    const url = `http://localhost:8080/api/users/${u_id}`;
 
     // 注意header資料格式要設定，伺服器才知道是json格式
     const request = new Request(url, {
@@ -39,7 +36,7 @@ function MemberNav() {
   }
 
   useEffect(() => {
-    getUserDataFromServer(userid);
+    getUserDataFromServer(u_id);
   }, []);
 
   //上傳圖片預覽
@@ -90,35 +87,21 @@ function MemberNav() {
     e.preventDefault();
     const formdata = new FormData(e.target);
     if (formdata.get("avatar").name) {
-      const url = `http://localhost:8080/api/avatar/${userid}`;
+      const url = `http://localhost:8080/api/avatar/${u_id}`;
       const request = new Request(url, {
         method: "POST",
         body: formdata,
       });
       try {
         const response = await fetch(request);
-        const msg = await response.json();
-        console.log(msg);
+        const data = await response.json();
+        if (data.status === 1) {
+          handleClose();
+        }
       } catch (err) {
         console.error(err);
       }
     }
-
-    // console.log(formdata);
-    // for (let pair of formdata.entries()) {
-    // console.log(pair);
-    // }
-    // const file = file;
-
-    // if (formdata.get("avatar").name) {
-    //   uploadImageToServer(formdata).then((file) => {
-    //     if (file.message === "success") {
-    //       alert("照片更新成功！！");
-    //     } else {
-    //       alert("照片更新失敗" + file.message);
-    //     }
-    //   });
-    // }
   }
 
   function handleAvatarError(e) {
@@ -132,7 +115,7 @@ function MemberNav() {
         <img
           className="avatar-img"
           // src="https://picsum.photos/200/200?random=1"
-          src={`http://localhost:8080/images/avatar/${userid}.jpeg`}
+          src={`http://localhost:8080/images/avatar/${u_id}.jpeg`}
           alt="個人資料圖片"
           onError={handleAvatarError}
         />
@@ -158,6 +141,7 @@ function MemberNav() {
                   name="avatar"
                   id="upload_img"
                   className="mb-3 modal-input-btn"
+                  accept="image/jpeg"
                   onChange={onSelectFile}
                   ref={fileInputRef}
                 />

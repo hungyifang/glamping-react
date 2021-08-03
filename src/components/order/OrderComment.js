@@ -2,7 +2,7 @@ import React from "react";
 import { RatingView } from "react-simple-star-rating";
 
 function OrderComment(props) {
-  // const [orderUnComment, setOrderUnComment] = useState("OrderComment");
+  const u_id = props.u_id;
   return (
     <>
       <main>
@@ -12,7 +12,7 @@ function OrderComment(props) {
             {/* 從資料庫連結 */}
             <img
               className="small-cricle me-3"
-              src="https://picsum.photos/80/80?random=1"
+              src={`http://localhost:8080/images/avatar/${u_id}.jpeg`}
               alt="個人資料圖片"
             />
             <div className="App">

@@ -4,6 +4,7 @@ import MobileMemberNav from "../components/MobileMemberNav";
 import MobileTitle from "../components/MobileTitle";
 
 function MemberLayout(props) {
+  const { u_id } = props;
   return (
     <>
       <div className="container-fluid g-0">
@@ -13,7 +14,7 @@ function MemberLayout(props) {
       <div className="container-fluid g-0 d-flex justify-content-center">
         <div className="main-content d-flex justify-content-between">
           <div className="container-fluid p-0">
-            <MemberNav />
+            <MemberNav u_id={u_id} />
           </div>
           {props.children}
         </div>

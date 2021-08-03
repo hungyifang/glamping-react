@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import Event from "./pages/Event";
 import EventDetail from "./pages/EventDetail";
 import Member from "./pages/Member";
+import Intro from "./pages/Intro";
 import Set from "./pages/Set";
 import Customized from "./pages/Customized";
 import Carts from "./pages/Carts";
@@ -60,6 +61,9 @@ function App() {
             </Route>
             <Route path="/member">
               <Member auth={auth} />
+            </Route>
+            <Route path="/intro">
+              <Intro />
             </Route>
           </Layout>
         </Switch>

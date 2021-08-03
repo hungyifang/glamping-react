@@ -2,14 +2,13 @@ import React, { useState, useEffect } from "react";
 import "../../styles/myfav.css";
 import FavoriteList from "./FavoriteList";
 
-function Myfav() {
-  //登入後使用者代入
-  const id = "14";
+function Myfav(props) {
+  const { u_id } = props;
   const [favList, setFavList] = useState([]);
 
   //從API SERVER抓資料
-  async function getUserDataFromServer() {
-    const url = `http://localhost:8080/api/fav/${id}`;
+  async function getUserDataFromServer(u_id) {
+    const url = `http://localhost:8080/api/fav/${u_id}`;
     const request = new Request(url, {
       method: "GET",
       headers: new Headers({
@@ -26,7 +25,7 @@ function Myfav() {
   }
 
   useEffect(() => {
-    getUserDataFromServer(id);
+    getUserDataFromServer(u_id);
   }, []);
 
   return (

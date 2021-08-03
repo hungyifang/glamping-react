@@ -3,14 +3,13 @@ import "../../styles/point.css";
 import PointList from "../point/PointList";
 import { NavLink } from "react-router-dom";
 
-function RewardPoint() {
-  // 代入id抓資料，之後要移除
-  const id = "5";
+function RewardPoint(props) {
+  const { u_id } = props;
   const [points, setPoints] = useState([]);
 
   //從API SERVER抓資料
   async function getUserDataFromServer() {
-    const url = `http://localhost:8080/api/points/history/${id}`;
+    const url = `http://localhost:8080/api/points/history/${u_id}`;
     const request = new Request(url, {
       method: "GET",
       headers: new Headers({
@@ -27,7 +26,7 @@ function RewardPoint() {
   }
 
   useEffect(() => {
-    getUserDataFromServer(id);
+    getUserDataFromServer(u_id);
   }, []);
 
   return (

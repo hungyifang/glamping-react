@@ -8,9 +8,8 @@ import {
 } from "react-icons/fa";
 
 function OrderList(props) {
-  const { sid } = props;
-  // 代入id抓資料，之後要移除
-  const fakeUid = 14;
+  const { s_id } = props;
+  const { u_id } = props;
   const [orders, setOrders] = useState([]);
 
   //從API SERVER抓資料
@@ -49,7 +48,7 @@ function OrderList(props) {
   }
 
   useEffect(() => {
-    getUserDataFromServer(fakeUid, sid);
+    getUserDataFromServer(u_id, s_id);
   }, []);
 
   return orders.map((value) => {
@@ -59,11 +58,11 @@ function OrderList(props) {
           {/* 從資料庫串接圖片 */}
           <img
             className="trip-order-image"
-            src="../images/Illustrator/客製化原件圖/地點/草原.svg"
+            src="http://localhost:8080/images/postcard/level/2.svg"
             alt=""
           />
           <div className="h5 card-tag">
-            <p className="h3 trip-order-title">{value.message}</p>
+            <p className="h3 trip-order-title">{value.title}</p>
             <div className="h4 order-info">
               <span>
                 <FaRegClock className="mb-1 mx-1" />

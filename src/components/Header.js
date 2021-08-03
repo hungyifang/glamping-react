@@ -6,6 +6,7 @@ import Login from "./Login";
 import { ReactComponent as Logo } from "../logo.svg";
 
 function Header(props) {
+  const u_id = localStorage.getItem("u_id");
   const { auth, setAuth } = props;
   const [modalIsOpen, setIsOpen] = useState(false);
 
@@ -49,7 +50,10 @@ function Header(props) {
   const avatar = (
     <>
       <Link to="/member" className="avatar mx-2">
-        <img src="http://localhost:8080/images/example.jpg" alt="" />
+        <img
+          src={`http://localhost:8080/images/avatar/${u_id}.jpeg`}
+          alt="個人資料相片"
+        />
       </Link>
       <Link className="fw-bold main-menu-a mx-2" onClick={() => logout()}>
         登出

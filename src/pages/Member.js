@@ -10,23 +10,24 @@ import Comment from "./Comment";
 
 function Member(props) {
   const { auth } = props;
+  const u_id = localStorage.getItem("u_id");
   const display = (
     <Switch>
       <Route path="/member/comment/:id">
-        <Comment />
+        <Comment u_id={u_id} />
       </Route>
       <MemberLayout>
         <Route exact path="/member">
-          <Settings />
+          <Settings u_id={u_id} />
         </Route>
         <Route path="/member/point">
-          <RewardPoints />
+          <RewardPoints u_id={u_id} />
         </Route>
         <Route path="/member/order">
-          <Order />
+          <Order u_id={u_id} />
         </Route>
         <Route path="/member/favorite">
-          <Myfav />
+          <Myfav u_id={u_id} />
         </Route>
       </MemberLayout>
     </Switch>

@@ -9,10 +9,10 @@ function OrderCard(props) {
         {/* ==!資料庫連結到圖片 */}
         <img
           className="history-image"
-          src="../../../images/member/pexels-cottonbro-5364965.jpg"
+          src="http://localhost:8080/images/postcard/level/2.svg"
           alt=""
         />
-        <p className="h2 history-title">{props.orders.message}</p>
+        <p className="h2 history-title">{props.orders.title}</p>
         <p className="h4 history-info">訂單明細</p>
         <p className="h4 history-info">
           <FaRegClock className="mb-1 mx-1" />

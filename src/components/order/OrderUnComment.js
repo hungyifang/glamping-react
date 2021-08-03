@@ -5,6 +5,7 @@ function OrderUnComment(props) {
   const [title, setTitle] = useState(props.comment.title);
   const [article, setArticle] = useState(props.comment.article);
   const [score, setScore] = useState(props.comment.score);
+
   const o_id = props.o_id;
   const u_id = props.u_id;
 
@@ -48,7 +49,7 @@ function OrderUnComment(props) {
             {/* 從資料庫連結 */}
             <img
               className="small-cricle me-3"
-              src="https://picsum.photos/80/80?random=1"
+              src={`http://localhost:8080/images/avatar/${u_id}.jpeg`}
               alt="個人資料圖片"
             />
             <div className="App">

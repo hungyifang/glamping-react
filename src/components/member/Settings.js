@@ -1,11 +1,8 @@
-import React, { Fragment, useState, useEffect } from "react";
-// import "../../styles/Member.css";
+import React, { useState, useEffect } from "react";
 
 function Settings(props) {
-  // 代入id抓資料，之後要移除
-  const userid = "3";
-  // const userid = props.match.params.userid
-  // const [userData, setUserData] = useState([])
+  const { u_id } = props;
+  // const [userData, setUserData] = useState([]);
 
   const [first_name, setFirstname] = useState("");
   const [last_name, setLastname] = useState("");
@@ -14,9 +11,9 @@ function Settings(props) {
   const [tel, setTel] = useState("");
   const [email, setEmail] = useState("");
 
-  async function getUserDataFromServer(userid) {
+  async function getUserDataFromServer(u_id) {
     // 連接的伺服器資料網址
-    const url = `http://localhost:8080/api/users/${userid}`;
+    const url = `http://localhost:8080/api/users/${u_id}`;
 
     // 注意header資料格式要設定，伺服器才知道是json格式
     const request = new Request(url, {
@@ -44,7 +41,7 @@ function Settings(props) {
     const newData = { first_name, last_name, gender, birthday, tel, email };
 
     // 連接的伺服器資料網址
-    const url = `http://localhost:8080/api/users/${userid}`;
+    const url = `http://localhost:8080/api/users/${u_id}`;
 
     // 注意資料格式要設定，伺服器才知道是json格式
     const request = new Request(url, {
@@ -65,7 +62,7 @@ function Settings(props) {
   }
 
   useEffect(() => {
-    getUserDataFromServer(userid);
+    getUserDataFromServer(u_id);
   }, []);
 
   return (
@@ -82,12 +79,12 @@ function Settings(props) {
                 <input
                   className="input-member"
                   type="text"
-                  placeholder=" 姓氏"
-                  aria-label="First name"
-                  name="first_name"
-                  value={first_name}
+                  placeholder="姓氏"
+                  aria-label="Last name"
+                  name="last_name"
+                  value={last_name}
                   onChange={(event) => {
-                    setFirstname(event.target.value);
+                    setLastname(event.target.value);
                   }}
                   required
                 />
@@ -100,12 +97,12 @@ function Settings(props) {
                 <input
                   className="input-member"
                   type="text"
-                  placeholder=" 名字"
-                  aria-label="Last name"
-                  name="last_name"
-                  value={last_name}
+                  placeholder="名字"
+                  aria-label="First name"
+                  name="first_name"
+                  value={first_name}
                   onChange={(event) => {
-                    setLastname(event.target.value);
+                    setFirstname(event.target.value);
                   }}
                   required
                 />
