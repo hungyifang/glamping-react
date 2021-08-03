@@ -6,9 +6,12 @@ import Home from "./pages/Home";
 import Event from "./pages/Event";
 import EventDetail from "./pages/EventDetail";
 import Member from "./pages/Member";
+import Set from "./pages/Set";
+import Customized from "./pages/Customized";
+import Carts from "./pages/Carts";
 
 function App() {
-  const [auth, setAuth] = useState(false);
+  const [auth, setAuth] = useState(true);
 
   async function checkIsLogin() {
     const url = `http://localhost:8080/api/auth/check`;
@@ -38,13 +41,22 @@ function App() {
         <Switch>
           <Layout auth={auth} setAuth={setAuth}>
             <Route exact path="/">
-              <Home />
+              <Home auth={auth} />
             </Route>
             <Route path="/event-detail/:i_id">
               <EventDetail auth={auth} key={auth} />
             </Route>
             <Route exact path="/event">
               <Event auth={auth} />
+            </Route>
+            <Route exact path="/set">
+              <Set />
+            </Route>
+            <Route exact path="/customized">
+              <Customized />
+            </Route>
+            <Route exact path="/carts">
+              <Carts />
             </Route>
             <Route path="/member">
               <Member auth={auth} />

@@ -428,7 +428,7 @@ ul {
 
 /* 6/9 */
 
-/* body 
+/* body
     background: var(--c-bg-light) --> var(--c-bg-light); */
 
 /* .nav  */
@@ -479,4 +479,23 @@ ul {
     right: 0;
     bottom: 0;
     background: rgba(0, 0, 0, 0.4);
+}
+
+/* 登場動畫 */
+
+/* .splash-screen {
+    position: absolute;
+    left: 0;
+    overflow: hidden;
+    z-index: 999999999;
+    width: 100vw;
+    height: 100vh;
+    background: red;
+} */
+
+/* 客製化月曆 */
+
+.rdrDateRangeWrapper, .rdrMonth {
+    width: 100% !important;
+    height: 100%;
 }

@@ -475,19 +475,6 @@ input[type=number] {
     /* max-width: 1840px; */
 }
 
-.event-card {
-    width: 432px;
-    height: 490px;
-    border-radius: 50px;
-    background-color: var(--c-bg-mid);
-    margin: 0 14px 50px 14px;
-    padding: 31px;
-}
-
-.event-card:hover {
-    box-shadow: var(--shadow);
-}
-
 .card-img {
     width: 370px;
     height: 300px;
@@ -602,14 +589,6 @@ input[type=number] {
     .card-wrapper {
         padding: 0;
         /* max-width: 1840px; */
-    }
-    .event-card {
-        width: 350px;
-        height: 490px;
-        border-radius: 50px;
-        background-color: var(--c-bg-mid);
-        margin: 0 10px 20px 10px;
-        padding: 25px;
     }
     .card-img {
         width: 300px;

@@ -84,9 +84,10 @@
     background-color: var(--c-bg-mid);
     margin: 0 14px 50px 14px;
     padding: 31px;
+    transition: 0.2s;
 }
 
-.event-card:hover {
+.event-card:hover, .event-card-forhome:hover {
     box-shadow: var(--shadow);
 }
 

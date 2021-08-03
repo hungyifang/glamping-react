@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
 function Footer() {
@@ -11,8 +11,7 @@ function Footer() {
           <ul className="d-flex footer-link menu">
             <li>
               <Link className="footer-link-margin" to="/customized">
-                {" "}
-                <span>客製行程</span>{" "}
+                <span>客製行程</span>
               </Link>
               |
             </li>
@@ -34,7 +33,7 @@ function Footer() {
               </Link>
             </li>
           </ul>
-          <ul className="d-flex footer-link">
+          {/* <ul className="d-flex footer-link">
             <li>
               <a href="#/">
                 <i className="ic-facebook"></i>
@@ -50,7 +49,7 @@ function Footer() {
                 <i className="ic-instagram"></i>
               </a>
             </li>
-          </ul>
+          </ul> */}
         </div>
       </footer>
     </>

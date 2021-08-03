@@ -143,7 +143,9 @@ function Header(props) {
                 </div>
                 <div className="switch-ball bg-white"></div>
               </div>
-              <MdLocalMall className="header-icon mx-2" />
+              <Link to="/carts">
+                <MdLocalMall className="header-icon mx-2" />
+              </Link>
               {auth ? avatar : loginBtn}
               <div className="header-icon berger-list">
                 <MdMenu />

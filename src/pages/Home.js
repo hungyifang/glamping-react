@@ -1,23 +1,26 @@
-import React from "react";
-import "../styles/home.css";
+import React, { createRef, useEffect } from "react";
 import lottie from "lottie-web";
+import EventCardForHome from "../components/event/EventCardForHome";
+import Wizard from "../components/home/Wizard";
+import "../styles/home.css";
 import { FaSearch } from "react-icons/fa";
 import { AiOutlineSchedule } from "react-icons/ai";
 import { GoFlame } from "react-icons/go";
 
-function Home() {
-  let animationContainer = React.createRef();
+function Home(props) {
+  const { auth } = props;
+  let animationContainer = createRef();
 
-  React.useEffect(() => {
-    const anim = lottie.loadAnimation({
+  useEffect(() => {
+    const hero = lottie.loadAnimation({
       container: animationContainer.current,
       renderer: "svg",
       loop: true,
       autoplay: true,
       path: "/animations/home.json", // JSON文件路徑
     });
-    anim.setSpeed(0.8);
-    anim.playSegments([150, 450], false);
+    hero.setSpeed(0.8);
+    hero.playSegments([150, 450], false);
   }, []);
 
   return (
@@ -32,6 +35,7 @@ function Home() {
             </div>
           </div>
         </section>
+
         <section id="trending">
           <div className="row section-title m-0">
             <div className="col-4">
@@ -49,43 +53,13 @@ function Home() {
             </div>
             <div className="col-4"></div>
           </div>
-          卡片
+          <div className="d-flex suggest-card-wrapper-forhome row mx-1 mb-5">
+            <EventCardForHome auth={false} suggestion={true} />
+          </div>
         </section>
-        <section id="wizard">
-          <div className="row wizard-banner">
-            <figure className="col-4">
-              <img src="" alt="" />
-            </figure>
-            <div className="col-8 d-flex justify-content-center align-items-center">
-              <div className="text-center">
-                <h3 className="h3 mb-3">
-                  露營不知道何從下手，美好的露營自己選擇
-                </h3>
-                <h2 className="h2">快來測試屬於你最適合的露營</h2>
-              </div>
-            </div>
-          </div>
 
-          <div className="wizard-form">
-            <div className="wizard-text d-flex align-items-center">
-              <label for="customRange3" class="form-label">
-                Example range
-              </label>
-              <input
-                type="range"
-                class="form-range"
-                min="0"
-                max="5"
-                step="0.5"
-                id="customRange3"
-              />
-            </div>
-            <div className="wizard-tips d-flex justify-content-center align-items-end">
-              <h3 className="h2">
-                不是你喜歡的結果？試試<a href="/">量身打造自己的行程</a>
-              </h3>
-            </div>
-          </div>
+        <section id="wizard">
+          <Wizard auth={auth} />
         </section>
 
         <section id="museum" className="bg-pri">
