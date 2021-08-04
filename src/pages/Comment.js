@@ -70,7 +70,7 @@ function Comment(props) {
   return (
     <>
       <div className="container-fluid g-0">
-        <div className="rwd-title d-flex justify-content-center align-items-center">
+        <div className="mobile-rwd-title d-flex justify-content-center align-items-center">
           <p className="h1 title-text">行程管理</p>
         </div>
       </div>

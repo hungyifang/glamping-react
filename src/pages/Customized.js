@@ -418,7 +418,10 @@ function Customized(props) {
     <>
       {/* <!-- banner --> */}
       <header className="customized-banner">
-        <img src="http://localhost:8080/images/banner/light/event.png" alt="" />
+        <img
+          src="http://localhost:8080/images/banner/light/camping.svg"
+          alt=""
+        />
       </header>
 
       {/* <!-- 客製化頁面 --> */}

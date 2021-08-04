@@ -74,7 +74,7 @@
             line-height: 20px;
         }
     }
-    article{
+    .set-article{
         /* min-height: 3500px; */
         background: var(--c-bg-deep);
     }

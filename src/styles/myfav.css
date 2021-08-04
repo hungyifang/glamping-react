@@ -199,12 +199,12 @@
 
 @media screen and (max-width: 768px) {
   nav {
-    display: none;
+    /* display: none; */
   }
   footer {
     display: none;
   }
-  .rwd-title {
+  .mobile-rwd-title {
     height: 100px;
     background-color: var(--c-pri);
   }

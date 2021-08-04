@@ -17,6 +17,7 @@
     color: var(--c-pri);
     margin: 0 15px;
     transition: 0.2s;
+    font-weight: bold;
 }
 
 .quick-list-option svg {
