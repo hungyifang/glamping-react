@@ -56,6 +56,7 @@ function BnBDateRangePicker(props) {
       hideKeyboardShortcutsPanel={true}
       block
       noBorder
+      openDirection="up"
     />
   ) : (
     <>

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { withRouter } from "react-router-dom";
 import { ReactComponent as HollowStar } from "../star_border.svg";
 import { FaRegQuestionCircle } from "react-icons/fa";
 import { HiOutlineMinus, HiOutlinePlus } from "react-icons/hi";
@@ -7,17 +8,66 @@ import $ from "jquery";
 const axios = require("axios").default;
 
 function EventDetailCalendar(props) {
+  const auth = props.auth;
+  const i_id = +props.match.params.i_id;
+  const u_id = localStorage.getItem("u_id") || "";
   const [star, setStar] = useState(0);
   const [population, setPopulation] = useState(1);
+  const [upload, setUpload] = useState(false);
+  // 要存在 localstorage, 資料庫的資料
+  const [ordered, setOrdered] = useState({
+    u_id: u_id,
+    i_id: i_id,
+    total: 0, //props.price X quantity (從此元件拿)
+    level: props.level, //props.level
+    person: 0, //從此元件拿
+    start: "", //從此元件拿 = ship_date
+    end: props.end, //props.end
+    s_id: 98, //98=購物車
+    prime: 4, //prime = 3 = 客製化 prime = 4 = 活動
+    title: props.title, //props.title
+    message: "",
+  });
+  const [ordered_detail, setOrdered_detail] = useState({
+    o_id: 0,
+    i_id: i_id,
+    price: props.price,
+    quantity: 0,
+    ship_date: "",
+  });
 
-  //提交表單
-  function triggerSubmit(id) {
-    document.getElementById(id).submit();
+  //點擊"加入購物車", 提交表單
+  function addCart() {
+    let person = population;
+    let startDtate = $("input[name='PCdate']").val();
+    let total = person * props.price;
+    let newOrdered = {
+      ...ordered,
+      person: person,
+      start: startDtate,
+      total: total,
+    };
+    setOrdered(newOrdered);
+    setUpload(!upload);
   }
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const data = new FormData(e.target);
-  };
+  //表單送資料庫
+  async function afterAddCart() {
+    let getTime_oid = await axios.post(
+      "http://localhost:8080/api/event/addCart",
+      {
+        headers: { "Content-Type": "text/json" },
+        data: ordered,
+      }
+    );
+    console.log(getTime_oid);
+  }
+  // function triggerSubmit(id) {
+  //   document.getElementById(id).submit();
+  // }
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   const data = new FormData(e.target);
+  // };
   //算星星
   async function loadStar() {
     let result = await axios.get("http://localhost:8080/api/event/review", {
@@ -38,22 +88,43 @@ function EventDetailCalendar(props) {
     if (Number.isInteger(starAVG) && starAVG !== 0) {
       starAVG = starAVG + ".0";
     }
+    starAVG = starAVG.toFixed(1);
     setStar(starAVG);
     props.setParentStar(starAVG);
   }
 
   useEffect(() => {
     loadStar();
-
     // $('#PCcalendar').on('submit', function (e) {
     //   e.preventDefault();
     // });
   }, []);
+  useEffect(() => {
+    loadStar();
+  }, [i_id]);
+  //提交表單(更新ordered)後,送資料庫
+  useEffect(() => {
+    afterAddCart();
+  }, [upload]);
+  useEffect(() => {
+    console.log(ordered);
+  }, [ordered]);
+  //登入後更新ordered內的u_id
+  useEffect(() => {
+    let newOrdered = {
+      ...ordered,
+      u_id: u_id,
+    };
+    setOrdered(newOrdered);
+  }, [auth]);
+  useEffect(() => {
+    console.log(ordered_detail);
+  }, [ordered_detail]);
 
   return (
     <>
       <div className="col-xl-5 col-6 ms-auto calendar-wrapper">
-        <form onSubmit={handleSubmit} id="PCcalendar">
+        <form id="PCcalendar">
           <div className="calendar w-100 mx-auto py-1 pb-4">
             <div className="datePicker">
               <BnBDateRangePicker RWD={false} />
@@ -119,7 +190,8 @@ function EventDetailCalendar(props) {
                 className="btn-outline mx-3 d-flex justify-content-center align-items-center"
                 role="button"
                 onClick={() => {
-                  triggerSubmit("PCcalendar");
+                  // triggerSubmit("PCcalendar");
+                  addCart();
                 }}
               >
                 加入購物車
@@ -128,7 +200,7 @@ function EventDetailCalendar(props) {
                 className="btn-outline mx-3 d-flex justify-content-center align-items-center"
                 role="button"
                 onClick={() => {
-                  triggerSubmit("PCcalendar");
+                  // triggerSubmit("PCcalendar");
                 }}
               >
                 立即訂購
@@ -141,4 +213,4 @@ function EventDetailCalendar(props) {
   );
 }
 
-export default EventDetailCalendar;
+export default withRouter(EventDetailCalendar);

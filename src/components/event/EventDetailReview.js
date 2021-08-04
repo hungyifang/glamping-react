@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { withRouter } from "react-router-dom";
 import { ReactComponent as HollowStar } from "../star_border.svg";
 import { BiCaretLeft, BiCaretRight } from "react-icons/bi";
 import EventReviewCardUserName from "./EventReviewCardUserName";
@@ -6,6 +7,8 @@ import $ from "jquery";
 const axios = require("axios").default;
 
 function EventDetailReview(props) {
+  const i_id = +props.match.params.i_id;
+  // console.log(props.parentStar);
   const [reviews, setReviews] = useState([]);
   const [totalReviews, setTotalReviews] = useState(0);
   const [currentPage, setCurrentPage] = useState(0);
@@ -18,7 +21,7 @@ function EventDetailReview(props) {
   async function countReview() {
     let result = await axios.get("http://localhost:8080/api/event/review", {
       params: {
-        i_id: props.i_id,
+        i_id: i_id,
       },
     });
     result = result.data[0];
@@ -29,7 +32,7 @@ function EventDetailReview(props) {
   async function loadReview() {
     let result = await axios.get("http://localhost:8080/api/event/review", {
       params: {
-        i_id: props.i_id,
+        i_id: i_id,
       },
     });
     result = result.data[0];
@@ -113,7 +116,16 @@ function EventDetailReview(props) {
     changePage();
     // console.log(currentPage);
   }, [currentPage]);
-
+  useEffect(() => {
+    countReview();
+    // console.log(reviews);
+    changePage();
+  }, [reviews]);
+  useEffect(() => {
+    countReview();
+    loadReview();
+    // console.log(currentPage);
+  }, [i_id, props.parentStar]);
   return (
     <>
       <div className="container rwd-review" id="review">
@@ -135,40 +147,58 @@ function EventDetailReview(props) {
             {RWD ? reviews : reviewByPage}
           </div>
           {/* 評論頁碼 */}
-          <div className="col-12 review-page-wrapper justify-content-center d-flex">
-            <div className="col-auto pri-light review-page d-flex">
-              <div
-                className="review-page-number text-pri fw-bolder h3 m-0 py-2 px-3 mx-1 d-flex align-items-center"
-                onClick={() => {
-                  let newCurrentPage = currentPage - 1;
-                  if (newCurrentPage === 0) newCurrentPage = 1;
-                  setCurrentPage(newCurrentPage);
-                  changePage();
-                }}
-              >
-                <BiCaretLeft />
-              </div>
-              {currentPage - 1 > 0 && (
+          {parseInt(totalReviews) === 0 ? (
+            <div className="col-12 text-pri h1 text-center my-5">
+              快來參加吧!!
+            </div>
+          ) : (
+            <div className="col-12 review-page-wrapper justify-content-center d-flex">
+              <div className="col-auto pri-light review-page d-flex">
                 <div
-                  className="review-page-number text-pri fw-bolder h3 m-0 py-2 px-4 mx-1 d-flex align-items-center"
+                  className="review-page-number text-pri fw-bolder h3 m-0 py-2 px-3 mx-1 d-flex align-items-center"
                   onClick={() => {
                     let newCurrentPage = currentPage - 1;
-                    if (newCurrentPage === 0) {
-                      newCurrentPage = 1;
-                    }
+                    if (newCurrentPage === 0) newCurrentPage = 1;
                     setCurrentPage(newCurrentPage);
                     changePage();
                   }}
                 >
-                  {currentPage - 1}
+                  <BiCaretLeft />
                 </div>
-              )}
-              <div className="review-page-number text-pri fw-bolder h3 m-0 py-2 px-4 mx-1 d-flex align-items-center active">
-                {currentPage}
-              </div>
-              {currentPage + 1 <= totalPages && (
+                {currentPage - 1 > 0 && (
+                  <div
+                    className="review-page-number text-pri fw-bolder h3 m-0 py-2 px-4 mx-1 d-flex align-items-center"
+                    onClick={() => {
+                      let newCurrentPage = currentPage - 1;
+                      if (newCurrentPage === 0) {
+                        newCurrentPage = 1;
+                      }
+                      setCurrentPage(newCurrentPage);
+                      changePage();
+                    }}
+                  >
+                    {currentPage - 1}
+                  </div>
+                )}
+                <div className="review-page-number text-pri fw-bolder h3 m-0 py-2 px-4 mx-1 d-flex align-items-center active">
+                  {currentPage}
+                </div>
+                {currentPage + 1 <= totalPages && (
+                  <div
+                    className="review-page-number text-pri fw-bolder h3 m-0 py-2 px-4 mx-1 d-flex align-items-center"
+                    onClick={() => {
+                      let newCurrentPage = currentPage + 1;
+                      if (newCurrentPage >= totalPages)
+                        newCurrentPage = totalPages;
+                      setCurrentPage(newCurrentPage);
+                      changePage();
+                    }}
+                  >
+                    {currentPage + 1}
+                  </div>
+                )}
                 <div
-                  className="review-page-number text-pri fw-bolder h3 m-0 py-2 px-4 mx-1 d-flex align-items-center"
+                  className="review-page-number text-pri fw-bolder h3 m-0 py-2 px-3 mx-1 d-flex align-items-center"
                   onClick={() => {
                     let newCurrentPage = currentPage + 1;
                     if (newCurrentPage >= totalPages)
@@ -177,26 +207,15 @@ function EventDetailReview(props) {
                     changePage();
                   }}
                 >
-                  {currentPage + 1}
+                  <BiCaretRight />
                 </div>
-              )}
-              <div
-                className="review-page-number text-pri fw-bolder h3 m-0 py-2 px-3 mx-1 d-flex align-items-center"
-                onClick={() => {
-                  let newCurrentPage = currentPage + 1;
-                  if (newCurrentPage >= totalPages) newCurrentPage = totalPages;
-                  setCurrentPage(newCurrentPage);
-                  changePage();
-                }}
-              >
-                <BiCaretRight />
               </div>
             </div>
-          </div>
+          )}
         </section>
       </div>
     </>
   );
 }
 
-export default EventDetailReview;
+export default withRouter(EventDetailReview);

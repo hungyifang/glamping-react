@@ -14,12 +14,16 @@ const axios = require("axios").default;
 
 function EventDetail(props) {
   const auth = props.auth;
+  const i_id = +props.match.params.i_id;
+  // console.log(i_id);
+  // console.log(props.location);
+  const u_id = localStorage.getItem("u_id");
+  const [urlChange, setUrlChange] = useState(i_id);
   const [login, setLogin] = useState(false);
   const [events, setEvents] = useState([]);
-  const [fav, setFav] = useState(false);
+  const [load, setLoad] = useState(false);
   const [parentStar, setParentStar] = useState(0);
-  const i_id = +props.match.params.i_id;
-  const u_id = localStorage.getItem("u_id");
+
   // const handleSubmit = (e) => {
   //   e.preventDefault();
   //   const data = new FormData(e.target);
@@ -33,6 +37,7 @@ function EventDetail(props) {
     });
     result = result.data[0];
     setEvents(result);
+    setLoad(true);
   }
 
   //登入後重新整理重抓資料
@@ -41,10 +46,16 @@ function EventDetail(props) {
     setLogin(curAuth);
   }
 
+  function handleScrollBug() {
+    $(window).on("load", function () {
+      window.scrollTo(0, 0);
+    });
+  }
+
   useEffect(() => {
     checkAuth();
     loadEvent();
-
+    handleScrollBug();
     // RWD旅客評論
     $(window).on("load resize", function () {
       if ($("body").width() <= 1043) {
@@ -55,13 +66,12 @@ function EventDetail(props) {
     });
   }, []);
 
-  // useEffect(() => {
-  //   console.log(login);
-  //   checkFav();
-  // }, [login]);
-  // useEffect(() => {
-  //   console.log(fav);
-  // }, [fav]);
+  useEffect(() => {
+    loadEvent();
+  }, [i_id]);
+  useEffect(() => {
+    handleScrollBug();
+  }, [load]);
 
   const display = events.map((result, index) => {
     return (
@@ -78,11 +88,10 @@ function EventDetail(props) {
             auth={auth}
             i_id={i_id}
             u_id={u_id}
-            fav={fav}
             level={result.level}
             title={result.title}
             subtitle={result.subtitle}
-            key={i_id}
+            time={result.time}
           />
           {/* 手機板快速選單 */}
           <EventDetailQuickListRWD />
@@ -98,7 +107,11 @@ function EventDetail(props) {
                 <EventDetailCalendar
                   price={result.price}
                   sales={result.sales}
+                  title={result.title}
+                  level={result.level}
+                  end={result.time}
                   i_id={i_id}
+                  auth={auth}
                   setParentStar={setParentStar}
                 />
               </div>
@@ -117,7 +130,7 @@ function EventDetail(props) {
             </section>
           </div>
           {/* 評論小卡 */}
-          <EventDetailReview i_id={i_id} parentStar={parentStar} />
+          <EventDetailReview i_id={i_id} parentStar={parentStar} key={i_id} />
           <EventDetailSuggestion auth={auth} i_id={i_id} />
         </main>
       </>

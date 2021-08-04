@@ -132,7 +132,7 @@ function EventCard(props) {
   useEffect(() => {
     loadUserDeg();
   }, [login]);
-  
+
   useEffect(() => {
     countAbs();
   }, [degrees]);

@@ -6,8 +6,6 @@ const axios = require("axios").default;
 
 function EventDetailTitle(props) {
   const auth = props.auth;
-  const like = props.fav;
-  console.log(like);
   const [login, setLogin] = useState(false);
   const [fav, setFav] = useState(false);
 
@@ -76,14 +74,14 @@ function EventDetailTitle(props) {
     checkFav();
   }, [login]);
 
-  useEffect(() => {
-    console.log(login);
-  }, [login]);
-  useEffect(() => {
-    console.log(fav);
-  }, [fav]);
+  // useEffect(() => {
+  //   console.log(login);
+  // }, [login]);
+  // useEffect(() => {
+  //   console.log(fav);
+  // }, [fav]);
 
-  return (
+  const display = (
     <div className="container rwd-title">
       <section className="event-title">
         <div className="col d-flex align-items-center">
@@ -106,7 +104,7 @@ function EventDetailTitle(props) {
           <MdLocationOn />
           <span>{switchLevel(props.level)}</span>
           <AiOutlineClockCircle />
-          <span>行程時間&nbsp;3&nbsp;小時</span>
+          <span>活動時間&nbsp;{props.time}</span>
           <MdRestore />
           <span>7&nbsp;天前免費取消</span>
         </div>
@@ -116,5 +114,6 @@ function EventDetailTitle(props) {
       </section>
     </div>
   );
+  return <>{display}</>;
 }
 export default EventDetailTitle;
