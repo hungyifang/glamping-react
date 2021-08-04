@@ -9,6 +9,7 @@ const axios = require("axios").default;
 
 function EventDetailCalendar(props) {
   const auth = props.auth;
+  const eventStartTime = props.time;
   const i_id = +props.match.params.i_id;
   const u_id = localStorage.getItem("u_id") || "";
   const [star, setStar] = useState(0);
@@ -22,7 +23,7 @@ function EventDetailCalendar(props) {
     level: props.level, //props.level
     person: 0, //從此元件拿
     start: "", //從此元件拿 = ship_date
-    end: props.end, //props.end
+    end: "", //
     s_id: 98, //98=購物車
     prime: 4, //prime = 3 = 客製化 prime = 4 = 活動
     title: props.title, //props.title
@@ -34,23 +35,31 @@ function EventDetailCalendar(props) {
     price: props.price,
     quantity: 0,
     ship_date: "",
+    eventStartTime: eventStartTime,
   });
 
   //點擊"加入購物車", 提交表單
   function addCart() {
     let person = population;
-    let startDtate = $("input[name='PCdate']").val();
+    let startDate = $("input[name='PCdate']").val();
     let total = person * props.price;
     let newOrdered = {
       ...ordered,
       person: person,
-      start: startDtate,
+      start: startDate,
       total: total,
     };
     setOrdered(newOrdered);
+    let newOrdered_detail = {
+      ...ordered_detail,
+      quantity: person,
+      ship_date: startDate,
+    };
+    setOrdered_detail(newOrdered_detail);
+
     setUpload(!upload);
   }
-  //表單送資料庫
+  //表單送資料庫 + 拿 LAST OID
   async function afterAddCart() {
     let getTime_oid = await axios.post(
       "http://localhost:8080/api/event/addCart",
@@ -59,15 +68,14 @@ function EventDetailCalendar(props) {
         data: ordered,
       }
     );
-    console.log(getTime_oid);
+    let o_id = getTime_oid.data.o_id;
+    let newOrdered_detail = {
+      ...ordered_detail,
+      o_id: o_id,
+    };
+    setOrdered_detail(newOrdered_detail);
   }
-  // function triggerSubmit(id) {
-  //   document.getElementById(id).submit();
-  // }
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   const data = new FormData(e.target);
-  // };
+  //Ordered_detail 存 localstorage
   //算星星
   async function loadStar() {
     let result = await axios.get("http://localhost:8080/api/event/review", {
@@ -95,15 +103,13 @@ function EventDetailCalendar(props) {
 
   useEffect(() => {
     loadStar();
-    // $('#PCcalendar').on('submit', function (e) {
-    //   e.preventDefault();
-    // });
   }, []);
   useEffect(() => {
     loadStar();
   }, [i_id]);
   //提交表單(更新ordered)後,送資料庫
   useEffect(() => {
+    console.log(upload);
     afterAddCart();
   }, [upload]);
   useEffect(() => {
@@ -190,7 +196,6 @@ function EventDetailCalendar(props) {
                 className="btn-outline mx-3 d-flex justify-content-center align-items-center"
                 role="button"
                 onClick={() => {
-                  // triggerSubmit("PCcalendar");
                   addCart();
                 }}
               >

@@ -76,7 +76,7 @@ function EventDetail(props) {
   const display = events.map((result, index) => {
     return (
       <>
-        <header key={i_id}>
+        <header>
           <div className="banner-carousel">
             <div className="h3 banner-title col-auto">{result.title}</div>
             <EventCarousel i_id={i_id} />
@@ -109,7 +109,7 @@ function EventDetail(props) {
                   sales={result.sales}
                   title={result.title}
                   level={result.level}
-                  end={result.time}
+                  time={result.time}
                   i_id={i_id}
                   auth={auth}
                   setParentStar={setParentStar}
