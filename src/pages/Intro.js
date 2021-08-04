@@ -31,6 +31,7 @@ function Intro() {
       renderer: "svg",
       loop: true,
       autoplay: true,
+      id: "iconPin1",
       path: "/animations/intro_main.json", // JSON文件路徑
     });
     animmap.setSpeed(1);

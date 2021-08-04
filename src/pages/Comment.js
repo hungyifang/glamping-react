@@ -59,7 +59,7 @@ function Comment(props) {
   useEffect(() => {
     // let o_id = props.match.params.id
     getCommentFromServer(o_id);
-  }, []);
+  }, [iscomment]);
 
   useEffect(() => {
     // let o_id = props.match.params.id
@@ -82,9 +82,18 @@ function Comment(props) {
           </div>
           {/* 有留言與未留言 */}
           {iscomment ? (
-            <OrderComment comment={comment} setIsComment={setIsComment} />
+            <OrderComment
+              u_id={orders.u_id}
+              comment={comment}
+              setIsComment={setIsComment}
+            />
           ) : (
-            <OrderUnComment o_id={o_id} u_id={orders.u_id} comment={comment} />
+            <OrderUnComment
+              o_id={o_id}
+              u_id={orders.u_id}
+              comment={comment}
+              setIsComment={setIsComment}
+            />
           )}
           {/* <OrderComment update={update} />
           <OrderEditComment setUpdate={setUpdate} /> */}

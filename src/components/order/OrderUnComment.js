@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Rating } from "react-simple-star-rating";
 
 function OrderUnComment(props) {
+  const { setIsComment } = props;
   const [title, setTitle] = useState(props.comment.title);
   const [article, setArticle] = useState(props.comment.article);
   const [score, setScore] = useState(props.comment.score);
@@ -39,6 +40,7 @@ function OrderUnComment(props) {
     const data = await response.json();
 
     console.log(data);
+    setIsComment(true);
   }
   return (
     <>
@@ -46,7 +48,6 @@ function OrderUnComment(props) {
         <article className="comment-article d-flex flex-column">
           <div className="h1 comment-section-title">旅客評論</div>
           <div className="d-flex align-items-center">
-            {/* 從資料庫連結 */}
             <img
               className="small-cricle me-3"
               src={`http://localhost:8080/images/avatar/${u_id}.jpeg`}
