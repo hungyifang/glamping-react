@@ -4,7 +4,6 @@ import SetCard from "../components/set/SetCard";
 //  滑動效果
 import SwipeableViews from "react-swipeable-views";
 
-
 function Set() {
   // 設定套裝資料
   const [prodcuts, setProducts] = useState([[], [], [], []]);
@@ -90,7 +89,7 @@ function Set() {
       </div>
 
       {/* <!-- 行程卡片組 --> */}
-      <article>
+      <article className="set-article">
         <main className="container-fluid set-man-box">
           <div className="set-main" id="select-1">
             <h1 className="set-main-tittle">奢華露營</h1>

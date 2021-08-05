@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
+import { withRouter, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import "../styles/carts.css";
 import CartsCheckbox from "../components/carts/CartsCheckbox";
 
-function Carts() {
+function Carts(props) {
   const [allAgree, setAllAgree] = useState(false);
   const [allTotal, setAllTotal] = useState(0);
   const [orderedData, setOrderedData] = useState([]);
@@ -157,7 +159,19 @@ function Carts() {
               {orderedData ? orderedData.length : ""} 件商品合計
             </p>
             <p className="h2 sum">TWD {allTotal}</p>
-            <button type="submit" className="btn-action btn-checktotal">
+            <button
+              type=""
+              className="btn-action btn-checktotal"
+              onClick={() => {
+                if (localStorage.getItem("u_id")) {
+                  props.history.push({
+                    pathname: `/checkout`,
+                  });
+                }else{
+                  alert("請先登入");
+                }
+              }}
+            >
               確認
             </button>
           </div>
@@ -167,4 +181,4 @@ function Carts() {
   );
 }
 
-export default Carts;
+export default withRouter(Carts);

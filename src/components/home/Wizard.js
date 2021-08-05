@@ -69,7 +69,9 @@ function Wizard(props) {
     })} */}
       {/* Q1 */}
       <div className="wizard-form">
-        <h3 className="text-start m-2">你出遊時是要睡到飽，還是行程重要？</h3>
+        <h3 className="text-start m-2 ms-5 mt-3">
+          你出遊時是要睡到飽，還是行程重要？
+        </h3>
         <div className="wizard-form-control row p-0 m-0">
           <div className="col-3">
             <img
@@ -79,10 +81,9 @@ function Wizard(props) {
               title="眼罩"
             />
           </div>
-          <div className="col-6 d-flex align-items-center">
+          <div className="wizard-form-range col-6 d-flex align-items-center">
             <input
               type="range"
-              className="wizard-form-range"
               min="0"
               max="10"
               step="1"
@@ -111,7 +112,7 @@ function Wizard(props) {
       </div>
       {/* Q2 */}
       <div className="wizard-form">
-        <h3 className="text-start m-2">生病時你要打針還是吃藥？</h3>
+        <h3 className="text-start m-2 ms-5 mt-3">生病時你要打針還是吃藥？</h3>
         <div className="wizard-form-control row p-0 m-0">
           <div className="col-3">
             <img
@@ -121,10 +122,9 @@ function Wizard(props) {
               title="眼罩"
             />
           </div>
-          <div className="col-6 d-flex align-items-center">
+          <div className="wizard-form-range col-6 d-flex align-items-center">
             <input
               type="range"
-              className="wizard-form-range"
               min="0"
               max="10"
               step="1"
@@ -153,7 +153,9 @@ function Wizard(props) {
       </div>
       {/* Q3 */}
       <div className="wizard-form">
-        <h3 className="text-start m-2">平時你喜歡吹自然風，還是電風扇？</h3>
+        <h3 className="text-start m-2 ms-5 mt-3">
+          平時你喜歡吹自然風，還是電風扇？
+        </h3>
         <div className="wizard-form-control row p-0 m-0">
           <div className="col-3">
             <img
@@ -163,10 +165,9 @@ function Wizard(props) {
               title="眼罩"
             />
           </div>
-          <div className="col-6 d-flex align-items-center">
+          <div className="wizard-form-range col-6 d-flex align-items-center">
             <input
               type="range"
-              className="wizard-form-range"
               min="0"
               max="10"
               step="1"
@@ -195,7 +196,7 @@ function Wizard(props) {
       </div>
       {/* Q4 */}
       <div className="wizard-form">
-        <h3 className="text-start m-2">你的預算是多少？</h3>
+        <h3 className="text-start m-2 ms-5 mt-3">你的預算是多少？</h3>
         <div className="wizard-form-control row p-0 m-0">
           <div className="col-3">
             <img
@@ -205,10 +206,9 @@ function Wizard(props) {
               title="眼罩"
             />
           </div>
-          <div className="col-6 d-flex align-items-center">
+          <div className="wizard-form-range col-6 d-flex align-items-center">
             <input
               type="range"
-              className="wizard-form-range"
               min="0"
               max="10"
               step="1"

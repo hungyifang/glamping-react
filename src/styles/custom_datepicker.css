@@ -1081,3 +1081,16 @@
 .SingleDatePicker {
   margin: 10px 0;
 }
+
+.home-search .DateInput_input {
+  /* background: chartreuse; */
+  width: 100%;
+  height: 56px;
+}
+
+.home-search .DateInput_input__focused {
+  border-color: var(--c-sec-mid);
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05), 0 0 8px #fab751;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05), 0 0 8px #fab751;
+}

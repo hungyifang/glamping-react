@@ -22,7 +22,7 @@ function EventDetailCalendarRWD(props) {
             選擇日期
           </div>
           <div className="col d-flex justify-content-center align-items-center position-relative">
-            <BnBDateRangePicker RWD={true} />
+            <BnBDateRangePicker type={"RWD"} />
           </div>
           <div className="col d-flex justify-content-center align-items-center">
             <div className="position-relative">

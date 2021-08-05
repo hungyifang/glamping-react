@@ -18,7 +18,9 @@ import { IoFastFood } from "react-icons/io5";
 import { GiCampfire } from "react-icons/gi";
 
 function Customized(props) {
+  const { auth } = props;
   const location = useLocation();
+  const [u_id, setU_id] = useState("");
   // select狀態
   const [inputPerson, setInputPerson] = useState("1");
   const [inputWhere, setInputWhere] = useState("");
@@ -91,6 +93,14 @@ function Customized(props) {
       <CustomizedRight i_id={inputItem} data={itemData} linkId="linkItem" />
     </>
   );
+  // 設定u_id
+  function u_idSet() {
+    if (localStorage.getItem("u_id")) {
+      setU_id(localStorage.getItem("u_id"));
+    } else {
+      setU_id("");
+    }
+  }
   // 設定傳給ordered的資料
   function putOrderedData() {
     // 設定title
@@ -104,7 +114,7 @@ function Customized(props) {
     let itemTitle = inputItem ? itemItem[0].title : "";
     setOrdered([
       {
-        u_id: "",
+        u_id: u_id,
         total: total,
         level: inputWhere,
         person: inputPerson,
@@ -371,7 +381,7 @@ function Customized(props) {
     const response = await fetch(request);
     const data = await response.json();
     // 篩選套裝卡片的o_id
-    let o_id = location.state;
+    let o_id = location.state.o_id;
     let selectData = data.filter((e) => e.o_id === o_id);
     // console.log(selectData)
     // 設定預設值
@@ -387,14 +397,20 @@ function Customized(props) {
   useEffect(() => {
     getWeatherFromSever();
     getTemperatureFromSever();
+    u_idSet();
     // 拿到item資料
     getItemFromServer();
     // 從套裝近來拿到o_id才會拿到預設值
     // console.log(location.state);
 
-    let o_id = location.state;
-    if (o_id) {
+    // let o_id = location.state;
+    if (location.state && location.state.o_id) {
       getDataFromServer();
+    }
+    if (location.state && location.state.quickPersons) {
+      setInputPerson(location.state.quickPersons);
+      // setStartDay(sessionStorage.getItem("quickStartDate"));
+      setStartDay(addDays(new Date(), 3));
     }
   }, []);
   // 客製化選項有改動就執行價格統計
@@ -418,16 +434,17 @@ function Customized(props) {
     <>
       {/* <!-- banner --> */}
       <header className="customized-banner">
-        <img src="http://localhost:8080/images/banner/light/event.png" alt="" />
+        <img
+          src="http://localhost:8080/images/banner/light/camping.svg"
+          alt=""
+        />
       </header>
 
       {/* <!-- 客製化頁面 --> */}
       <div className="container-fluid p-0">
         <main className="cus-main">
           {/* <!-- 標題 --> */}
-          <div className="cus-main-title">
-            客製化行程<Link to="/Carts">(到購物車測試用)</Link>
-          </div>
+          <div className="cus-main-title">客製化行程</div>
           {/* <!-- 紙娃娃系統 --> */}
           <div className="cus-main-wrapper">
             {/* <!-- 紙娃娃介面 --> */}
@@ -490,6 +507,7 @@ function Customized(props) {
                 setInputWhere={setInputWhere}
                 setStartDay={setStartDay}
                 setEndDay={setEndDay}
+                quickStartDate={sessionStorage.getItem("quickStartDate")}
               />
             </div>
             {/* <!-- 客製化區 --> */}
