@@ -1,16 +1,12 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
-import { GiHighGrass } from "react-icons/gi";
-import { IoMdBonfire } from "react-icons/io";
-import { GiChickenOven } from "react-icons/gi";
-import { GiCampingTent } from "react-icons/gi";
 
 function SetCardForHome(props) {
   const { title, subtitle, o_id, img_src } = props;
   return (
     <>
       <div
-        className="set-card-forhome col row d-flex align-items-center"
+        className="set-card-forhome col row d-flex align-items-center me-3"
         onClick={() => {
           console.log(o_id);
           props.history.push({
@@ -19,9 +15,9 @@ function SetCardForHome(props) {
           });
         }}
       >
-        <div className="col-5">
+        <div className="col-5 set-card-forhome-figure">
           <img
-            className="img-fluid w-100 h-100 set-card-forhome-img"
+            className="set-card-forhome-img"
             src={`http://localhost:8080/images/pic/tent/${img_src}`}
             alt="套裝行程圖片"
           />

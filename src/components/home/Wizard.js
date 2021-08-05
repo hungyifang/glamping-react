@@ -15,13 +15,15 @@ function Wizard(props) {
   const [qa3, setQa3] = useState(5);
   const [qa4, setQa4] = useState(5);
   const [tripsData, setTripsData] = useState({});
-  const [r, setR] = useState(10);
+  const [r, setR] = useState(3);
 
   function getRandomInt(max) {
     return Math.floor(Math.random() * max);
   }
 
   function calcUsersChoice() {
+    setR(getRandomInt(3));
+    getTripsDataFromServer();
     let deg1 = +qa1;
     let deg2 = +qa4;
     let deg3 = (+qa2 + +qa3) / 2;
@@ -64,12 +66,13 @@ function Wizard(props) {
     });
     const response = await fetch(request);
     const data = await response.json();
-    setTripsData(data[r]);
+    const hoo = data.filter((e) => e.c_id === 4);
+    setTripsData(hoo[r]);
     // console.log(tripsData)
   }
   // 一開始就會開始載入資料
   useEffect(() => {
-    setR(getRandomInt(15));
+    setR(getRandomInt(3));
     getTripsDataFromServer();
   }, []);
 
@@ -98,7 +101,6 @@ function Wizard(props) {
         <SetCardForHome
           title={tripsData.title}
           subtitle={tripsData.subtitle}
-          content={tripsData.article}
           o_id={tripsData.o_id}
           img_src={tripsData.img_src}
         />
