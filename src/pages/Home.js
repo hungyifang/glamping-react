@@ -43,6 +43,8 @@ function Home(props) {
                 <input
                   className="home-input h4"
                   placeholder="人數"
+                  min="1"
+                  max="8"
                   type="number"
                   value={persons}
                   onChange={(e) => {

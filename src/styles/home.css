@@ -108,6 +108,11 @@ h1 {
     border-radius: 20px;
 }
 
+.wizard-number {
+    font-size: 4rem;
+    font-weight: bold;
+}
+
 .wizard-carousel {
     display: flex;
     align-items: center;
