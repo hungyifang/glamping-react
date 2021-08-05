@@ -120,6 +120,7 @@ function EventCardForHome(props) {
     let curAuth = props.auth;
     setLogin(curAuth);
   }
+
   /*eslint-disable */
   useEffect(() => {
     checkAuth();
@@ -233,9 +234,9 @@ function EventCardForHome(props) {
           >
             <div className="card-img">
               <img
-                className="img-fluid h-100"
-                src=".//images/event/samuel-bryngelsson-dWHtwGV9EUU-unsplash.jpg"
-                alt=""
+                className="event-image img-fluid w-100 h-100"
+                src={`http://localhost:8080/images/pic/event/${card.img_src}`}
+                alt="活動圖片"
               />
             </div>
             <div className="container mt-2">
