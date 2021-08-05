@@ -1,134 +1,166 @@
-.check-breadcrumb{
+.check-breadcrumb {
     color: var(--c-sec-deep);
     padding-top: 30px;
     padding-left: 270px;
 }
-.check-user-info{
+
+.check-user-info {
     width: 1550px;
     min-height: 385px;
-    background:var(--c-bg-mid) ;
+    background: var(--c-bg-mid);
     border-radius: 20px;
     margin: 20px auto;
 }
-.check-form-title{
+
+.check-form-title {
     color: var(--c-pri);
     margin: 50px;
 }
-@media screen and (max-width:768px){
-    .check-breadcrumb{
+
+@media screen and (max-width:768px) {
+    .check-breadcrumb {
         opacity: 0;
         padding-top: 0px;
     }
-    .check-user-info{
+    .check-user-info {
         width: 720px;
     }
-    .check-form-title{
+    .check-form-title {
         margin: 20px 50px;
     }
 }
+
 /* 表單欄位 */
-.check-order-form{
+
+.check-order-form {
     padding: 0px 50px;
 }
-.check-label-text{
+
+.check-label-text {
     color: var(--c-pri);
 }
-label{
+
+label {
     color: var(--c-pri);
 }
-input{
+
+.checkout-input {
     outline-style: none;
     border: 0px;
     border-radius: 10px;
     width: 290px;
     height: 45px;
 }
-input:focus{
-    border-color:var(--c-sec-mid);
+
+.checkout-input:focus {
+    border-color: var(--c-sec-mid);
     outline: 0;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.05),0 0 8px #fab751;
-    box-shadow: inset 0 1px 1px rgba(0,0,0,.05),0 0 8px #fab751
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05), 0 0 8px #fab751;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05), 0 0 8px #fab751
 }
-.check-input-mail{
+
+.check-input-mail {
     width: 430px;
     height: 45px;
+    border: 0px;
+    border-radius: 10px;
 }
-.check-form-select{
-   border: 0px;
-   border-radius: 10px;
-   width: 290px;
-   height: 45px;
-}
-.check-form-select:focus{
-    border-color:var(--c-sec-mid);
+
+.check-input-mail:focus {
+    border-color: var(--c-sec-mid);
     outline: 0;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.05),0 0 8px #fab751;
-    box-shadow: inset 0 1px 1px rgba(0,0,0,.05),0 0 8px #fab751
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05), 0 0 8px #fab751;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05), 0 0 8px #fab751
 }
+
+.check-form-select {
+    border: 0px;
+    border-radius: 10px;
+    width: 290px;
+    height: 45px;
+}
+
+.check-form-select:focus {
+    border-color: var(--c-sec-mid);
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05), 0 0 8px #fab751;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05), 0 0 8px #fab751
+}
+
 @media screen and (min-width: 1430px) {
-    ::placeholder{
+    ::placeholder {
         opacity: 0;
     }
 }
+
 @media screen and (max-width: 768px) {
-    .check-form-input{
+    .check-form-input {
         display: flex;
         flex-direction: column;
     }
-    input{
+    .checkout-input {
         width: 560px;
         height: 60px;
     }
-    .check-birthday{
+    .check-birthday {
         width: 500px;
         height: 60px;
     }
-    .check-input-mail{
+    .check-input-mail {
         width: 560px;
         height: 60px;
     }
-    .check-label-text{
+    .check-label-text {
         display: none;
     }
-    }
+}
+
 /* checkbox樣式 */
-.check-check-label{
+
+.check-check-label {
     font-size: 1.125rem;
     color: var(--c-pri);
     margin-bottom: 50px;
 }
-input[type="checkbox"]{
+
+input[type="checkbox"] {
     width: 20px;
     height: 20px;
-    background-color:#fff;
-    -webkit-appearance:none;
-    border:1px solid var(--c-pri);
+    background-color: #fff;
+    -webkit-appearance: none;
+    border: 1px solid var(--c-pri);
     border-radius: 2px;
     outline: none;
     margin-right: 15px;
 }
-input[type="checkbox"]:checked{
+
+input[type="checkbox"]:checked {
     background-color: var(--c-pri);
     border-color: var(--c-pri);
 }
-.check-comment{
+
+.check-comment {
     width: 620px;
     height: 180px;
-    border:none;
+    border: none;
     border-radius: 5px;
 }
-.check-comment:focus{
-    border-color:var(--c-sec-mid);
+
+.check-comment:focus {
+    border-color: var(--c-sec-mid);
     outline: 0;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.05),0 0 8px #fab751;
-    box-shadow: inset 0 1px 1px rgba(0,0,0,.05),0 0 8px #fab751
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05), 0 0 8px #fab751;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05), 0 0 8px #fab751
 }
+
 @media screen and (max-width: 768px) {
-    .check-comment{
+    .check-comment {
         width: 560px;
     }
 }
+
 /* 訂單 */
+
 .check-order {
     width: 1450px;
     min-height: 200px;
@@ -136,193 +168,219 @@ input[type="checkbox"]:checked{
     border-radius: 20px;
     margin: 0 auto;
 }
+
 .check-order-image {
     width: 363px;
     min-height: 200px;
     border-radius: 20px;
     margin: 40px;
     overflow: hidden;
-    object-fit:cover;
+    object-fit: cover;
 }
-.check-order-title{
+
+.check-order-title {
     font-weight: bold;
     color: var(--c-pri);
     margin-top: 50px;
 }
-.check-order-info{
-    color: var(--c-pri);
 
+.check-order-info {
+    color: var(--c-pri);
 }
+
 .check-order-info i {
     font-size: 1.25rem;
 }
-.check-deputy-title{
+
+.check-deputy-title {
     font-weight: bold;
     color: var(--c-pri);
     margin: 50px;
 }
-.check-btn-continue{
+
+.check-btn-continue {
     color: var(--c-pri);
-    }
+}
+
 @media screen and (max-width: 768px) {
     .check-order {
         width: 650px;
     }
-    .check-order-image{
+    .check-order-image {
         height: 200px;
         margin: 15px;
     }
-    .check-order-title{
+    .check-order-title {
         margin-top: 10px;
         padding-right: 15px;
     }
-    .check-deputy-title{
+    .check-deputy-title {
         display: none;
     }
 }
+
 /* 付款 */
-.check-payment{
+
+.check-payment {
     font-weight: bold;
     margin-top: 50px;
     margin-left: 50px;
 }
-.check-form-check{
+
+.check-form-check {
     margin-top: 10px;
     margin-left: 50px;
 }
-input[type="radio"]:checked{
-    background-color:var(--c-pri);
+
+input[type="radio"]:checked {
+    background-color: var(--c-pri);
 }
-input[type="radio"]:focus{
-    border-color:var(--c-sec-mid);
-    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.05),0 0 8px #fab751;
-    box-shadow: inset 0 1px 1px rgba(0,0,0,.05),0 0 8px #fab751
+
+input[type="radio"]:focus {
+    border-color: var(--c-sec-mid);
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05), 0 0 8px #fab751;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05), 0 0 8px #fab751
 }
-.check-total-info{
+
+.check-total-info {
     font-weight: bold;
-    color:var(--c-pri);
+    color: var(--c-pri);
     margin-top: 50px;
     margin-right: 100px;
 }
-.check-point-info{
+
+.check-point-info {
     font-weight: bold;
-    color:var(--c-pri);
+    color: var(--c-pri);
     margin-top: 20px;
 }
-.check-btn-userpoint{
-    color:var(--c-pri);
+
+.check-btn-userpoint {
+    color: var(--c-pri);
     margin-right: 50px;
     margin-top: 10px;
 }
-.check-line{
+
+.check-line {
     border: 2px solid #fff;
     background-color: #fff;
     margin: 50px 0px;
 }
-.check-subtotal{
+
+.check-subtotal {
     font-weight: bold;
-    color:var(--c-pri);
+    color: var(--c-pri);
     margin-left: 50px;
     margin-right: 90px;
     margin-bottom: 30px;
 }
-.check-total{
-    color:var(--c-pri);
+
+.check-total {
+    color: var(--c-pri);
     margin-top: 5px;
 }
-.check-sum{
-    color:var(--c-pri);
+
+.check-sum {
+    color: var(--c-pri);
     margin: 0px 30px;
 }
-.check-btn-checktotal{
-    color:var(--c-bg-light);
+
+.check-btn-checktotal {
+    color: var(--c-bg-light);
     margin-bottom: 50px;
     margin-right: 8%;
 }
+
 @media screen and (max-width: 768px) {
-    .check-btn-checktotal{
-    margin-right: 0px;
+    .check-btn-checktotal {
+        margin-right: 0px;
+    }
 }
-}
+
 /* nav */
+
 @media screen and (min-width: 768px) {
-    .check-title-text{
+    .check-title-text {
         opacity: 0;
     }
 }
+
 @media screen and (max-width: 768px) {
-    nav{
-        display: none; 
+    nav {
+        display: none;
     }
-    .check-rwd-title{
+    .check-rwd-title {
         height: 100px;
         background-color: var(--c-pri);
     }
-    .check-title-text{
+    .check-title-text {
         padding: 15px;
         color: var(--c-bg-light);
     }
 }
+
 /* main */
+
 @media screen and (max-width: 1430px) {
-    .check-btn-continue{
+    .check-btn-continue {
         display: none;
     }
-    .check-label-text{
+    .check-label-text {
         display: none;
     }
 }
+
 @media screen and (min-width: 768px) and (max-width: 1430px) {
-    .check-user-info{
+    .check-user-info {
         width: 760px;
     }
-    .check-form-input{
+    .check-form-input {
         display: flex;
         flex-direction: column;
     }
-    input{
+    .checkout-input {
         width: 380px;
         height: 60px;
     }
-    .check-birthday{
+    .check-birthday {
         width: 320px;
         height: 60px;
     }
-    .check-input-mail{
+    .check-input-mail {
         width: 380px;
         height: 60px;
     }
-    .check-form-select{
+    .check-form-select {
         width: 380px;
         height: 60px;
     }
-    .check-input-group{
+    .check-input-group {
         height: 60px;
         display: flex;
         flex-direction: column;
     }
-    .check-btn-date{
+    .check-btn-date {
         width: 60px;
         height: 60px;
     }
-    .check-form-title{
+    .check-form-title {
         margin: 20px 50px;
     }
     .check-order {
         width: 650px;
     }
-    .check-order-image{
+    .check-order-image {
         height: 200px;
         margin: 15px;
     }
-    .check-order-title{
+    .check-order-title {
         margin-top: 10px;
         padding-right: 15px;
     }
-    .check-deputy-title{
+    .check-deputy-title {
         margin: 30px 50px;
     }
-    .check-btn-checktotal{
+    .check-btn-checktotal {
         margin-right: 20%;
     }
 }

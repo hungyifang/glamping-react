@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 
 // icon
 import { MdFavorite } from "react-icons/md";
-import { MdDeleteForever } from "react-icons/md";
+// import { MdDeleteForever } from "react-icons/md";
+import { FaRegTrashAlt, FaRegUser, FaRegClock } from "react-icons/fa";
 
 function CartsCheckbox(props) {
   const { allAgree, value, setCheck, setCheckboxArray, moreDelete } = props;
@@ -48,10 +49,12 @@ function CartsCheckbox(props) {
             <p className="h3 carts-order-title">{value.title}</p>
             <p className="h4 carts-order-info">
               <i className="ic-clock"></i>
+              <FaRegClock className="mb-1 mx-1 align-self-sm-end" />
               {value.start}
               {" ~ "}
               {value.end}
               <i className="ic-person ms-3"></i>
+              <FaRegUser className="mb-1 mx-1" />
               人數 X {value.person}
             </p>
           </div>
@@ -69,7 +72,7 @@ function CartsCheckbox(props) {
                 }
               }}
             >
-              <MdDeleteForever />
+              <FaRegTrashAlt />
             </div>
           </div>
         </div>

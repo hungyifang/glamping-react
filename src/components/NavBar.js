@@ -7,6 +7,7 @@ import {
   IoCloseSharp,
   IoLogOutOutline,
 } from "react-icons/io5";
+import "../index.css";
 
 function NavBar(props) {
   const login = props.auth || false;

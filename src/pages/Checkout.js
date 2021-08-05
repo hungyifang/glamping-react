@@ -178,6 +178,7 @@ function Checkout(props) {
                   姓氏
                 </label>
                 <input
+                  className="checkout-input"
                   type="text"
                   placeholder=" 姓氏"
                   aria-label="First name"
@@ -193,6 +194,7 @@ function Checkout(props) {
                   名字
                 </label>
                 <input
+                  className="checkout-input"
                   type="text"
                   placeholder=" 名字"
                   aria-label="Last name"
@@ -210,6 +212,7 @@ function Checkout(props) {
                   連絡電話
                 </label>
                 <input
+                  className="checkout-input"
                   type="text"
                   placeholder=" 連絡電話"
                   aria-label="tel"
@@ -250,6 +253,7 @@ function Checkout(props) {
                   姓氏
                 </label>
                 <input
+                  className="checkout-input"
                   type="text"
                   placeholder=" 姓氏"
                   aria-label="First name"
@@ -265,6 +269,7 @@ function Checkout(props) {
                   名字
                 </label>
                 <input
+                  className="checkout-input"
                   type="text"
                   placeholder=" 名字"
                   aria-label="Last name"
@@ -282,6 +287,7 @@ function Checkout(props) {
                   連絡電話
                 </label>
                 <input
+                  className="checkout-input"
                   type="text"
                   placeholder=" 連絡電話"
                   aria-label="tel"

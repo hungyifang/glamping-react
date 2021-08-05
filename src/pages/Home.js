@@ -34,11 +34,11 @@ function Home(props) {
         <section className="hero bg-deep">
           <div ref={animationContainer}>
             <div className="rwd-calendar home-search d-flex align-items-center justify-content-center row m-0 p-0">
-              <FaRegCalendarAlt className="col px-2" size="1.2rem" />
+              <FaRegCalendarAlt className="col px-2" size="2rem" />
               <div className="col-5 m-0 p-0 pe-2">
                 <BnBDateRangePicker type={"home"} />
               </div>
-              <HiUsers className="col p-0" size="1.2rem" />
+              <HiUsers className="col p-0" size="2rem" />
               <div className="col-5 m-0 p-0 pe-2">
                 <input
                   className="home-input h4"
