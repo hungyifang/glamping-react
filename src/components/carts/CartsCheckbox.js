@@ -7,6 +7,12 @@ import { MdDeleteForever } from "react-icons/md";
 function CartsCheckbox(props) {
   const { allAgree, value, setCheck, setCheckboxArray, moreDelete } = props;
   const [agree, setAgree] = useState(false);
+  // console.log(value)
+  const levelPic = {
+    36: "http://localhost:8080/images/postcard/level/1.svg",
+    37: "http://localhost:8080/images/postcard/level/2.svg",
+    38: "http://localhost:8080/images/postcard/level/3.svg",
+  };
   // 設定全選
   function allCheck() {
     if (allAgree) {
@@ -35,7 +41,7 @@ function CartsCheckbox(props) {
         <div className="carts-order d-flex flex-md-row justify-content-between align-items-md-stretch align-items-sm-start flex-sm-column flex-sm-wrap">
           <img
             className="carts-order-image"
-            src="http://localhost:8080/images/postcard/level/1.svg"
+            src={levelPic[value.level]}
             alt=""
           />
           <div className="d-flex flex-column justify-content-center">

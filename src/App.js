@@ -10,6 +10,8 @@ import Intro from "./pages/Intro";
 import Set from "./pages/Set";
 import Customized from "./pages/Customized";
 import Carts from "./pages/Carts";
+import Checkout from "./pages/Checkout";
+
 
 function App() {
   const [auth, setAuth] = useState(true);
@@ -58,6 +60,9 @@ function App() {
             </Route>
             <Route exact path="/carts">
               <Carts />
+            </Route>
+            <Route exact path="/Checkout/">
+              <Checkout />
             </Route>
             <Route path="/member">
               <Member auth={auth} />
