@@ -98,8 +98,10 @@
     border-radius: 50px;
 }
 
-.card-img img {
+.event-image {
     border-radius: 20px;
+    object-fit: cover;
+    overflow: hidden;
 }
 
 .card-title {
