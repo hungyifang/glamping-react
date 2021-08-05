@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from "react";
+import "../index.css";
 import "../styles/set.css";
 import SetCard from "../components/set/SetCard";
 //  滑動效果
 import SwipeableViews from "react-swipeable-views";
+import { FaCrown } from "react-icons/fa";
+import { MdCheckBox } from "react-icons/md";
+import { FaMountain } from "react-icons/fa";
+import { MdToys } from "react-icons/md";
 
 function Set() {
   // 設定套裝資料
-  const [prodcuts, setProducts] = useState([[], [], [], []]);
+  const [prodcuts, setProducts] = useState([[], [], [], [], []]);
 
   // 抓取資料
   async function getItemFromServer() {
@@ -56,7 +61,8 @@ function Set() {
           <a href="#select-1">
             <li className="set-select-li">
               <div>
-                <i className="ic-crown"></i>
+                {/* <i className="ic-crown"></i> */}
+                <FaCrown size="1.7rem" className="me-2" />
               </div>
               <div>奢華露營</div>
             </li>
@@ -64,7 +70,8 @@ function Set() {
           <a href="#select-2">
             <li className="set-select-li">
               <div>
-                <i className="ic-flower"></i>
+                {/* <i className="ic-flower"></i> */}
+                <MdCheckBox size="1.7rem" className="me-2" />
               </div>
               <div>超值露營</div>
             </li>
@@ -72,7 +79,8 @@ function Set() {
           <a href="#select-3">
             <li className="set-select-li">
               <div>
-                <i className="ic-diving"></i>
+                {/* <i className="ic-diving"></i> */}
+                <FaMountain size="1.7rem" className="me-2" />
               </div>
               <div>深度露營</div>
             </li>
@@ -80,7 +88,8 @@ function Set() {
           <a href="#select-4">
             <li className="set-select-li">
               <div>
-                <i className="ic-maple"></i>
+                {/* <i className="ic-maple"></i> */}
+                <MdToys size="1.7rem" className="me-2" />
               </div>
               <div>季節限定</div>
             </li>
@@ -95,7 +104,7 @@ function Set() {
             <h1 className="set-main-tittle">奢華露營</h1>
             <h5>網帥網美的最愛，絕世美照的蜜基地</h5>
             {/* <!-- 卡片 --> */}
-            <div className="d-flex row ">
+            <div className="d-flex row">
               {/* 手機板滑動 */}
               <div className="set-slide-display">
                 <SwipeableViews
@@ -109,12 +118,13 @@ function Set() {
                       subtitle={e.subtitle}
                       content={e.article}
                       o_id={e.o_id}
+                      img_src={e.img_src}
                     />
                   ))}
                 </SwipeableViews>
               </div>
               {/* 網頁版卡片組 */}
-              <div className=" d-flex  row  justify-content-start set-web-display">
+              <div className=" d-flex row justify-content-center set-web-display">
                 {prodcuts[0].map((e, i) => (
                   <SetCard
                     key={e.id}
@@ -122,6 +132,7 @@ function Set() {
                     subtitle={e.subtitle}
                     content={e.article}
                     o_id={e.o_id}
+                    img_src={e.img_src}
                   />
                 ))}
               </div>
@@ -145,12 +156,13 @@ function Set() {
                       subtitle={e.subtitle}
                       content={e.article}
                       o_id={e.o_id}
+                      img_src={e.img_src}
                     />
                   ))}
                 </SwipeableViews>
               </div>
               {/* 網頁版卡片組 */}
-              <div className=" d-flex  row  justify-content-start set-web-display">
+              <div className=" d-flex row justify-content-center set-web-display">
                 {prodcuts[1].map((e, i) => (
                   <SetCard
                     key={e.id}
@@ -158,6 +170,7 @@ function Set() {
                     subtitle={e.subtitle}
                     content={e.article}
                     o_id={e.o_id}
+                    img_src={e.img_src}
                   />
                 ))}
               </div>
@@ -181,12 +194,13 @@ function Set() {
                       subtitle={e.subtitle}
                       content={e.article}
                       o_id={e.o_id}
+                      img_src={e.img_src}
                     />
                   ))}
                 </SwipeableViews>
               </div>
               {/* 網頁版卡片組 */}
-              <div className=" d-flex  row  justify-content-start set-web-display">
+              <div className=" d-flex row justify-content-center set-web-display">
                 {prodcuts[2].map((e, i) => (
                   <SetCard
                     key={e.id}
@@ -194,6 +208,7 @@ function Set() {
                     subtitle={e.subtitle}
                     content={e.article}
                     o_id={e.o_id}
+                    img_src={e.img_src}
                   />
                 ))}
               </div>
@@ -217,12 +232,13 @@ function Set() {
                       subtitle={e.subtitle}
                       content={e.article}
                       o_id={e.o_id}
+                      img_src={e.img_src}
                     />
                   ))}
                 </SwipeableViews>
               </div>
               {/* 網頁版卡片組 */}
-              <div className=" d-flex  row  justify-content-start set-web-display">
+              <div className=" d-flex row justify-content-center set-web-display">
                 {prodcuts[3].map((e, i) => (
                   <SetCard
                     key={e.id}
@@ -230,6 +246,7 @@ function Set() {
                     subtitle={e.subtitle}
                     content={e.article}
                     o_id={e.o_id}
+                    img_src={e.img_src}
                   />
                 ))}
               </div>

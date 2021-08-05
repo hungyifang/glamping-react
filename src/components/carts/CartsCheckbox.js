@@ -9,9 +9,9 @@ function CartsCheckbox(props) {
   const [agree, setAgree] = useState(false);
   // console.log(value)
   const levelPic = {
-    36: "http://localhost:8080/images/postcard/level/1.svg",
-    37: "http://localhost:8080/images/postcard/level/2.svg",
-    38: "http://localhost:8080/images/postcard/level/3.svg",
+    56: "http://localhost:8080/images/postcard/level/1.svg",
+    57: "http://localhost:8080/images/postcard/level/2.svg",
+    58: "http://localhost:8080/images/postcard/level/3.svg",
   };
   // 設定全選
   function allCheck() {

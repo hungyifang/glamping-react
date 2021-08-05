@@ -63,6 +63,11 @@ h1 {
     transition: 0.2s;
 }
 
+.event-card-forhome-img {
+    height: 360px;
+    padding: 24px;
+}
+
 /* 小測驗 */
 
 #wizard {

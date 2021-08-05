@@ -382,6 +382,7 @@ function Customized(props) {
     const data = await response.json();
     // 篩選套裝卡片的o_id
     let o_id = location.state.o_id;
+    console.log(o_id)
     let selectData = data.filter((e) => e.o_id === o_id);
     // console.log(selectData)
     // 設定預設值
@@ -550,13 +551,13 @@ function Customized(props) {
                     <option value="" disabled hidden selected>
                       選擇地區
                     </option>
-                    <option value="36" disabled={seaDisabled}>
+                    <option value="56" disabled={seaDisabled}>
                       海邊區
                     </option>
-                    <option value="37" disabled={grassDisabled}>
+                    <option value="57" disabled={grassDisabled}>
                       草原區
                     </option>
-                    <option value="38" disabled={topDisabled}>
+                    <option value="58" disabled={topDisabled}>
                       山頂區
                     </option>
                   </select>

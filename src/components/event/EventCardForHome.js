@@ -232,14 +232,14 @@ function EventCardForHome(props) {
             className=""
             key={card.i_id}
           >
-            <div className="card-img">
+            <div className="event-card-forhome-img">
               <img
                 className="event-image img-fluid w-100 h-100"
                 src={`http://localhost:8080/images/pic/event/${card.img_src}`}
                 alt="活動圖片"
               />
             </div>
-            <div className="container mt-2">
+            <div className="container mt-2 mb-4">
               <div className="row ">
                 <div className="col-auto mx-auto">
                   <div className="h2 card-title d-flex flex-column">
