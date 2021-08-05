@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
+import SetCardForHome from "../set/SetCardForHome";
 import "../../index.css";
 import "../../styles/home.css";
 
@@ -13,6 +14,12 @@ function Wizard(props) {
   const [qa2, setQa2] = useState(5);
   const [qa3, setQa3] = useState(5);
   const [qa4, setQa4] = useState(5);
+  const [tripsData, setTripsData] = useState({});
+  const [r, setR] = useState(10);
+
+  function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+  }
 
   function calcUsersChoice() {
     let deg1 = +qa1;
@@ -46,6 +53,26 @@ function Wizard(props) {
     }
   }
 
+  async function getTripsDataFromServer() {
+    const url = "http://localhost:8080/api/items";
+    const request = new Request(url, {
+      method: "GET",
+      headers: new Headers({
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      }),
+    });
+    const response = await fetch(request);
+    const data = await response.json();
+    setTripsData(data[r]);
+    // console.log(tripsData)
+  }
+  // 一開始就會開始載入資料
+  useEffect(() => {
+    setR(getRandomInt(15));
+    getTripsDataFromServer();
+  }, []);
+
   const aPlane = (
     <>
       <div className="wizard-result-card mx-3 my-4 row">
@@ -68,15 +95,19 @@ function Wizard(props) {
           </h4>
           <h4 className="quiz-text col-12 text-center h2">氣氛指數</h4>
         </div>
-        <div className="col">a</div>
+        <SetCardForHome
+          title={tripsData.title}
+          subtitle={tripsData.subtitle}
+          content={tripsData.article}
+          o_id={tripsData.o_id}
+          img_src={tripsData.img_src}
+        />
+        {/* <div className="col">a</div> */}
       </div>
       <div className="wizard-tips d-flex justify-content-center align-items-center">
         <h3 className="h2">
           不是你喜歡的結果？試試
-          <Link to="/customized" className="">
-            量身打造自己的行程
-          </Link>
-          或
+          <Link to="/customized">量身打造自己的行程</Link>或
           <Link
             onClick={(e) => {
               e.preventDefault();

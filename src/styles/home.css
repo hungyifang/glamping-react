@@ -68,6 +68,23 @@ h1 {
     padding: 24px;
 }
 
+.set-card-forhome {
+    height: 220px;
+    border-radius: 20px;
+    margin: 0 15px 30px 20px;
+    transition: .2s;
+    background: var(--c-pri-light);
+}
+
+.set-card-forhome:hover {
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
+    cursor: pointer;
+}
+
+.set-card-forhome-img {
+    border-radius: 10px;
+}
+
 /* 小測驗 */
 
 #wizard {
@@ -163,6 +180,7 @@ h1 {
     cursor: pointer;
     background: var(--c-bg-mid);
     color: var(--c-pri);
+
 }
 
 .wizard-tips {
@@ -210,6 +228,7 @@ h1 {
 .search-icon:hover {
     color: var(--c-pri-deep);
 }
+
 .quiz-text{
     color:var(--c-pri);
     font-weight: bold;
