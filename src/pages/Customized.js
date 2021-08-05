@@ -371,7 +371,7 @@ function Customized(props) {
     const response = await fetch(request);
     const data = await response.json();
     // 篩選套裝卡片的o_id
-    let o_id = location.state;
+    let o_id = location.state.o_id;
     let selectData = data.filter((e) => e.o_id === o_id);
     // console.log(selectData)
     // 設定預設值
@@ -392,9 +392,14 @@ function Customized(props) {
     // 從套裝近來拿到o_id才會拿到預設值
     // console.log(location.state);
 
-    let o_id = location.state;
-    if (o_id) {
+    // let o_id = location.state;
+    if (location.state && location.state.o_id) {
       getDataFromServer();
+    }
+    if (location.state && location.state.quickPersons) {
+      setInputPerson(location.state.quickPersons);
+      // setStartDay(sessionStorage.getItem("quickStartDate"));
+      setStartDay(addDays(new Date(), 3));
     }
   }, []);
   // 客製化選項有改動就執行價格統計
@@ -493,6 +498,7 @@ function Customized(props) {
                 setInputWhere={setInputWhere}
                 setStartDay={setStartDay}
                 setEndDay={setEndDay}
+                quickStartDate={sessionStorage.getItem("quickStartDate")}
               />
             </div>
             {/* <!-- 客製化區 --> */}

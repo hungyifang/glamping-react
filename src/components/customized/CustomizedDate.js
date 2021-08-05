@@ -24,6 +24,7 @@ function CustomizedDate(props) {
     setInputWhere,
     setStartDay,
     setEndDay,
+    quickStartDate,
   } = props;
 
   const [start, setStart] = useState("");
@@ -368,11 +369,21 @@ function CustomizedDate(props) {
     let start = state[0].startDate;
     let end = state[0].endDate;
     setStartDay(format(start, "Y" + "-" + "MM" + "-" + "dd"));
-    setEndDay(format(end, "Y" + "-" + "MM" + "-" + "dd"))
+    setEndDay(format(end, "Y" + "-" + "MM" + "-" + "dd"));
   }
   // 一開始載入住房資訊
   useEffect(() => {
     maxRoomFromServer();
+    if (quickStartDate) {
+      setState([
+        {
+          startDate: new Date(quickStartDate),
+          endDate: addDays(new Date(quickStartDate), 1),
+          key: "selection",
+        },
+      ]);
+      sessionStorage.removeItem("quickStartDate");
+    }
   }, []);
 
   useEffect(() => {

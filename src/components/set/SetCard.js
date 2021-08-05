@@ -8,8 +8,11 @@ function SetCard(props) {
       <div
         class="set-card ml-0"
         onClick={() => {
-          console.log(o_id)
-          props.history.push({ pathname: "/Customized", state: o_id });
+          console.log(o_id);
+          props.history.push({
+            pathname: "/Customized",
+            state: { o_id: o_id },
+          });
         }}
       >
         <div class="set-card-wraper ">
