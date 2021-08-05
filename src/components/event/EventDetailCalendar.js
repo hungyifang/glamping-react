@@ -133,7 +133,7 @@ function EventDetailCalendar(props) {
         <form id="PCcalendar">
           <div className="calendar w-100 mx-auto py-1 pb-4">
             <div className="datePicker">
-              <BnBDateRangePicker RWD={false} />
+              <BnBDateRangePicker />
             </div>
             <div className="col d-flex justify-content-center align-items-center my-3 text-pri position-relative">
               <span className="h3 position-absolute d-flex align-items-center population">

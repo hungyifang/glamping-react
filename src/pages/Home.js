@@ -1,14 +1,19 @@
-import React, { createRef, useEffect } from "react";
+import React, { createRef, useEffect, useState } from "react";
+import { withRouter } from "react-router-dom";
 import lottie from "lottie-web";
+import BnBDateRangePicker from "../components/BnBDateRangePicker";
 import EventCardForHome from "../components/event/EventCardForHome";
 import Wizard from "../components/home/Wizard";
 import "../styles/home.css";
-import { FaSearch } from "react-icons/fa";
+import { FaRegCalendarAlt, FaSearch } from "react-icons/fa";
 import { AiOutlineSchedule } from "react-icons/ai";
 import { GoFlame } from "react-icons/go";
+import { HiOutlineMinus, HiOutlinePlus, HiUsers } from "react-icons/hi";
 
 function Home(props) {
   const { auth } = props;
+  const [persons, setPersons] = useState(1);
+
   let animationContainer = createRef();
 
   useEffect(() => {
@@ -28,10 +33,33 @@ function Home(props) {
       <main className="container-fluid p-0">
         <section className="hero bg-deep">
           <div ref={animationContainer}>
-            <div className="home-search d-flex align-items-center justify-content-center">
-              <input className="home-input h4" placeholder="日期" />
-              <input className="home-input h4" placeholder="人數" />
-              <FaSearch className="search-icon" size="1.5rem" />
+            <div className="rwd-calendar home-search d-flex align-items-center justify-content-center row m-0 p-0">
+              <FaRegCalendarAlt className="col px-2" size="1.2rem" />
+              <div className="col-5 m-0 p-0 pe-2">
+                <BnBDateRangePicker type={"home"} />
+              </div>
+              <HiUsers className="col p-0" size="1.2rem" />
+              <div className="col-5 m-0 p-0 pe-2">
+                <input
+                  className="home-input h4"
+                  placeholder="人數"
+                  type="number"
+                  value={persons}
+                  onChange={(e) => {
+                    setPersons(e.target.value);
+                  }}
+                />
+              </div>
+              <FaSearch
+                className="search-icon col m-0"
+                size="1.5rem"
+                onClick={() => {
+                  props.history.push({
+                    pathname: "/customized",
+                    state: { quickPersons: persons },
+                  });
+                }}
+              />
             </div>
           </div>
         </section>
@@ -62,12 +90,12 @@ function Home(props) {
           <Wizard auth={auth} />
         </section>
 
-        <section id="museum" className="bg-pri">
+        {/* <section id="museum" className="bg-pri">
           <h1 className="title">客製化分享區</h1>
-        </section>
+        </section> */}
       </main>
     </>
   );
 }
 
-export default Home;
+export default withRouter(Home);
