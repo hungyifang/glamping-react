@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { withRouter } from "react-router-dom";
+import { withRouter, useHistory } from "react-router-dom";
 import { ReactComponent as HollowStar } from "../star_border.svg";
 import { FaRegQuestionCircle } from "react-icons/fa";
 import { HiOutlineMinus, HiOutlinePlus } from "react-icons/hi";
@@ -8,6 +8,7 @@ import $ from "jquery";
 const axios = require("axios").default;
 
 function EventDetailCalendar(props) {
+  const history = useHistory();
   const auth = props.auth;
   const eventStartTime = props.time;
   const i_id = +props.match.params.i_id;
@@ -15,6 +16,8 @@ function EventDetailCalendar(props) {
   const [star, setStar] = useState(0);
   const [population, setPopulation] = useState(1);
   const [upload, setUpload] = useState(false);
+  const [goCart, setGoCart] = useState(false);
+  const [last_oid, setLast_oid] = useState(0);
   // 要存在 localstorage, 資料庫的資料
   const [ordered, setOrdered] = useState({
     u_id: u_id,
@@ -34,8 +37,12 @@ function EventDetailCalendar(props) {
     i_id: i_id,
     price: props.price,
     quantity: 0,
+    person: 0,
     ship_date: "",
     eventStartTime: eventStartTime,
+    title: props.title,
+    prime: 4,
+    total: 0,
   });
 
   //點擊"加入購物車", 提交表單
@@ -53,7 +60,9 @@ function EventDetailCalendar(props) {
     let newOrdered_detail = {
       ...ordered_detail,
       quantity: person,
+      person: person,
       ship_date: startDate,
+      total: total,
     };
     setOrdered_detail(newOrdered_detail);
 
@@ -69,13 +78,28 @@ function EventDetailCalendar(props) {
       }
     );
     let o_id = getTime_oid.data.o_id;
-    let newOrdered_detail = {
-      ...ordered_detail,
-      o_id: o_id,
-    };
-    setOrdered_detail(newOrdered_detail);
+    console.log(o_id);
+    setLast_oid(o_id);
   }
   //Ordered_detail 存 localstorage
+  function setLocalstorage(data) {
+    let orderData = localStorage.getItem("orderData")
+      ? JSON.parse(localStorage.getItem("orderData"))
+      : [];
+
+    orderData.push(data);
+    localStorage.setItem("orderData", JSON.stringify(orderData));
+  }
+  //Ordered_detail 存 DB
+  async function insertOrdered_detail_DB(data) {
+    let insertDB = await axios.post(
+      "http://localhost:8080/api/event/order-detail",
+      {
+        headers: { "Content-Type": "text/json" },
+        data: data,
+      }
+    );
+  }
   //算星星
   async function loadStar() {
     let result = await axios.get("http://localhost:8080/api/event/review", {
@@ -123,6 +147,18 @@ function EventDetailCalendar(props) {
     };
     setOrdered(newOrdered);
   }, [auth]);
+  useEffect(() => {
+    console.log(last_oid);
+    let newOrdered_detail = {
+      ...ordered_detail,
+      o_id: last_oid,
+    };
+    if (last_oid === 0) return; //防止初始化狀態輸入
+    setOrdered_detail(newOrdered_detail);
+    setLocalstorage(newOrdered_detail); //非useState
+    insertOrdered_detail_DB(newOrdered_detail);
+    if (goCart) history.push("/carts"); //立即訂購前往購物車
+  }, [last_oid]);
   useEffect(() => {
     console.log(ordered_detail);
   }, [ordered_detail]);
@@ -205,7 +241,8 @@ function EventDetailCalendar(props) {
                 className="btn-outline mx-3 d-flex justify-content-center align-items-center"
                 role="button"
                 onClick={() => {
-                  // triggerSubmit("PCcalendar");
+                  addCart();
+                  setGoCart(true);
                 }}
               >
                 立即訂購

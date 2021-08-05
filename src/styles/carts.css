@@ -1,24 +1,28 @@
-.cart-info{
+.cart-info {
     width: 1550px;
     min-height: 850px;
-    background:var(--c-bg-mid) ;
+    background: var(--c-bg-mid);
     border-radius: 20px;
     margin: 150px auto;
 }
-.cart-title{
+
+.cart-title {
     color: var(--c-pri);
     margin: 50px;
 }
-@media screen and (max-width:1430px){
-    .cart-info{
+
+@media screen and (max-width:1430px) {
+    .cart-info {
         width: 700px;
         margin: 50px auto;
     }
-    .cart-title{
+    .cart-title {
         margin: 20px 50px;
     }
 }
+
 /* 訂單 */
+
 .carts-order {
     width: 1420px;
     min-height: 200px;
@@ -26,137 +30,162 @@
     border-radius: 20px;
     margin: 0 auto;
 }
+
 .carts-order-image {
     width: 363px;
     max-height: 250px;
     border-radius: 20px;
     margin: 20px;
     overflow: hidden;
-    object-fit:cover;
+    object-fit: cover;
 }
-.carts-order-title{
+
+.carts-order-title {
     font-weight: bold;
     color: var(--c-pri);
 }
-.carts-order-info{
+
+.carts-order-info {
     color: var(--c-pri);
 }
+
 .carts-order-info i {
     font-size: 1.25rem;
     color: var(--c-pri);
 }
-.carts-order-price{
+
+.carts-order-info span {
+    margin: 0 10px;
+}
+
+.carts-order-price {
     font-weight: bold;
     color: var(--c-pri);
     margin-bottom: 40px;
 }
-.carts-order-icon{
+
+.carts-order-icon {
     font-size: 2.5rem;
     color: var(--c-pri);
-    margin-right: 50px;   
+    margin-right: 50px;
 }
-.carts-heart:hover,.carts-delete:hover{
+
+.carts-heart:hover, .carts-delete:hover {
     cursor: pointer;
     color: red;
 }
+
 @media screen and (max-width: 1430px) {
     .carts-order {
         width: 650px;
         height: 200px;
     }
-    .carts-order-image{
+    .carts-order-image {
         width: 250px;
         max-height: 180px;
         margin: 10px;
     }
-    .carts-order-title{
+    .carts-order-title {
         font-size: 1.125rem;
         width: 350px;
         margin-top: 20px;
     }
-    .carts-order-info{
+    .carts-order-info {
         font-size: 1rem;
     }
-    .carts-order-info i{
+    .carts-order-info i {
         font-size: 1rem;
     }
-    .carts-order-price{
+    .carts-order-price {
         display: none;
     }
-    .carts-order-icon{
+    .carts-order-icon {
         margin: 0;
     }
-    .carts-order-icon i{
+    .carts-order-icon i {
         display: none;
     }
 }
+
 /* checkbox */
-.carts-input[type="checkbox"]{
+
+.carts-input[type="checkbox"] {
     width: 30px;
     height: 30px;
-    background-color:#fff;
-    -webkit-appearance:none;
+    background-color: #fff;
+    -webkit-appearance: none;
     border-radius: 5px;
     outline: none;
     margin-left: 25px;
 }
-.carts-input[type="checkbox"]:checked{
+
+.carts-input[type="checkbox"]:checked {
     background-color: var(--c-pri);
     border-color: var(--c-pri);
+    mask: url('http://localhost:8080/images/check_box.svg') no-repeat center center;
 }
+
 @media screen and (max-width: 768px) {
-    input[type="checkbox"]{
+    input[type="checkbox"] {
         margin-left: 5px;
     }
 }
+
 /* 總和 */
-.input-all{
-    color:var(--c-pri);
+
+.input-all {
+    color: var(--c-pri);
     margin-top: 40px;
     margin-left: 5px;
     margin-right: 20px;
     margin-bottom: 50px;
 }
-.subtotal{
+
+.subtotal {
     font-weight: bold;
-    color:var(--c-pri);
+    color: var(--c-pri);
     margin-left: 50px;
     margin-right: 50px;
     margin-bottom: 50px;
 }
-.total{
-    color:var(--c-pri);
+
+.total {
+    color: var(--c-pri);
     margin-top: 15px;
 }
-.sum{
-    color:var(--c-pri);
+
+.sum {
+    color: var(--c-pri);
     font-weight: bold;
     margin: 10px 30px;
 }
-.btn-checktotal{
-    color:var(--c-bg-light);
+
+.btn-checktotal {
+    color: var(--c-bg-light);
     margin-right: 40px;
     margin-bottom: 40px;
 }
-.btn-delete{
-    color:var(--c-pri);
+
+.btn-delete {
+    color: var(--c-pri);
 }
+
 /* nav + footer */
 
 @media screen and (min-width: 768px) {
-    .title-text{
+    .title-text {
         opacity: 0;
     }
-    .rwd-input-total{
+    .rwd-input-total {
         opacity: 0;
     }
-    .rwd-total{
+    .rwd-total {
         opacity: 0;
     }
-    .rwd-sum{
+    .rwd-sum {
         opacity: 0;
     }
-    .rwd-btn{
+    .rwd-btn {
         opacity: 0;
     }
 }

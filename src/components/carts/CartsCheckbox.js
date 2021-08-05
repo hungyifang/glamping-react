@@ -3,6 +3,8 @@ import React, { useState, useEffect } from "react";
 // icon
 import { MdFavorite } from "react-icons/md";
 import { MdDeleteForever } from "react-icons/md";
+import { BsClock } from "react-icons/bs";
+import { FaUser } from "react-icons/fa";
 
 function CartsCheckbox(props) {
   const { allAgree, value, setCheck, setCheckboxArray, moreDelete } = props;
@@ -40,13 +42,15 @@ function CartsCheckbox(props) {
           />
           <div className="d-flex flex-column justify-content-center">
             <p className="h3 carts-order-title">{value.title}</p>
-            <p className="h4 carts-order-info">
-              <i className="ic-clock"></i>
-              {value.start}
-              {" ~ "}
-              {value.end}
-              <i className="ic-person ms-3"></i>
-              人數 X {value.person}
+            <p className="h4 carts-order-info d-flex align-items-center">
+              <BsClock />
+              <span>
+                {value.prime === 4
+                  ? value.ship_date + "     時間:" + value.eventStartTime
+                  : value.start + " ~ " + value.end}
+              </span>
+              <FaUser />
+              <span>人數 X {value.person}</span>
             </p>
           </div>
           <div className="d-flex align-items-end align-self-sm-end">

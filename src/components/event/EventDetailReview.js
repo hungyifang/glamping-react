@@ -38,10 +38,7 @@ function EventDetailReview(props) {
     result = result.data[0];
     let reviewCards = result.map((review, index) => {
       return (
-        <div
-          className="col-md-6 col-12 my-2 review-card"
-          key={index + review.u_id}
-        >
+        <div className="col-md-6 col-12 my-2 review-card" key={index}>
           <div className="d-flex align-items-center">
             <div className="review-avatar ">
               <img

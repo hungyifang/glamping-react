@@ -45,7 +45,7 @@ function App() {
               <Home auth={auth} />
             </Route>
             <Route path="/event-detail/:i_id">
-              <EventDetail auth={auth} key={auth} />
+              <EventDetail auth={auth} />
             </Route>
             <Route exact path="/event">
               <Event auth={auth} />
