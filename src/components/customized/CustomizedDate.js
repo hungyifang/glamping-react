@@ -114,7 +114,7 @@ function CustomizedDate(props) {
 
     for (let i = 0; i < targetDayArrayFormat.length; i++) {
       if (maxSeaArray.includes(targetDayArrayFormat[i])) {
-        if (inputWhere === "36") {
+        if (inputWhere === "56") {
           setInputWhere("");
         }
         setSeaDisabled("disabled");
@@ -133,9 +133,9 @@ function CustomizedDate(props) {
       oneArray.push(one[i].occupy);
     }
     // 變動是海邊才設定
-    if (inputWhere === "36") {
+    if (inputWhere === "56") {
       for (let i = 0; i < targetDayArrayFormat.length; i++) {
-        if (oneArray.includes(targetDayArrayFormat[i]) && inputWhere === "36") {
+        if (oneArray.includes(targetDayArrayFormat[i]) && inputWhere === "56") {
           setMaxPerson("4");
           setInputPerson("1");
           break;
@@ -185,7 +185,7 @@ function CustomizedDate(props) {
 
     for (let i = 0; i < targetDayArrayFormat.length; i++) {
       if (maxGrassArray.includes(targetDayArrayFormat[i])) {
-        if (inputWhere === "37") {
+        if (inputWhere === "57") {
           setInputWhere("");
         }
         setGrassDisabled("disabled");
@@ -204,9 +204,9 @@ function CustomizedDate(props) {
       oneArray.push(one[i].occupy);
     }
     // 變動是草原才設定
-    if (inputWhere === "37") {
+    if (inputWhere === "57") {
       for (let i = 0; i < targetDayArrayFormat.length; i++) {
-        if (oneArray.includes(targetDayArrayFormat[i]) && inputWhere === "37") {
+        if (oneArray.includes(targetDayArrayFormat[i]) && inputWhere === "57") {
           setMaxPerson("4");
           setInputPerson("1");
           break;
@@ -255,7 +255,7 @@ function CustomizedDate(props) {
 
     for (let i = 0; i < targetDayArrayFormat.length; i++) {
       if (maxTopArray.includes(targetDayArrayFormat[i])) {
-        if (inputWhere === "38") {
+        if (inputWhere === "58") {
           setInputWhere("");
         }
         setTopDisabled("disabled");
@@ -274,9 +274,9 @@ function CustomizedDate(props) {
       oneArray.push(one[i].occupy);
     }
     // 變動是山頂才設定
-    if (inputWhere === "38") {
+    if (inputWhere === "58") {
       for (let i = 0; i < targetDayArrayFormat.length; i++) {
-        if (oneArray.includes(targetDayArrayFormat[i]) && inputWhere === "38") {
+        if (oneArray.includes(targetDayArrayFormat[i]) && inputWhere === "58") {
           setMaxPerson("4");
           setInputPerson("1");
           break;
@@ -326,11 +326,11 @@ function CustomizedDate(props) {
   };
   // 處理客滿日期
   let levelBlock = function () {
-    if (inputWhere === "38") {
+    if (inputWhere === "58") {
       setMaxRoom(maxTopDayArray);
-    } else if (inputWhere === "37") {
+    } else if (inputWhere === "57") {
       setMaxRoom(maxGrassDayArray);
-    } else if (inputWhere === "36") {
+    } else if (inputWhere === "56") {
       setMaxRoom(maxSeaDayArray);
     }
   };
