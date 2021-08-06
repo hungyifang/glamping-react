@@ -631,7 +631,6 @@ function Customized(props) {
               <div className="cus-determine">
                 <p className="cus-determine-total">總計 : {total} 元</p>
                 <Link
-                  // to="/Carts"
                   onClick={async (e) => {
                     if ((startDay === endDay) | (inputWhere === "")) {
                       e.preventDefault();
@@ -644,7 +643,7 @@ function Customized(props) {
                       await putRoomsToSever();
                       putOrderedToStorage();
                       props.history.push({
-                        pathname: "/Carts",
+                        pathname: "/carts",
                         state: itemData,
                       });
                     }

@@ -14,7 +14,7 @@ function SetCard(props) {
         onClick={() => {
           console.log(o_id);
           props.history.push({
-            pathname: "/Customized",
+            pathname: "/customized",
             state: { o_id: o_id },
           });
         }}

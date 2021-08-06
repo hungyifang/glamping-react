@@ -60,7 +60,7 @@ function App() {
             <Route exact path="/carts">
               <Carts auth={auth} />
             </Route>
-            <Route exact path="/Checkout/">
+            <Route exact path="/checkout">
               <Checkout />
             </Route>
             <Route path="/member">
