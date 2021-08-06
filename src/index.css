@@ -101,35 +101,35 @@ body {
 /* ! 背景色 */
 
 .custom-bg-light {
-    background-color: var(--c-bg-light);
+    background: var(--c-bg-light);
 }
 
 .bg-mid {
-    background-color: var(--c-bg-mid);
+    background: var(--c-bg-mid);
 }
 
 .bg-deep {
-    background-color: var(--c-bg-deep);
+    background: var(--c-bg-deep);
 }
 
 .sec-light {
-    background-color: var(--c-sec-light);
+    background: var(--c-sec-light);
 }
 
 .sec-mid {
-    background-color: var(--c-sec-mid);
+    background: var(--c-sec-mid);
 }
 
 .sec-deep {
-    background-color: var(--c-sec-deep);
+    background: var(--c-sec-deep);
 }
 
 .pri-light {
-    background-color: var(--c-pri-light);
+    background: var(--c-pri-light);
 }
 
 .bg-pri {
-    background-color: var(--c-pri);
+    background: var(--c-pri);
 }
 
 /*! 導覽列 */
@@ -323,7 +323,7 @@ ul {
         background: var(--c-pri-light);
     }
     .main-menu-a:hover {
-        background-color: var(--c-pri);
+        background: var(--c-pri);
         color: var(--c-bg-light);
         border-bottom: none;
     }

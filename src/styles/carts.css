@@ -112,7 +112,7 @@
 .carts-input[type="checkbox"] {
     width: 30px;
     height: 30px;
-    background-color: #fff;
+    background: #fff;
     -webkit-appearance: none;
     border-radius: 5px;
     outline: none;
@@ -120,7 +120,7 @@
 }
 
 .carts-input[type="checkbox"]:checked {
-    background-color: var(--c-pri);
+    background: var(--c-pri);
     border-color: var(--c-pri);
     mask: url('http://localhost:8080/images/check_box.svg') no-repeat center center;
 }

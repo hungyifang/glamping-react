@@ -59,7 +59,7 @@ h1 {
 .event-card-forhome {
     overflow: hidden;
     border-radius: 50px;
-    background-color: var(--c-bg-mid);
+    background: var(--c-bg-mid);
     transition: 0.2s;
 }
 

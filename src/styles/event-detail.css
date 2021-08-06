@@ -2,7 +2,7 @@
 
 .banner-carousel {
     height: 875px;
-    background-color: var(--c-bg-mid);
+    background: var(--c-bg-mid);
 }
 
 .banner-title {
@@ -63,7 +63,7 @@
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background-color: #eee;
+    background: #eee;
     margin: 0 10px;
     opacity: 0.7;
 }
@@ -157,7 +157,7 @@
 }
 
 .rwd-menu, .rwd-calendar {
-    background-color: var(--c-bg-mid);
+    background: var(--c-bg-mid);
 }
 
 .rwd-menu ul li {
@@ -264,7 +264,7 @@ input[type=number] {
 }
 
 .calendar {
-    background-color: var(--c-bg-mid);
+    background: var(--c-bg-mid);
     margin: 30px 0;
     border-radius: 20px;
 }
@@ -293,7 +293,7 @@ input[type=number] {
 /* 星星填入 % 顏色模組 */
 
 .star-rate-bg {
-    background-color: var(--c-pri);
+    background: var(--c-pri);
     background: linear-gradient(to right, var(--c-pri) 50%, transparent 50%);
     mask: url('http://localhost:8080/images/star_black.svg') repeat-x;
 }
@@ -311,7 +311,7 @@ input[type=number] {
 /* 商品資訊 */
 
 .event-description {
-    background-color: var(--c-bg-deep);
+    background: var(--c-bg-deep);
     color: var(--c-bg-light);
     padding: 30px 0;
 }
@@ -342,7 +342,7 @@ input[type=number] {
 }
 
 .description-warning {
-    background-color: var(--c-pri-light);
+    background: var(--c-pri-light);
     border-radius: 20px;
     color: var(--c-pri);
 }
@@ -359,7 +359,7 @@ input[type=number] {
 }
 
 .description-title.review-grade {
-    background-color: var(--c-bg-deep);
+    background: var(--c-bg-deep);
     color: var(--c-bg-light);
     padding: 15px 20px;
     border-radius: 20px;
@@ -405,7 +405,7 @@ input[type=number] {
 }
 
 .review-page-number.active, .review-page-number:hover {
-    background-color: white;
+    background: white;
 }
 
 @media screen and (max-width: 1064px) {
@@ -500,7 +500,7 @@ input[type=number] {
     display: flex;
     align-items: top;
     justify-content: center;
-    background-color: var(--c-sec-deep);
+    background: var(--c-sec-deep);
     border-radius: 5px;
     padding: 0 10px;
     height: 60%;
@@ -517,7 +517,7 @@ input[type=number] {
     display: flex;
     align-items: top;
     justify-content: center;
-    background-color: var(--c-sec-light);
+    background: var(--c-sec-light);
     border-radius: 5px;
     padding: 0 10px;
     height: 60%;
@@ -534,7 +534,7 @@ input[type=number] {
     display: flex;
     align-items: top;
     justify-content: center;
-    background-color: var(--c-sec-deep);
+    background: var(--c-sec-deep);
     border-radius: 5px;
     padding: 0 10px;
     height: 60%;
@@ -551,7 +551,7 @@ input[type=number] {
     display: flex;
     align-items: top;
     justify-content: center;
-    background-color: var(--c-sec-light);
+    background: var(--c-sec-light);
     border-radius: 5px;
     padding: 0 10px;
     height: 60%;
@@ -619,7 +619,7 @@ input[type=number] {
     left: 30%;
     right: 30%;
     /* bottom: 4%; */
-    background-color: var(--c-bg-light);
+    background: var(--c-bg-light);
     border-radius: 20px;
     overflow: hidden;
     box-shadow: var(--shadow);

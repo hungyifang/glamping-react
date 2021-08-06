@@ -31,7 +31,7 @@
 
 .SingleDatePickerInput {
   display: inline-block;
-  background-color: #fff
+  background: #fff
 }
 
 .SingleDatePickerInput__withBorder {
@@ -44,7 +44,7 @@
 }
 
 .SingleDatePickerInput__disabled {
-  background-color: #f2f2f2
+  background: #f2f2f2
 }
 
 .SingleDatePickerInput__block {
@@ -129,7 +129,7 @@
 
 .SingleDatePicker_picker {
   z-index: 1;
-  background-color: #fff;
+  background: #fff;
   position: absolute
 }
 
@@ -146,7 +146,7 @@
 }
 
 .SingleDatePicker_picker__portal {
-  background-color: rgba(0, 0, 0, .3);
+  background: rgba(0, 0, 0, .3);
   position: fixed;
   top: 0;
   left: 0;
@@ -155,7 +155,7 @@
 }
 
 .SingleDatePicker_picker__fullScreenPortal {
-  background-color: #fff
+  background: #fff
 }
 
 .SingleDatePicker_closeButton {
@@ -571,7 +571,7 @@
 
 .DayPickerNavigation_button__default {
   border: 1px solid #e4e7e7;
-  background-color: #fff;
+  background: #fff;
   color: #757575
 }
 
@@ -797,7 +797,7 @@
   font-size: 19px;
   line-height: 24px;
   color: #484848;
-  background-color: #fff;
+  background: #fff;
   width: 100%;
   padding: 11px 11px 9px;
   border: 0;
@@ -870,7 +870,7 @@
 }
 
 .DateRangePickerInput {
-  background-color: #fff;
+  background: #fff;
   display: inline-block
 }
 
@@ -982,7 +982,7 @@
 
 .DateRangePicker_picker {
   z-index: 1;
-  background-color: #fff;
+  background: #fff;
   position: absolute
 }
 
@@ -999,7 +999,7 @@
 }
 
 .DateRangePicker_picker__portal {
-  background-color: rgba(0, 0, 0, .3);
+  background: rgba(0, 0, 0, .3);
   position: fixed;
   top: 0;
   left: 0;
@@ -1008,7 +1008,7 @@
 }
 
 .DateRangePicker_picker__fullScreenPortal {
-  background-color: #fff
+  background: #fff
 }
 
 .DateRangePicker_closeButton {
@@ -1053,7 +1053,7 @@
 }
 
 .DayPickerNavigation_button__default:hover {
-  background-color: #eee;
+  background: #eee;
 }
 
 .DayPicker_transitionContainer {

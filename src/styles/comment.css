@@ -7,7 +7,7 @@
   width: 500px;
   margin-left: 30px;
   margin-right: 20px;
-  background-color: var(--c-bg-mid);
+  background: var(--c-bg-mid);
   border-radius: 20px;
   position: relative;
 }
@@ -15,7 +15,7 @@
 .comment-article {
   width: 1285px;
   /* min-height: 878px; */
-  background-color: var(--c-bg-mid);
+  background: var(--c-bg-mid);
   border-radius: 20px;
   margin: 0px auto;
   padding-bottom: 60px;
@@ -167,7 +167,7 @@
   }
   .mobile-rwd-title {
     height: 100px;
-    background-color: var(--c-pri);
+    background: var(--c-pri);
   }
   .title-text {
     padding: 15px;
@@ -175,7 +175,7 @@
   }
   .rwd-nav {
     height: 120px;
-    background-color: var(--c-pri-light);
+    background: var(--c-pri-light);
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05), 0 0 8px #ccc;
   }
   .icon {

@@ -126,7 +126,7 @@ label {
 input[type="checkbox"] {
     width: 20px;
     height: 20px;
-    background-color: #fff;
+    background: #fff;
     -webkit-appearance: none;
     border: 1px solid var(--c-pri);
     border-radius: 2px;
@@ -135,7 +135,7 @@ input[type="checkbox"] {
 }
 
 input[type="checkbox"]:checked {
-    background-color: var(--c-pri);
+    background: var(--c-pri);
     border-color: var(--c-pri);
 }
 
@@ -233,7 +233,7 @@ input[type="checkbox"]:checked {
 }
 
 input[type="radio"]:checked {
-    background-color: var(--c-pri);
+    background: var(--c-pri);
 }
 
 input[type="radio"]:focus {
@@ -263,7 +263,7 @@ input[type="radio"]:focus {
 
 .check-line {
     border: 2px solid #fff;
-    background-color: #fff;
+    background: #fff;
     margin: 50px 0px;
 }
 
@@ -311,7 +311,7 @@ input[type="radio"]:focus {
     }
     .check-rwd-title {
         height: 100px;
-        background-color: var(--c-pri);
+        background: var(--c-pri);
     }
     .check-title-text {
         padding: 15px;

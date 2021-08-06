@@ -15,7 +15,7 @@ function FavoriteList(props) {
       body: { able: 0 },
       headers: new Headers({
         Accept: "application/json",
-        "Content-Type": "appliaction/json",
+        "Content-Type": "application/json",
       }),
     });
     try {
@@ -34,7 +34,7 @@ function FavoriteList(props) {
       method: "GET",
       headers: new Headers({
         Accept: "application/json",
-        "Content-Type": "appliaction/json",
+        "Content-Type": "application/json",
       }),
     });
 
