@@ -33,9 +33,9 @@ function CustomizedMainPicture(props) {
     18: "http://localhost:8080/images/postcard/toy/fire.svg",
     19: "http://localhost:8080/images/postcard/toy/film.svg",
 
-    36: "http://localhost:8080/images/postcard/level/1.svg",
-    37: "http://localhost:8080/images/postcard/level/2.svg",
-    38: "http://localhost:8080/images/postcard/level/3.svg",
+    56: "http://localhost:8080/images/postcard/level/1.svg",
+    57: "http://localhost:8080/images/postcard/level/2.svg",
+    58: "http://localhost:8080/images/postcard/level/3.svg",
     rainy: "http://localhost:8080/images/postcard/weather/rainy.svg",
     cloudy: "http://localhost:8080/images/postcard/weather/cloudy.svg",
     sunny: "http://localhost:8080/images/postcard/weather/sunny.svg",

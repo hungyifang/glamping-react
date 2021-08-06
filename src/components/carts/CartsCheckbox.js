@@ -4,16 +4,16 @@ import React, { useState, useEffect } from "react";
 import { MdFavorite } from "react-icons/md";
 import { MdDeleteForever } from "react-icons/md";
 import { BsClock } from "react-icons/bs";
-import { FaUser } from "react-icons/fa";
+import { FaUser, FaRegTrashAlt } from "react-icons/fa";
 
 function CartsCheckbox(props) {
   const { allAgree, value, setCheck, setCheckboxArray, moreDelete } = props;
   const [agree, setAgree] = useState(false);
   // console.log(value)
   const levelPic = {
-    36: "http://localhost:8080/images/postcard/level/1.svg",
-    37: "http://localhost:8080/images/postcard/level/2.svg",
-    38: "http://localhost:8080/images/postcard/level/3.svg",
+    56: "http://localhost:8080/images/postcard/level/1.svg",
+    57: "http://localhost:8080/images/postcard/level/2.svg",
+    58: "http://localhost:8080/images/postcard/level/3.svg",
   };
   // 設定全選
   function allCheck() {
@@ -75,7 +75,7 @@ function CartsCheckbox(props) {
                 }
               }}
             >
-              <MdDeleteForever />
+              <FaRegTrashAlt />
             </div>
           </div>
         </div>

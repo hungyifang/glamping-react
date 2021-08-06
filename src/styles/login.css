@@ -87,6 +87,12 @@
     background: var(--c-sec-mid);
 }
 
+.login-btn-wrong {
+    width: 40%;
+    background: darkred;
+    cursor: progress;
+}
+
 /* 分隔線 */
 
 .demarcation {

@@ -7,7 +7,6 @@ function CustomizedLeft(props) {
   const [article, setArticle] = useState("");
 
   let contentProduce = function () {
-
     //   利用i_id抓需要的物件
     let itemData = data.filter((e) => e.i_id === Number(i_id));
     // 解決i_id為空的問題
@@ -27,7 +26,11 @@ function CustomizedLeft(props) {
         <div class="d-flex">
           {/* <!-- 商品大圖 --> */}
           <div class="item-bigPicture col-5">
-            <img class="pic-100" src="" alt="" />
+            <img
+              class="pic-100"
+              src="http://localhost:8080/images/pic/dinner/004.jpg"
+              alt="商品詳細圖片"
+            />
           </div>
           {/* <!-- 商品敘述 --> */}
           <div class="col cus-item-text">
@@ -38,13 +41,25 @@ function CustomizedLeft(props) {
         {/* <!-- 商品小圖區 --> */}
         <div class="d-flex justify-content-between">
           <div class="item-smallPicture col">
-            <img class="pic-100" src="" alt="" />
+            <img
+              class="pic-100"
+              src="http://localhost:8080/images/pic/dinner/003.jpg"
+              alt="商品詳細圖片"
+            />
           </div>
           <div class="item-smallPicture col">
-            <img class="pic-100" src="" alt="" />
+            <img
+              class="pic-100"
+              src="http://localhost:8080/images/pic/dinner/002.jpg"
+              alt="商品詳細圖片"
+            />
           </div>
           <div class="item-smallPicture col">
-            <img class="pic-100" src="" alt="" />
+            <img
+              class="pic-100"
+              src="http://localhost:8080/images/pic/dinner/005.jpg"
+              alt="商品詳細圖片"
+            />
           </div>
         </div>
       </div>

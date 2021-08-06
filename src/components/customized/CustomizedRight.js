@@ -31,19 +31,35 @@ function CustomizedRight(props) {
           </div>
           {/* <!-- 商品大圖 --> */}
           <div class="item-bigPicture col-5">
-            <img class="pic-100" src="" alt="" />
+            <img
+              class="pic-100"
+              src="http://localhost:8080/images/pic/tent/018.jpg"
+              alt="商品詳細圖片"
+            />
           </div>
         </div>
         {/* <!-- 商品小圖區 --> */}
         <div class="d-flex justify-content-between">
           <div class="item-smallPicture col">
-            <img class="pic-100 col" src="" alt="" />
+            <img
+              class="pic-100 col"
+              src="http://localhost:8080/images/pic/tent/012.jpg"
+              alt="商品詳細圖片"
+            />
           </div>
           <div class="item-smallPicture col">
-            <img class="pic-100" src="" alt="" />
+            <img
+              class="pic-100"
+              src="http://localhost:8080/images/pic/tent/010.jpg"
+              alt="商品詳細圖片"
+            />
           </div>
           <div class="item-smallPicture col">
-            <img class="pic-100" src="" alt="" />
+            <img
+              class="pic-100"
+              src="http://localhost:8080/images/pic/tent/032.jpg"
+              alt="商品詳細圖片"
+            />
           </div>
         </div>
       </div>

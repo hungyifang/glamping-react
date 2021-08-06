@@ -405,3 +405,25 @@
     display: none;
   }
 }
+
+/* React Date Range */
+
+.rdrDateDisplay {
+  color: transparent !important;
+}
+
+.rdrStartEdge, .rdrEndEdge, .rdrInRange {
+  color: var(--c-sec-deep) !important;
+}
+
+.rdrDayToday .rdrDayNumber span:after {
+  background: var(--c-sec-deep) !important;
+}
+
+.rdrDateDisplayWrapper, .rdrNextPrevButton, .rdrPprevButton {
+  background: var(--c-bg-light);
+}
+
+/* .rdrNextPrevButton:hover, .rdrPprevButton:hover {
+  background: var(--c-pri-light);
+} */

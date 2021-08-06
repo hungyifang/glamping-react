@@ -1,6 +1,6 @@
 import React from "react";
 import { HashLink } from "react-router-hash-link";
-import { IoFlowerOutline } from "react-icons/io5";
+import { IoMdFlower } from "react-icons/io";
 import { FaRegLifeRing } from "react-icons/fa";
 
 function EventQuickList() {
@@ -28,7 +28,7 @@ function EventQuickList() {
             "
             to="#section1"
           >
-            <FaRegLifeRing />
+            <FaRegLifeRing size="1.7rem" />
             &nbsp;<span>動態活動</span>
           </HashLink>
           {/* <!--TODO 錨點 --> */}
@@ -41,7 +41,7 @@ function EventQuickList() {
             "
             to="#section2"
           >
-            <IoFlowerOutline />
+            <IoMdFlower size="1.7rem" />
             &nbsp;<span>靜態活動</span>
           </HashLink>
         </div>

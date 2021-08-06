@@ -4,6 +4,7 @@ import { MdLocalMall, MdMenu } from "react-icons/md";
 import $ from "jquery";
 import Login from "./Login";
 import { ReactComponent as Logo } from "../logo.svg";
+import "../index.css";
 
 function Header(props) {
   const u_id = localStorage.getItem("u_id");
@@ -40,7 +41,7 @@ function Header(props) {
 
   const loginBtn = (
     <div
-      className="d-flex justify-content-center align-items-center btn-outline mx-2"
+      className="signin-btn d-flex justify-content-center align-items-center btn-outline mx-2"
       onClick={openModal}
     >
       登入
@@ -50,7 +51,7 @@ function Header(props) {
   const avatar = (
     <>
       <Link to="/member" className="avatar mx-2">
-        <img
+        <img className="img-fluid"
           src={`http://localhost:8080/images/avatar/${u_id}.jpeg`}
           alt="個人資料相片"
         />

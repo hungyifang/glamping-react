@@ -1,5 +1,6 @@
 import { addDays } from "date-fns";
 import format from "date-fns/format";
+import { zhTW } from "date-fns/locale";
 import { useState, useEffect } from "react";
 import { DateRange } from "react-date-range";
 import "react-date-range/dist/styles.css"; // main style file
@@ -407,6 +408,7 @@ function CustomizedDate(props) {
           maxDate={addDays(new Date(), 30)}
           disabledDates={dayArray}
           scroll={{ enabled: true }}
+          locale={zhTW}
         />
       </div>
       <div className="cus-main-date-text ms-3">
