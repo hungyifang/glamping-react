@@ -1,20 +1,15 @@
-import React, { useEffect, createRef, useState } from "react";
+import React, { useEffect, createRef } from "react";
 import lottie from "lottie-web";
-import { Modal } from "react-bootstrap";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 function Intro() {
   let animationContainer = createRef();
-  let animationContainermap = createRef();
+  // let animationContainermap = createRef();
 
-  const [show, setShow] = useState(false);
-
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-
-  // handleClick = () => {
-  //      this.SubInput.handleFocus();
-
-  // };
+  // const headerRef = useRef(null);
 
   useEffect(() => {
     const anim = lottie.loadAnimation({
@@ -26,33 +21,60 @@ function Intro() {
     });
     anim.setSpeed(0.5);
 
-    const animmap = lottie.loadAnimation({
-      container: animationContainermap.current,
-      renderer: "svg",
-      loop: true,
-      autoplay: true,
-      id: "iconPin1",
-      path: "/animations/intro_main.json", // JSON文件路徑
+    LottieScrollTrigger({
+      target: "#map",
+      path: "/animations/intro_main.json",
+      speed: "medium",
+      pin: ".article",
+      start: "top top",
+      scrub: true,
+      markers: false,
+      toggleActions: "play none none reverse",
     });
-    animmap.setSpeed(1);
-    animmap.addEventListener("DOMLoaded", () => {
-      console.log(document.getElementById("iconPin1"));
-    });
+    function LottieScrollTrigger(vars) {
+      let playhead = { frame: 0 },
+        target = gsap.utils.toArray(vars.target)[0],
+        speeds = { slow: "+=3000", medium: "+=1000", fast: "+=500" },
+        st = {
+          trigger: target,
+          pin: true,
+          start: "top top",
+          end: speeds[vars.speed] || "+=300%",
+          scrub: 1,
+        },
+        animation = lottie.loadAnimation({
+          container: target,
+          renderer: vars.renderer || "svg",
+          loop: false,
+          autoplay: false,
+          path: vars.path,
+        });
+
+      //標記
+      for (let p in vars) {
+        // let users override the ScrollTrigger defaults
+        st[p] = vars[p];
+      }
+
+      animation.addEventListener("DOMLoaded", function () {
+        gsap.to(playhead, {
+          frame: animation.totalFrames - 1,
+          ease: "none",
+          onUpdate: () => animation.goToAndStop(playhead.frame, true),
+          scrollTrigger: st,
+        });
+      });
+    }
   }, []);
 
   return (
     <>
-      <main className="container-fluid p-0">
+      <main
+        className="container-fluid
+      p-0"
+      >
         <div ref={animationContainer}></div>
-        <article ref={animationContainermap} className="mt-4">
-          <div id="iconPin1" onClick={handleShow}>
-            <Modal show={show} onHide={handleClose}>
-              <Modal.Body>123</Modal.Body>
-            </Modal>
-          </div>
-        </article>
-        <div id="pin-icon2"></div>
-        <div id="pin-icon3"></div>
+        <article id="map" className="mt-4"></article>
       </main>
     </>
   );
