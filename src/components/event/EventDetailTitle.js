@@ -75,6 +75,10 @@ function EventDetailTitle(props) {
     checkFav();
   }, [login]);
 
+  useEffect(() => {
+    if (!auth) setFav(false);
+  }, [auth]);
+
   // useEffect(() => {
   //   console.log(login);
   // }, [login]);

@@ -75,7 +75,9 @@ function CartsCheckbox(props) {
                 if (agree) {
                   moreDelete();
                 } else {
-                  alert("請勾選後才能刪除喔");
+                  // alert("請勾選後才能刪除喔");
+                  props.setMsg("請勾選後才能刪除喔！");
+                  props.setIsOpen(true);
                 }
               }}
             >

@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 import "../styles/carts.css";
 import CartsCheckbox from "../components/carts/CartsCheckbox";
+import MsgModal from "../components/event/MsgModal";
 
 function Carts(props) {
   const { auth } = props;
@@ -17,6 +18,16 @@ function Carts(props) {
   const [orderedData, setOrderedData] = useState([]);
   const [checkboxArray, setCheckboxArray] = useState([]);
   const [selectAllArr, setSelectAllArr] = useState([]);
+  const [msg, setMsg] = useState("");
+  const [modalIsOpen, setIsOpen] = useState(false);
+
+  function openModal() {
+    setIsOpen(true);
+  }
+
+  function closeModal() {
+    setIsOpen(false);
+  }
 
   // 抓取localstorage orderData資料
   function setData() {
@@ -140,6 +151,8 @@ function Carts(props) {
                 setCheck={setCheck}
                 setCheckboxArray={setCheckboxArray}
                 moreDelete={moreDelete}
+                setIsOpen={setIsOpen}
+                setMsg={setMsg}
               />
             ))}
           <h1 className=" cart-title">
@@ -184,7 +197,9 @@ function Carts(props) {
                     pathname: `/checkout`,
                   });
                 } else {
-                  alert("請先登入");
+                  // alert("請先登入");
+                  setMsg("請先登入會員！");
+                  setIsOpen(true);
                 }
               }}
             >
@@ -193,6 +208,11 @@ function Carts(props) {
           </div>
         </div>
       </div>
+      <MsgModal
+        modalIsOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        text={msg}
+      />
     </>
   );
 }

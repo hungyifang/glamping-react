@@ -160,11 +160,6 @@ function EventDetail(props) {
           onRequestClose={closeModal}
           text={msg}
         />
-        <MsgModal
-          modalIsOpen={modalIsOpen}
-          onRequestClose={closeModal}
-          text={msg}
-        />
       </>
     );
   });
