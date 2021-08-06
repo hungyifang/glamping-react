@@ -41,7 +41,7 @@ function Home(props) {
               <HiUsers className="col p-0" size="1.2rem" />
               <div className="col-5 m-0 p-0 pe-2">
                 <input
-                  className="home-input h4"
+                  className="home-input h4 ps-3"
                   placeholder="人數"
                   type="number"
                   value={persons}

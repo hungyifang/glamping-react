@@ -78,7 +78,7 @@ function EventDetailCalendar(props) {
       }
     );
     let o_id = getTime_oid.data.o_id;
-    console.log(o_id);
+    // console.log(o_id);
     setLast_oid(o_id);
   }
   //Ordered_detail 存 localstorage
@@ -133,11 +133,11 @@ function EventDetailCalendar(props) {
   }, [i_id]);
   //提交表單(更新ordered)後,送資料庫
   useEffect(() => {
-    console.log(upload);
+    // console.log(upload);
     afterAddCart();
   }, [upload]);
   useEffect(() => {
-    console.log(ordered);
+    // console.log(ordered);
   }, [ordered]);
   //登入後更新ordered內的u_id
   useEffect(() => {
@@ -148,7 +148,7 @@ function EventDetailCalendar(props) {
     setOrdered(newOrdered);
   }, [auth]);
   useEffect(() => {
-    console.log(last_oid);
+    // console.log(last_oid);
     let newOrdered_detail = {
       ...ordered_detail,
       o_id: last_oid,
@@ -158,9 +158,10 @@ function EventDetailCalendar(props) {
     setLocalstorage(newOrdered_detail); //非useState
     insertOrdered_detail_DB(newOrdered_detail);
     if (goCart) history.push("/carts"); //立即訂購前往購物車
+    if (!goCart) alert("加入成功");
   }, [last_oid]);
   useEffect(() => {
-    console.log(ordered_detail);
+    // console.log(ordered_detail);
   }, [ordered_detail]);
 
   return (

@@ -53,7 +53,6 @@ function BnBDateRangePicker(props) {
           focused={focused} // PropTypes.bool
           onFocusChange={({ focused }) => setFocused(focused)} // PropTypes.func.isRequired
           id="RWDdate" // PropTypes.string.isRequired,
-          name="RWDdate"
           openDirection="up"
           numberOfMonths={1}
           showDefaultInputIcon
@@ -111,7 +110,7 @@ function BnBDateRangePicker(props) {
           />
           <input
             type="text"
-            value={moment(startDate).format("YYYY/MM/DD")}
+            value={moment(startDate).format("YYYY-MM-DD")}
             onDatesChange={({ startDate }) => {
               setStartDate(startDate);
             }}

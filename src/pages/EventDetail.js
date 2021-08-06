@@ -97,7 +97,15 @@ function EventDetail(props) {
           <EventDetailQuickListRWD />
           <div className="container-fluid p-0">
             {/* 手機板日曆 */}
-            <EventDetailCalendarRWD price={result.price} />
+            <EventDetailCalendarRWD
+              price={result.price}
+              title={result.title}
+              time={result.time}
+              level={result.level}
+              i_id={i_id}
+              auth={auth}
+              key={index}
+            />
           </div>
           <div className="container-fluid event-description">
             <section className="container">
@@ -113,6 +121,7 @@ function EventDetail(props) {
                   i_id={i_id}
                   auth={auth}
                   setParentStar={setParentStar}
+                  key={index + 1}
                 />
               </div>
               <div className="row" id="warning">

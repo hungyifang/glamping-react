@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import EventCard from "./EventCard";
 
 function EventDetailSuggestion(props) {
@@ -17,7 +17,6 @@ function EventDetailSuggestion(props) {
             suggestion={true}
             u_id={props.u_id}
             i_id={props.i_id}
-            key={auth}
           />
         </div>
       </div>

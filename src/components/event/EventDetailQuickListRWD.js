@@ -1,11 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import $ from "jquery";
 
 function EventDetailQuickListRWD() {
-  let width = $("body").width();
-  const [RWD, setRWD] = useState(false);
-  const [load, setLoad] = useState(false);
-
   function handleHashLink(id) {
     $("#" + id).on("click", function () {
       let location = $("#" + id.replace("Go", "")).offset();
@@ -13,27 +9,10 @@ function EventDetailQuickListRWD() {
       window.scrollTo(location);
     });
   }
-  // fix-bottom
-  function handleRWD() {
-    if (width <= 1043) {
-      setRWD(true);
-    } else {
-      setRWD(false);
-    }
-    setLoad(true);
-  }
-  useEffect(() => {
-    // fix-bottom
-    handleRWD();
-    setLoad(false);
-  }, [load]);
+
   return (
     <>
-      <div
-        className={
-          RWD ? "rwd-menu row p-0 m-0 fixed-bottom" : "rwd-menu row p-0 m-0"
-        }
-      >
+      <div className="rwd-menu row p-0 m-0 fixed-bottom">
         <ul className="d-flex m-0 p-0 justify-content-center">
           <li>
             <div id="GocheckDate" onClick={handleHashLink("GocheckDate")}>

@@ -47,7 +47,9 @@ function CartsCheckbox(props) {
             alt=""
           />
           <div className="d-flex flex-column justify-content-center">
-            <p className="h3 carts-order-title">{value.title}</p>
+            <p className="h3 carts-order-title">
+              {value.prime === 4 ? "當地活動 | " + value.title : value.title}
+            </p>
             <p className="h4 carts-order-info d-flex align-items-center">
               <BsClock />
               <span>
