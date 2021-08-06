@@ -67,6 +67,7 @@ body {
     border: 3px solid var(--c-pri);
     border-radius: 25px;
     background: none;
+    color: var(--c-pri);
 }
 
 .btn-outline a {
@@ -261,10 +262,6 @@ ul {
     list-style: none;
 }
 
-.signin-btn {
-    color: var(--c-pri);
-}
-
 .btn-outline.rwd {
     display: none;
 }
@@ -320,6 +317,11 @@ ul {
         padding: 15px 60px;
         border-radius: 10px;
     }
+    .main-menu-a.active {
+        border: none;
+        color: var(--c-pri);
+        background: var(--c-pri-light);
+    }
     .main-menu-a:hover {
         background-color: var(--c-pri);
         color: var(--c-bg-light);
@@ -363,6 +365,9 @@ ul {
     }
     .footer-link.menu li {
         display: none;
+    }
+    .d-none-rwd {
+        display: none !important;
     }
 }
 

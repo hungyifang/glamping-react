@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { MdLocalMall, MdMenu } from "react-icons/md";
+
 import $ from "jquery";
 import Login from "./Login";
 import { ReactComponent as Logo } from "../logo.svg";
+import { IoCloseSharp, IoLogOutOutline } from "react-icons/io5";
 import "../index.css";
 
 function Header(props) {
   const u_id = localStorage.getItem("u_id");
   const { auth, setAuth } = props;
+  const [hamberger, setHamberger] = useState(true);
   const [modalIsOpen, setIsOpen] = useState(false);
 
   function openModal() {
@@ -41,7 +44,7 @@ function Header(props) {
 
   const loginBtn = (
     <div
-      className="signin-btn d-flex justify-content-center align-items-center btn-outline mx-2"
+      className="btn-outline d-none-rwd d-flex justify-content-center align-items-center mx-2"
       onClick={openModal}
     >
       登入
@@ -51,12 +54,16 @@ function Header(props) {
   const avatar = (
     <>
       <Link to="/member" className="avatar mx-2">
-        <img className="img-fluid"
+        <img
+          className="img-fluid"
           src={`http://localhost:8080/images/avatar/${u_id}.jpeg`}
           alt="個人資料相片"
         />
       </Link>
-      <Link className="fw-bold main-menu-a mx-2" onClick={() => logout()}>
+      <Link
+        className="fw-bold main-menu-a mx-2 d-none-rwd"
+        onClick={() => logout()}
+      >
         登出
       </Link>
     </>
@@ -85,10 +92,25 @@ function Header(props) {
     });
   }, []);
 
+  // RWD 側邊選單
+  function clickHamberger() {
+    let status = hamberger;
+    setHamberger(!status);
+    // if ($('body').width() >= 1043) setHamberger(false);
+    if ($("body").width() >= 1043) $(".main-menu").css("display", "none");
+    $(".main-menu").css("display", "flex");
+    if (hamberger) $(".main-menu").css("right", "0");
+    if (!hamberger) $(".main-menu").css("right", "-500px");
+  }
+
+  // useEffect(() => {
+  //   console.log(hamberger);
+  // }, [hamberger]);
+
   return (
     <>
       <nav>
-        <div className="container-fluid ">
+        <div className="container-fluid">
           <div className="col nav d-flex align-items-center justify-content-between">
             <div className="logo">
               <NavLink exact to="/">
@@ -97,6 +119,28 @@ function Header(props) {
             </div>
             <div className="main-menu">
               <ul className="d-flex align-items-center m-0 p-0">
+                {/* fff */}
+                <li>
+                  {auth ? (
+                    <div className="logout-icon rwd" onClick={() => logout()}>
+                      <IoLogOutOutline />
+                      <span className="text-pri mx-2">登出</span>
+                    </div>
+                  ) : (
+                    <div
+                      className="
+                justify-content-center
+                align-items-center
+                btn-outline
+                rwd
+                mx-2
+              "
+                    >
+                      <NavLink to="/login">登入</NavLink>
+                    </div>
+                  )}
+                </li>
+                {/* fff */}
                 <li>
                   <NavLink
                     className="fw-bold main-menu-a mx-4"
@@ -153,7 +197,17 @@ function Header(props) {
               </Link>
               {auth ? avatar : loginBtn}
               <div className="header-icon berger-list">
-                <MdMenu />
+                {/* <MdMenu /> */}
+                {/* fff */}
+                <div
+                  className="berger-list"
+                  onClick={() => {
+                    clickHamberger();
+                  }}
+                >
+                  {hamberger ? <MdMenu /> : <IoCloseSharp />}
+                </div>
+                {/* fff */}
               </div>
             </div>
           </div>
