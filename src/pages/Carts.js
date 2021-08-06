@@ -6,6 +6,12 @@ import "../styles/carts.css";
 import CartsCheckbox from "../components/carts/CartsCheckbox";
 
 function Carts(props) {
+  const { auth } = props;
+  if (auth) {
+    putU_idToData();
+  }
+
+  // console.log(auth);
   const [allAgree, setAllAgree] = useState(false);
   const [allTotal, setAllTotal] = useState(0);
   const [orderedData, setOrderedData] = useState([]);
@@ -16,7 +22,17 @@ function Carts(props) {
   function setData() {
     setOrderedData(JSON.parse(localStorage.getItem("orderData")));
   }
-
+  // 判斷有登入把u_id塞回去
+  function putU_idToData() {
+    if (JSON.parse(localStorage.getItem("orderData"))) {
+      let localU_id = JSON.parse(localStorage.getItem("u_id"));
+      let data = JSON.parse(localStorage.getItem("orderData"));
+      for (let i = 0; i < data.length; i++) {
+        data[i]["u_id"] = localU_id;
+      }
+      localStorage.setItem("orderData", JSON.stringify(data));
+    }
+  }
   // 設定總價
   function total() {
     let result = 0;
@@ -167,7 +183,7 @@ function Carts(props) {
                   props.history.push({
                     pathname: `/checkout`,
                   });
-                }else{
+                } else {
                   alert("請先登入");
                 }
               }}

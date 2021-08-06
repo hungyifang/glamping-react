@@ -12,7 +12,6 @@ import Customized from "./pages/Customized";
 import Carts from "./pages/Carts";
 import Checkout from "./pages/Checkout";
 
-
 function App() {
   const [auth, setAuth] = useState(true);
 
@@ -59,7 +58,7 @@ function App() {
               <Customized />
             </Route>
             <Route exact path="/carts">
-              <Carts />
+              <Carts auth={auth} />
             </Route>
             <Route exact path="/Checkout/">
               <Checkout />
