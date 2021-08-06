@@ -6,7 +6,7 @@ import "../styles/checkout.css";
 
 function Checkout(props) {
   const orderedData = JSON.parse(localStorage.getItem("orderData"));
-
+  console.log(orderedData);
   // 訂購人資料
   const [inputTextFirst, setInputTextFirst] = useState("");
   const [inputTextLast, setInputTextLast] = useState("");
@@ -41,6 +41,7 @@ function Checkout(props) {
       result.push(e.o_id);
     });
     setO_idArray(result);
+    console.log(result)
   }
   // 拿到點數
   async function pointGetFromSever() {
@@ -80,11 +81,14 @@ function Checkout(props) {
   function newPoints() {
     setPointGet(Math.floor(newTotal / 100));
   }
-  // 更改ordered資料表s_id to 10
+  // 更改ordered資料表s_id to 10  及 u_id
   async function changeS_idToSever() {
     let objData = [];
     for (let i = 0; i < o_idArray.length; i++) {
-      objData.push({ o_id: o_idArray[i] });
+      objData.push({
+        o_id: o_idArray[i],
+        u_id: parseInt(localStorage.getItem("u_id")),
+      });
     }
     console.log(objData);
     const url = "http://localhost:8080/api/rooms/orders/established";
