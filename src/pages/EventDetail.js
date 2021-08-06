@@ -10,6 +10,7 @@ import EventDetailCalendarRWD from "../components/event/EventDetailCalendarRWD";
 import EventDetailQuickListRWD from "../components/event/EventDetailQuickListRWD";
 import EventDetailReview from "../components/event/EventDetailReview";
 import EventDetailSuggestion from "../components/event/EventDetailSuggestion";
+import MsgModal from "../components/event/MsgModal";
 const axios = require("axios").default;
 
 function EventDetail(props) {
@@ -18,16 +19,20 @@ function EventDetail(props) {
   // console.log(i_id);
   // console.log(props.location);
   const u_id = localStorage.getItem("u_id");
-  const [urlChange, setUrlChange] = useState(i_id);
   const [login, setLogin] = useState(false);
   const [events, setEvents] = useState([]);
   const [load, setLoad] = useState(false);
   const [parentStar, setParentStar] = useState(0);
+  const [msg, setMsg] = useState("");
+  const [modalIsOpen, setIsOpen] = useState(false);
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   const data = new FormData(e.target);
-  // };
+  function openModal() {
+    setIsOpen(true);
+  }
+
+  function closeModal() {
+    setIsOpen(false);
+  }
 
   async function loadEvent() {
     let result = await axios.get("http://localhost:8080/api/event/detail", {
@@ -92,6 +97,8 @@ function EventDetail(props) {
             title={result.title}
             subtitle={result.subtitle}
             time={result.time}
+            setIsOpen={setIsOpen}
+            setMsg={setMsg}
           />
           {/* 手機板快速選單 */}
           <EventDetailQuickListRWD />
@@ -102,9 +109,12 @@ function EventDetail(props) {
               title={result.title}
               time={result.time}
               level={result.level}
+              src={result.img_src}
               i_id={i_id}
               auth={auth}
               key={index}
+              setIsOpen={setIsOpen}
+              setMsg={setMsg}
             />
           </div>
           <div className="container-fluid event-description">
@@ -118,9 +128,12 @@ function EventDetail(props) {
                   title={result.title}
                   level={result.level}
                   time={result.time}
+                  src={result.img_src}
                   i_id={i_id}
                   auth={auth}
                   setParentStar={setParentStar}
+                  setIsOpen={setIsOpen}
+                  setMsg={setMsg}
                   key={index + 1}
                 />
               </div>
@@ -142,6 +155,16 @@ function EventDetail(props) {
           <EventDetailReview i_id={i_id} parentStar={parentStar} key={i_id} />
           <EventDetailSuggestion auth={auth} i_id={i_id} />
         </main>
+        <MsgModal
+          modalIsOpen={modalIsOpen}
+          onRequestClose={closeModal}
+          text={msg}
+        />
+        <MsgModal
+          modalIsOpen={modalIsOpen}
+          onRequestClose={closeModal}
+          text={msg}
+        />
       </>
     );
   });

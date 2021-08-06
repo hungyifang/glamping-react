@@ -11,7 +11,8 @@ function EventDetailTitle(props) {
 
   async function clickFav() {
     if (!auth) {
-      return alert("請先登入");
+      props.setMsg("請先登入會員！");
+      return props.setIsOpen(true);
     }
     let switchFav = !fav;
     let u_id = props.u_id;

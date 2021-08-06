@@ -257,7 +257,7 @@ input[type=number] {
     .rwd-calendar {
         display: block;
     }
-    .rwd-title{
+    .rwd-title {
         display: flex;
         justify-content: center;
     }
@@ -611,4 +611,25 @@ input[type=number] {
         padding: 0 5px;
         left: -50px;
     }
+}
+
+.event-modal {
+    position: absolute;
+    top: 40%;
+    left: 30%;
+    right: 30%;
+    /* bottom: 4%; */
+    background-color: var(--c-bg-light);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.event-modal:focus {
+    outline: none;
+}
+
+.event-modal-title {
+    height: 56px;
+    /* background: var(--c-bg-deep); */
 }

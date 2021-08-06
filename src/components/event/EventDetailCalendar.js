@@ -43,6 +43,7 @@ function EventDetailCalendar(props) {
     title: props.title,
     prime: 4,
     total: 0,
+    src: props.src,
   });
 
   //點擊"加入購物車", 提交表單
@@ -158,7 +159,10 @@ function EventDetailCalendar(props) {
     setLocalstorage(newOrdered_detail); //非useState
     insertOrdered_detail_DB(newOrdered_detail);
     if (goCart) history.push("/carts"); //立即訂購前往購物車
-    if (!goCart) alert("加入成功");
+    if (!goCart) {
+      props.setMsg("加入成功！");
+      props.setIsOpen(true);
+    }
   }, [last_oid]);
   useEffect(() => {
     // console.log(ordered_detail);
