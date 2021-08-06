@@ -17,6 +17,7 @@ function Home(props) {
   let animationContainer = createRef();
 
   useEffect(() => {
+    document.title = "山角行";
     const hero = lottie.loadAnimation({
       container: animationContainer.current,
       renderer: "svg",

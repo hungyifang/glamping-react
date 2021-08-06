@@ -26,6 +26,7 @@ function RewardPoint(props) {
   }
 
   useEffect(() => {
+    document.title = `山角行 - 點數管理`;
     getUserDataFromServer(u_id);
   }, []);
 

@@ -41,6 +41,7 @@ function EventDetail(props) {
       },
     });
     result = result.data[0];
+    document.title = `山角行 - ${result[0].title}`;
     setEvents(result);
     setLoad(true);
   }
@@ -74,6 +75,7 @@ function EventDetail(props) {
   useEffect(() => {
     loadEvent();
   }, [i_id]);
+
   useEffect(() => {
     handleScrollBug();
   }, [load]);

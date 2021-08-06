@@ -25,6 +25,7 @@ function Myfav(props) {
   }
 
   useEffect(() => {
+    document.title = `山角行 - 我的收藏`;
     getUserDataFromServer(u_id);
   }, []);
 

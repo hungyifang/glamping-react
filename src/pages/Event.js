@@ -7,6 +7,7 @@ import EventSection from "../components/event/EventSection";
 
 function Event(props) {
   useEffect(() => {
+    document.title = "山角行 - 當地活動";
     // jquery程式碼寫在這裡
     $(window).on("load resize", function () {
       if ($(window).width() <= 1043) {

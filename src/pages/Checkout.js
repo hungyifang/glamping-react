@@ -152,6 +152,7 @@ function Checkout(props) {
     localStorage.removeItem("orderData");
   }
   useEffect(() => {
+    document.title = "山角行 - 結帳";
     pointGetFromSever();
     pointGetFrom();
     total();

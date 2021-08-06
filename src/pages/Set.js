@@ -46,6 +46,7 @@ function Set() {
   }
   // 一開始就會開始載入資料
   useEffect(() => {
+    document.title = `山角行 - 套裝行程`;
     getItemFromServer();
   }, []);
 

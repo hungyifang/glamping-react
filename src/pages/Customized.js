@@ -396,6 +396,7 @@ function Customized(props) {
 
   // 一開始就會開始載入資料
   useEffect(() => {
+    document.title = "山角行 - 客製行程";
     getWeatherFromSever();
     getTemperatureFromSever();
     u_idSet();

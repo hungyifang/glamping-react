@@ -64,6 +64,7 @@ function Comment(props) {
   useEffect(() => {
     // let o_id = props.match.params.id
     // let o_id = 3
+    document.title = "山角行 - 評論";
     getOrdersFromServer(o_id);
   }, []);
 

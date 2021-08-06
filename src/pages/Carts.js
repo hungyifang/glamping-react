@@ -131,6 +131,7 @@ function Carts(props) {
   }
   console.log(checkboxArray);
   useEffect(() => {
+    document.title = "山角行 - 購物車";
     setData();
   }, []);
   useEffect(() => {

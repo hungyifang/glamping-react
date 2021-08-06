@@ -62,6 +62,7 @@ function Settings(props) {
   }
 
   useEffect(() => {
+    document.title = `山角行 - 帳號設定`;
     getUserDataFromServer(u_id);
   }, []);
 
