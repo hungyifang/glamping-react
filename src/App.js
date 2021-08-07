@@ -14,6 +14,15 @@ import Checkout from "./pages/Checkout";
 
 function App() {
   const [auth, setAuth] = useState(true);
+  const [newCartsNum, setNewCartsNum] = useState();
+
+  function updateCartNum() {
+    if (localStorage.getItem("orderData")) {
+      setNewCartsNum(JSON.parse(localStorage.getItem("orderData")).length);
+    } else {
+      setNewCartsNum(0);
+    }
+  }
 
   async function checkIsLogin() {
     const url = `http://localhost:8080/api/auth/check`;
@@ -34,6 +43,7 @@ function App() {
   }
 
   useEffect(() => {
+    updateCartNum();
     checkIsLogin();
   }, []);
 
@@ -41,7 +51,7 @@ function App() {
     <Router>
       <ScrollToTop>
         <Switch>
-          <Layout auth={auth} setAuth={setAuth}>
+          <Layout auth={auth} setAuth={setAuth} newCartsNum={newCartsNum}>
             <Route exact path="/">
               <Home auth={auth} />
             </Route>
@@ -55,10 +65,10 @@ function App() {
               <Set />
             </Route>
             <Route exact path="/customized">
-              <Customized />
+              <Customized setNewCartsNum={setNewCartsNum} />
             </Route>
             <Route exact path="/carts">
-              <Carts auth={auth} />
+              <Carts auth={auth} setNewCartsNum={setNewCartsNum} />
             </Route>
             <Route exact path="/checkout">
               <Checkout />

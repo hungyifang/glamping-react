@@ -7,7 +7,7 @@ import CartsCheckbox from "../components/carts/CartsCheckbox";
 import MsgModal from "../components/event/MsgModal";
 
 function Carts(props) {
-  const { auth } = props;
+  const { auth, setNewCartsNum } = props;
   if (auth) {
     putU_idToData();
   }
@@ -127,6 +127,11 @@ function Carts(props) {
       setCheckboxArray([]);
       // 更新localstorage
       localStorage.removeItem("orderData");
+    }
+    if (localStorage.getItem("orderData")) {
+      setNewCartsNum(JSON.parse(localStorage.getItem("orderData")).length);
+    } else {
+      setNewCartsNum(0);
     }
   }
   console.log(checkboxArray);
