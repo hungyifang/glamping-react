@@ -179,7 +179,7 @@
         height: 280px;
         border-radius: 30px;
         overflow: hidden;
-        border: red 1px solid;
+        /* border: red 1px solid; */
     }
     .set-card-content {
         padding: 10px 30px;

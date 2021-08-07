@@ -728,3 +728,249 @@ ul {
         left: -50px;
     }
 }
+
+/* 客製化 */
+
+.cus-main {
+    /* min-width: 1920px; */
+    margin-top: 100px;
+    height: 1000px;
+    background: var(--c-bg-deep);
+}
+
+.cus-determine-submit {
+    color: #fefbe6;
+    font-size: 18px;
+    background: var(--c-pri);
+    width: 150px;
+    /* height: 60px; */
+    margin-top: 30px;
+    border-radius: 30px;
+    text-align: center;
+    line-height: 50px;
+}
+
+.cus-determine-submit:hover {
+    color: #fefbe6;
+    background: var(--c-pri-light)
+}
+
+.cus-determine-total {
+    font-size: 1.75rem;
+    display: flex;
+    align-items: flex-end;
+    line-height: 60px;
+    margin: 0;
+    color: var(--c-sec-deep)
+}
+
+/* React Date Range */
+
+.rdrDateDisplay {
+    color: transparent !important;
+}
+
+.rdrStartEdge, .rdrEndEdge, .rdrInRange {
+    color: var(--c-sec-deep) !important;
+}
+
+.rdrDayToday .rdrDayNumber span:after {
+    background: var(--c-sec-deep) !important;
+}
+
+.rdrDateDisplayWrapper, .rdrNextPrevButton, .rdrPprevButton {
+    background: var(--c-bg-light);
+}
+
+.cus-display-link li {
+    color: var(--c-sec-light);
+    text-align: center;
+    border-radius: 15px;
+    margin: 0 5px;
+    width: 150px;
+}
+
+.cus-display-link li:hover {
+    background: var(--c-pri);
+    color: var(--c-bg-light);
+}
+
+/* 商品紙娃娃系統 */
+
+.item-title {
+    font-size: 36px;
+    font-weight: bold;
+    color: #637f60;
+    margin: 50px;
+}
+
+.item-oddBackground {
+    margin: 50px;
+    background: #ffefc4;
+    border-radius: 20px;
+}
+
+.item-evenBackground {
+    margin: 50px;
+    background: #cede98;
+    border-radius: 20px;
+}
+
+.cus-item-text h3 {
+    font-size: 36px;
+    font-weight: bold;
+    color: #849b68;
+    margin-bottom: 50px;
+}
+
+.cus-item-text p {
+    font-size: 24px;
+    color: #849b68;
+}
+
+/* 套裝行程 */
+
+.set-select {
+    /* width: 1085px; */
+    height: 90px;
+    /* border: red 1px solid; */
+    margin: 60px 0;
+    border-radius: 15px;
+    background: var(--c-pri-light);
+}
+
+.set-select-li {
+    width: 242px;
+    height: 73px;
+    font-weight: bold;
+    color: var(--c-pri);
+    /* border: red 1px solid; */
+    margin: 0 30px;
+    border-radius: 15px;
+    line-height: 73px;
+    font-size: 1.25rem;
+    display: flex;
+    justify-content: center;
+}
+
+.set-select-li:hover {
+    background: #fff;
+    cursor: pointer;
+}
+
+.set-select-li i {
+    font-size: 1.5rem;
+    color: var(--c-pri);
+}
+
+@media screen and (max-width: 1240px) {
+    .set-select-li {
+        display: grid;
+        text-align: center;
+        margin: 0 10px;
+        width: 150px;
+        height: 60px;
+        line-height: 20px;
+    }
+    .set-select-li div {
+        display: inline;
+        font-size: 1rem;
+        height: 0;
+    }
+    .set-select-li i {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    header img {
+        margin-bottom: 10px;
+    }
+    .set-select {
+        border-radius: 0;
+        margin: 0;
+        /* padding: 0; */
+        position: fixed;
+        bottom: 0;
+        z-index: 1;
+    }
+    .set-select-li {
+        display: grid;
+        text-align: center;
+        margin: 0 10px;
+        width: 80px;
+        height: 60px;
+        line-height: 20px;
+    }
+}
+
+.set-article {
+    /* min-height: 3500px; */
+    background: var(--c-bg-deep);
+}
+
+.set-man-box {
+    /* margin: 60px; */
+    margin-right: 10px;
+}
+
+.set-main-tittle {
+    color: var(--c-bg-light);
+    display: inline-block;
+    /* font-size: 3.25rem; */
+    font-weight: bold;
+    margin: 75px 0 25px 15px;
+}
+
+.set-main h5 {
+    color: var(--c-bg-mid);
+    /* font-size: 1rem; */
+    margin-bottom: 65px;
+    margin-left: 15px;
+}
+
+@media screen and (max-width: 768px) {
+    .set-main-tittle {
+        display: block;
+        text-align: center;
+        font-size: 1.25rem;
+        font-weight: bold;
+        margin: 20px 0 5px 0;
+        padding-top: 15px;
+    }
+    .set-main h5 {
+        text-align: center;
+        margin: 0 0 25px 0;
+    }
+}
+
+/* 卡片 */
+.set-card {
+    max-width: 430px;
+    height: 600px;
+    border-radius: 60px;
+    margin: 0 15px 30px 20px;
+    transition: .2s;
+    background: var(--c-bg-mid);
+}
+
+.set-card-title h3 {
+    margin: 0 15px;
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: var(--c-pri);
+}
+
+.set-card-content span {
+    /* text-align: center; */
+    margin: 5px 0;
+    font-size: 1.125rem;
+    color: var(--c-bg-deep);
+}
+
+.set-card-icon {
+    /* border: red 1px solid; */
+    color: var(--c-bg-deep);
+    display: flex;
+    justify-content: center;
+}

@@ -9,7 +9,8 @@ import { MdCheckBox } from "react-icons/md";
 import { FaMountain } from "react-icons/fa";
 import { MdToys } from "react-icons/md";
 
-function Set() {
+function Set(props) {
+  const isDay = props.isDay;
   // 設定套裝資料
   const [prodcuts, setProducts] = useState([[], [], [], [], []]);
 
@@ -54,7 +55,14 @@ function Set() {
     <>
       {/* <!-- banner --> */}
       <header>
-        <img src="http://localhost:8080/images/banner/light/trip.svg" alt="" />
+        <img
+          src={
+            isDay
+              ? "http://localhost:8080/images/banner/light/trip.svg"
+              : "http://localhost:8080/images/banner/dark/trip.svg"
+          }
+          alt="套裝行程banner"
+        />
       </header>
       {/* <!-- 快速選單 --> */}
       <div className="d-flex ">

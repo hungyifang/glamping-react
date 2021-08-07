@@ -11,10 +11,6 @@
     border-radius: 20px;
 }
 
-.quick-list.night {
-    background: var(--c-bg-mid-night);
-}
-
 .quick-list-option {
     height: 70px;
     border-radius: 20px;

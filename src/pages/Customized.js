@@ -18,6 +18,7 @@ import { IoFastFood } from "react-icons/io5";
 import { GiCampfire } from "react-icons/gi";
 
 function Customized(props) {
+  const isDay = props.isDay;
   const location = useLocation();
   const [u_id, setU_id] = useState("");
   // select狀態
@@ -436,8 +437,12 @@ function Customized(props) {
       {/* <!-- banner --> */}
       <header className="customized-banner">
         <img
-          src="http://localhost:8080/images/banner/light/camping.svg"
-          alt=""
+          src={
+            isDay
+              ? "http://localhost:8080/images/banner/light/camping.svg"
+              : "http://localhost:8080/images/banner/dark/camping.svg"
+          }
+          alt="客製化banner"
         />
       </header>
 
