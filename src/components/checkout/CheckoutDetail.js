@@ -21,14 +21,14 @@ function OrdersDetail(props) {
           }
           alt=""
         />
-        <div className="d-flex flex-column align-items-start justify-content-center align-self-sm-start mt-sm-3">
-          <p className="h3 check-order-title">
+        <div className="d-flex flex-column align-items-start justify-content-center align-self-sm-center ">
+          <p className="h3 check-order-title m-0">
             {element.prime === 4
               ? "當地活動 | " + element.title
               : element.title}
           </p>
-          <p className="h4 check-order-info d-flex align-items-center justify-content-center h-100">
-            <div>
+          <p className="h4 check-order-info d-flex flex-column flex-xxl-row align-items-xxl-center justify-content-center">
+            <div className="my-2">
               <BsClock />
               <span className="mx-2">
                 {element.prime === 4
@@ -36,7 +36,7 @@ function OrdersDetail(props) {
                   : element.start + " ~ " + element.end}
               </span>
             </div>
-            <div>
+            <div className="my-2">
               <FaUser />
               <span className="mx-2">人數 X {element.person}</span>
             </div>

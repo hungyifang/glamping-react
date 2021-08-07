@@ -88,7 +88,18 @@ function EventDetailCalendar(props) {
       ? JSON.parse(localStorage.getItem("orderData"))
       : [];
 
-    orderData.push(data);
+    let startDate = $("input[name='PCdate']").val();
+    let person = population;
+    //如果有同日期同 i_id 的物件視為同商品, 找出來後增加已有物件人數就好
+    //sameItem 為同物件之 index
+    let sameItem = orderData.reduce(function (acc, cur, index) {
+      if (cur.i_id === i_id && cur.ship_date === startDate) acc.push(index);
+      return acc;
+    }, []);
+    if (sameItem.length > 0)
+      orderData[sameItem[0]].person = orderData[sameItem[0]].person + person;
+
+    if (sameItem.length === 0) orderData.push(data);
     localStorage.setItem("orderData", JSON.stringify(orderData));
   }
   //Ordered_detail 存 DB
