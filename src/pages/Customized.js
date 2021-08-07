@@ -18,7 +18,6 @@ import { IoFastFood } from "react-icons/io5";
 import { GiCampfire } from "react-icons/gi";
 
 function Customized(props) {
-  const { setNewCartsNum } = props;
   const location = useLocation();
   const [u_id, setU_id] = useState("");
   // select狀態
@@ -643,9 +642,6 @@ function Customized(props) {
                       await putOrdered_detailToSever();
                       await putRoomsToSever();
                       putOrderedToStorage();
-                      setNewCartsNum(
-                        JSON.parse(localStorage.getItem("orderData")).length
-                      );
                       props.history.push({
                         pathname: "/carts",
                         state: itemData,

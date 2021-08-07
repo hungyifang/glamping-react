@@ -56,7 +56,7 @@ function App() {
               <Home auth={auth} />
             </Route>
             <Route path="/event-detail/:i_id">
-              <EventDetail auth={auth} />
+              <EventDetail auth={auth} setNewCartsNum={setNewCartsNum} />
             </Route>
             <Route exact path="/event">
               <Event auth={auth} />
@@ -65,7 +65,7 @@ function App() {
               <Set />
             </Route>
             <Route exact path="/customized">
-              <Customized setNewCartsNum={setNewCartsNum} />
+              <Customized />
             </Route>
             <Route exact path="/carts">
               <Carts auth={auth} setNewCartsNum={setNewCartsNum} />

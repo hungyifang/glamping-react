@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { withRouter, useLocation } from "react-router-dom";
-import { Link } from "react-router-dom";
 
 import "../styles/carts.css";
 import CartsCheckbox from "../components/carts/CartsCheckbox";
@@ -29,10 +28,20 @@ function Carts(props) {
     setIsOpen(false);
   }
 
+  // 更新購物車圖示計數徽章與網頁標題
+  function updateCartsNum() {
+    const updatedCartsNum = JSON.parse(
+      localStorage.getItem("orderData")
+    ).length;
+    setNewCartsNum(updatedCartsNum);
+    document.title = `山角行 - 購物車 (${updatedCartsNum})`;
+  }
+
   // 抓取localstorage orderData資料
   function setData() {
     setOrderedData(JSON.parse(localStorage.getItem("orderData")));
   }
+
   // 判斷有登入把u_id塞回去
   function putU_idToData() {
     if (JSON.parse(localStorage.getItem("orderData"))) {
@@ -44,6 +53,7 @@ function Carts(props) {
       localStorage.setItem("orderData", JSON.stringify(data));
     }
   }
+
   // 設定總價
   function total() {
     let result = 0;
@@ -54,6 +64,7 @@ function Carts(props) {
       }
     }
   }
+
   // 設定checkArray
   function setCheck(id) {
     if (checkboxArray.find((element) => element === id)) {
@@ -65,8 +76,8 @@ function Carts(props) {
       // console.log(checkboxArray);
     }
   }
-  // 全選
 
+  // 全選
   function selectAll() {
     if (allAgree) {
       for (let i = 0; i < orderedData.length; i++) {
@@ -79,6 +90,7 @@ function Carts(props) {
       }
     }
   }
+
   // 刪除ordered資料表資料
   async function deleteToSever() {
     let objData = [];
@@ -86,7 +98,6 @@ function Carts(props) {
       objData.push({ o_id: checkboxArray[i] });
     }
     const url = "http://localhost:8080/api/orders/delete";
-    // 注意header資料格式要設定，伺服器才知道是json格式
     const request = new Request(url, {
       method: "DELETE",
       body: JSON.stringify(objData),
@@ -129,20 +140,26 @@ function Carts(props) {
       localStorage.removeItem("orderData");
     }
     if (localStorage.getItem("orderData")) {
-      setNewCartsNum(JSON.parse(localStorage.getItem("orderData")).length);
+      updateCartsNum();
     } else {
       setNewCartsNum(0);
+      document.title = `山角行 - 購物車`;
     }
   }
+
   console.log(checkboxArray);
+
   useEffect(() => {
     document.title = "山角行 - 購物車";
     setData();
+    localStorage.getItem("orderData") && updateCartsNum();
   }, []);
+
   useEffect(() => {
     total();
     selectAll();
   }, [orderedData, allAgree]);
+
   return (
     <>
       <div className="container-fluid g-0">
