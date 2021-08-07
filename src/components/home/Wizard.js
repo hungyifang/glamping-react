@@ -3,8 +3,6 @@ import { Link } from "react-router-dom";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import SetCardForHome from "../set/SetCardForHome";
-import "../../index.css";
-import "../../styles/home.css";
 
 function Wizard(props) {
   const { auth } = props;
@@ -80,23 +78,25 @@ function Wizard(props) {
     <>
       <div className="wizard-result-card mx-3 my-4 row">
         <div className="col-12">
-          <h3 className="quiz-text text-start m-2 ms-5 mt-3 h1">
-            答案揭曉，你的...
-          </h3>
+          <h3 className="text-start m-2 ms-5 mt-3 h1">答案揭曉，你的...</h3>
         </div>
         <div className="col row d-flex justify-content-center">
-          <h4 className="quiz-text col-12 text-center wizard-number">{qa1}</h4>
-          <h4 className="quiz-text col-12 text-center h2">舒適指數</h4>
+          <h4 className="wizard-number col-12 d-flex justify-content-center align-items-center">
+            {qa1}
+          </h4>
+          <h4 className="col-12 text-center fw-bold">舒適指數</h4>
         </div>
         <div className="col row d-flex justify-content-center">
-          <h4 className="quiz-text col-12 text-center wizard-number">{qa4}</h4>
-          <h4 className="quiz-text col-12 text-center h2">預算指數</h4>
+          <h4 className="wizard-number col-12 d-flex justify-content-center align-items-center">
+            {qa4}
+          </h4>
+          <h4 className="col-12 text-center fw-bold">預算指數</h4>
         </div>
         <div className="col row d-flex justify-content-center">
-          <h4 className="quiz-text col-12 text-center wizard-number">
+          <h4 className="wizard-number col-12 d-flex justify-content-center align-items-center">
             {(+qa2 + +qa3) / 2}
           </h4>
-          <h4 className="quiz-text col-12 text-center h2">氣氛指數</h4>
+          <h4 className="col-12 text-center fw-bold">氣氛指數</h4>
         </div>
         <SetCardForHome
           title={tripsData.title}
@@ -153,7 +153,7 @@ function Wizard(props) {
     })} */}
         {/* Q1 */}
         <div className="wizard-form">
-          <h3 className="quiz-text text-start m-2 ms-5 mt-3">
+          <h3 className="text-start m-2 ms-5 mt-3">
             你出遊時是要睡到飽，還是行程重要？
           </h3>
           <div className="wizard-form-control row p-0 m-0">
@@ -196,9 +196,7 @@ function Wizard(props) {
         </div>
         {/* Q2 */}
         <div className="wizard-form">
-          <h3 className="quiz-text text-start m-2 ms-5 mt-3">
-            生病時你要打針還是吃藥？
-          </h3>
+          <h3 className="text-start m-2 ms-5 mt-3">生病時你要打針還是吃藥？</h3>
           <div className="wizard-form-control row p-0 m-0">
             <div className="col-3">
               <img
@@ -239,7 +237,7 @@ function Wizard(props) {
         </div>
         {/* Q3 */}
         <div className="wizard-form">
-          <h3 className="quiz-text text-start m-2 ms-5 mt-3">
+          <h3 className="text-start m-2 ms-5 mt-3">
             平時你喜歡吹自然風，還是電風扇？
           </h3>
           <div className="wizard-form-control row p-0 m-0">
@@ -282,9 +280,7 @@ function Wizard(props) {
         </div>
         {/* Q4 */}
         <div className="wizard-form">
-          <h3 className="quiz-text text-start m-2 ms-5 mt-3">
-            你的預算是多少？
-          </h3>
+          <h3 className="text-start m-2 ms-5 mt-3">你的預算是多少？</h3>
           <div className="wizard-form-control row p-0 m-0">
             <div className="col-3">
               <img
