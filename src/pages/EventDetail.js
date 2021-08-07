@@ -14,7 +14,7 @@ import MsgModal from "../components/event/MsgModal";
 const axios = require("axios").default;
 
 function EventDetail(props) {
-  const auth = props.auth;
+  const { auth, setNewCartsNum } = props;
   const i_id = +props.match.params.i_id;
   // console.log(i_id);
   // console.log(props.location);
@@ -107,6 +107,7 @@ function EventDetail(props) {
           <div className="container-fluid p-0">
             {/* 手機板日曆 */}
             <EventDetailCalendarRWD
+              setNewCartsNum={setNewCartsNum}
               price={result.price}
               title={result.title}
               time={result.time}
@@ -125,6 +126,7 @@ function EventDetail(props) {
                 <EventDetailInfo article={result.article} />
                 {/* 電腦版日曆 */}
                 <EventDetailCalendar
+                  setNewCartsNum={setNewCartsNum}
                   price={result.price}
                   sales={result.sales}
                   title={result.title}

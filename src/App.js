@@ -17,6 +17,15 @@ import Checkout from "./pages/Checkout";
 function App() {
   const [auth, setAuth] = useState(true);
   const [isDay, setIsDay] = useState(true);
+  const [newCartsNum, setNewCartsNum] = useState();
+
+  function updateCartNum() {
+    if (localStorage.getItem("orderData")) {
+      setNewCartsNum(JSON.parse(localStorage.getItem("orderData")).length);
+    } else {
+      setNewCartsNum(0);
+    }
+  }
 
   async function checkIsLogin() {
     const url = `http://localhost:8080/api/auth/check`;
@@ -37,6 +46,7 @@ function App() {
   }
 
   useEffect(() => {
+    updateCartNum();
     checkIsLogin();
   }, []);
 
@@ -69,12 +79,21 @@ function App() {
       <Router>
         <ScrollToTop>
           <Switch>
-            <Layout auth={auth} setAuth={setAuth} isDay={isDay}>
+            <Layout
+              auth={auth}
+              setAuth={setAuth}
+              isDay={isDay}
+              newCartsNum={newCartsNum}
+            >
               <Route exact path="/">
                 <Home auth={auth} isDay={isDay} />
               </Route>
               <Route path="/event-detail/:i_id">
-                <EventDetail auth={auth} isDay={isDay} />
+                <EventDetail
+                  auth={auth}
+                  isDay={isDay}
+                  setNewCartsNum={setNewCartsNum}
+                />
               </Route>
               <Route exact path="/event">
                 <Event auth={auth} isDay={isDay} />
@@ -86,7 +105,11 @@ function App() {
                 <Customized isDay={isDay} />
               </Route>
               <Route exact path="/carts">
-                <Carts auth={auth} isDay={isDay} />
+                <Carts
+                  auth={auth}
+                  isDay={isDay}
+                  setNewCartsNum={setNewCartsNum}
+                />
               </Route>
               <Route exact path="/checkout">
                 <Checkout isDay={isDay} />

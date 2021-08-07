@@ -1,5 +1,4 @@
 @import url(https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap);
-@import url(https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined);
 :root {
     /* 背景顏色 */
     --c-bg-light: #fefbe6;
@@ -41,27 +40,6 @@ body {
     font-family: 'Noto Sans TC', sans-serif;
     background: var(--c-bg-light);
 }
-
-body.night {
-    background: var(--c-bg-deep-night);
-}
-
-/* 預計清理 */
-
-/* 小圖示對齊 */
-
-.material-icons, .material-icons-outlined {
-    display: inline-flex;
-    vertical-align: top;
-}
-
-.material-icons.cart {
-    font-size: 40px;
-    /* margin-right: 60px; */
-    color: var(--c-pri);
-}
-
-/* 預計清理 */
 
 /* 大按鈕 */
 
@@ -272,8 +250,16 @@ a {
     color: var(--c-pri);
 }
 
-.header-icon.night {
-    color: white;
+.header-icon-badge {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 24px;
+    height: 24px;
+    color: var(--c-pri);
+    background: var(--c-sec-deep);
+    border-radius: 50%;
+    font-weight: bold;
 }
 
 .avatar {
@@ -281,7 +267,6 @@ a {
     height: 60px;
     overflow: hidden;
     border-radius: 50%;
-    /* display: none; */
 }
 
 .fix-right {
@@ -291,14 +276,9 @@ a {
 
 /* 共用 */
 
-.berger-list {
+.hamberger-icon {
     display: none;
     align-items: center;
-    color: var(--c-pri);
-}
-
-.berger-list .material-icons {
-    font-size: 40px;
 }
 
 .text-bg-deep {
@@ -396,10 +376,10 @@ ul {
     .main-menu ul li .btn-outline.rwd a {
         color: var(--c-pri);
     }
-    .berger-list {
+    .hamberger-icon {
         display: flex;
     }
-    .berger-list svg {
+    .hamberger-icon svg {
         font-size: 48px;
     }
     .btn-outline.pc {
@@ -420,9 +400,6 @@ ul {
     .day-night-switch {
         margin-right: 20px;
     }
-    .material-icons.cart {
-        margin-right: 20px;
-    }
     .footer {
         margin: 0;
     }
@@ -434,7 +411,7 @@ ul {
     }
 }
 
-/* footer共用 */
+/* 頁尾 */
 
 .footer {
     margin-top: 290px;

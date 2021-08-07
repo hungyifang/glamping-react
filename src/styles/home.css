@@ -136,9 +136,11 @@ h1 {
     display: flex;
     background: var(--c-bg-mid);
     border-radius: 20px;
+    color: var(--c-pri);
 }
 
 .wizard-number {
+    /* line-height: 4rem; */
     font-size: 4rem;
     font-weight: bold;
 }
@@ -188,7 +190,6 @@ h1 {
     cursor: pointer;
     background: var(--c-bg-mid);
     color: var(--c-pri);
-
 }
 
 .wizard-tips {
@@ -235,9 +236,4 @@ h1 {
 
 .search-icon:hover {
     color: var(--c-pri-deep);
-}
-
-.quiz-text{
-    color:var(--c-pri);
-    font-weight: bold;
 }

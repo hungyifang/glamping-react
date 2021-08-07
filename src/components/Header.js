@@ -1,19 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { MdLocalMall, MdMenu } from "react-icons/md";
-
 import $ from "jquery";
 import Login from "./Login";
 import { ReactComponent as LogoDay } from "../logo-day.svg";
 import { ReactComponent as LogoNight } from "../logo-night.svg";
-import { IoCloseSharp, IoLogOutOutline } from "react-icons/io5";
+import { MdClose, MdExitToApp, MdLocalMall, MdMenu } from "react-icons/md";
 import "../index.css";
 
 function Header(props) {
   const u_id = localStorage.getItem("u_id");
-  const { auth, setAuth, isDay } = props;
+  const { auth, setAuth, newCartsNum, isDay } = props;
   const [hamberger, setHamberger] = useState(true);
   const [modalIsOpen, setIsOpen] = useState(false);
+  const [cartsNum, setCartsNum] = useState(0);
+  const [showBadge, setShowBadge] = useState(false);
 
   function openModal() {
     setIsOpen(true);
@@ -82,6 +82,15 @@ function Header(props) {
     });
   }, []);
 
+  useEffect(() => {
+    setCartsNum(newCartsNum);
+    if (cartsNum === 0) {
+      setShowBadge(false);
+    } else {
+      setShowBadge(true);
+    }
+  }, [cartsNum, newCartsNum]);
+
   // RWD 側邊選單
   function clickHamberger() {
     let status = hamberger;
@@ -109,11 +118,10 @@ function Header(props) {
             </div>
             <div className="main-menu">
               <ul className="d-flex align-items-center m-0 p-0">
-                {/* fff */}
                 <li>
                   {auth ? (
                     <div className="logout-icon rwd" onClick={() => logout()}>
-                      <IoLogOutOutline />
+                      <MdExitToApp />
                       <span className="text-pri mx-2">登出</span>
                     </div>
                   ) : (
@@ -130,7 +138,6 @@ function Header(props) {
                     </div>
                   )}
                 </li>
-                {/* fff */}
                 <li>
                   <NavLink
                     className="fw-bold main-menu-a mx-4"
@@ -182,22 +189,22 @@ function Header(props) {
                 </div>
                 <div className="switch-ball"></div>
               </div>
-              <Link to="/carts">
+              <Link to="/carts" className="position-relative">
                 <MdLocalMall className="header-icon mx-2" />
+                {showBadge && (
+                  <div className="header-icon-badge position-absolute bottom-0 end-0">
+                    {cartsNum}
+                  </div>
+                )}
               </Link>
               {auth ? avatar : loginBtn}
-              <div className="header-icon berger-list">
-                {/* <MdMenu /> */}
-                {/* fff */}
-                <div
-                  className="berger-list"
-                  onClick={() => {
-                    clickHamberger();
-                  }}
-                >
-                  {hamberger ? <MdMenu /> : <IoCloseSharp />}
-                </div>
-                {/* fff */}
+              <div
+                className="header-icon hamberger-icon"
+                onClick={() => {
+                  clickHamberger();
+                }}
+              >
+                {hamberger ? <MdMenu /> : <MdClose />}
               </div>
             </div>
           </div>

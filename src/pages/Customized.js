@@ -18,7 +18,6 @@ import { IoFastFood } from "react-icons/io5";
 import { GiCampfire } from "react-icons/gi";
 
 function Customized(props) {
-  const { auth } = props;
   const location = useLocation();
   const [u_id, setU_id] = useState("");
   // select狀態
@@ -382,7 +381,7 @@ function Customized(props) {
     const data = await response.json();
     // 篩選套裝卡片的o_id
     let o_id = location.state.o_id;
-    console.log(o_id)
+    console.log(o_id);
     let selectData = data.filter((e) => e.o_id === o_id);
     // console.log(selectData)
     // 設定預設值

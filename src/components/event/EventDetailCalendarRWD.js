@@ -8,8 +8,8 @@ import moment from "moment";
 const axios = require("axios").default;
 
 function EventDetailCalendarRWD(props) {
+  const { auth, setNewCartsNum } = props;
   const history = useHistory();
-  const auth = props.auth;
   const eventStartTime = props.time;
   const i_id = +props.match.params.i_id;
   const u_id = localStorage.getItem("u_id") || "";
@@ -142,6 +142,7 @@ function EventDetailCalendarRWD(props) {
     if (!goCart) {
       props.setMsg("加入成功！");
       props.setIsOpen(true);
+      setNewCartsNum(JSON.parse(localStorage.getItem("orderData")).length);
     }
   }, [last_oid]);
   useEffect(() => {
