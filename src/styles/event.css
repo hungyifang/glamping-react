@@ -11,6 +11,10 @@
     border-radius: 20px;
 }
 
+.quick-list.night {
+    background: var(--c-bg-mid-night);
+}
+
 .quick-list-option {
     height: 70px;
     border-radius: 20px;
@@ -20,6 +24,10 @@
     font-weight: bold;
 }
 
+.quick-list-option.night {
+    color: var(--c-sec-light-night);
+}
+
 .quick-list-option svg {
     align-self: center;
 }
@@ -27,6 +35,11 @@
 .quick-list-option:hover {
     background: white;
     color: var(--c-pri);
+}
+
+.quick-list-option.night:hover {
+    background: var(--c-bg-light-night);
+    color: var(--c-sec-light-night);
 }
 
 @media screen and (max-width: 1064px) {
@@ -44,6 +57,10 @@
     margin: 0 auto;
 }
 
+.section.night {
+    background: var(--c-pri-night);
+}
+
 .event-section-title {
     color: var(--c-bg-light);
     padding-left: 3.2%;
@@ -51,9 +68,17 @@
     padding-bottom: 10px;
 }
 
+.event-section-title.night {
+    color: var(--c-sec-light);
+}
+
 .event-section-subtitle {
-    color: var(--c-bg-mid);
+    color: var(--c-sec-mid-night);
     padding-left: 3.2%;
+}
+
+.event-section-subtitle.night {
+    color: var(--c-sec-light-night);
 }
 
 @media screen and (max-width: 1064px) {
@@ -88,6 +113,10 @@
     transition: 0.2s;
 }
 
+.event-card.night {
+    background: var(--c-bg-dark-night);
+}
+
 .event-card:hover, .event-card-forhome:hover {
     box-shadow: var(--shadow);
 }
@@ -111,6 +140,10 @@
     margin-bottom: 0;
 }
 
+.card-title.night {
+    color: var(--c-sec-light-night);
+}
+
 .card-tag-hot::before {
     content: "熱銷中";
     color: white;
@@ -126,6 +159,10 @@
     position: absolute;
     left: -65px;
     top: 5px;
+}
+
+.card-tag-hot.night::before {
+    background: var(--c-bg-light-night);
 }
 
 .card-tag-new::after {
@@ -145,6 +182,10 @@
     top: 5px;
 }
 
+.card-tag-new.night::after {
+    background: var(--c-bg-mid-night);
+}
+
 .card-tag-new.card-tag-hot::before {
     content: "熱銷中";
     color: white;
@@ -162,6 +203,10 @@
     top: 5px;
 }
 
+.card-tag-new.card-tag-hot.night::before {
+    background: var(--c-bg-light-night);
+}
+
 .card-tag-hot.card-tag-new::after {
     content: "新活動";
     color: white;
@@ -177,6 +222,10 @@
     position: absolute;
     left: -65px;
     top: 30px;
+}
+
+.card-tag-hot.card-tag-new.night::after {
+    background: var(--c-bg-mid-night);
 }
 
 .card-content {
@@ -202,6 +251,10 @@
     color: var(--c-pri);
     font-weight: bold;
     padding: 0 20px;
+}
+
+.event-price.night {
+    color: var(--c-sec-light-night);
 }
 
 @media screen and (max-width: 768px) {

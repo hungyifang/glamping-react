@@ -4,13 +4,14 @@ import { MdLocalMall, MdMenu } from "react-icons/md";
 
 import $ from "jquery";
 import Login from "./Login";
-import { ReactComponent as Logo } from "../logo.svg";
+import { ReactComponent as LogoDay } from "../logo-day.svg";
+import { ReactComponent as LogoNight } from "../logo-night.svg";
 import { IoCloseSharp, IoLogOutOutline } from "react-icons/io5";
 import "../index.css";
 
 function Header(props) {
   const u_id = localStorage.getItem("u_id");
-  const { auth, setAuth } = props;
+  const { auth, setAuth, isDay } = props;
   const [hamberger, setHamberger] = useState(true);
   const [modalIsOpen, setIsOpen] = useState(false);
 
@@ -71,17 +72,6 @@ function Header(props) {
 
   // componentDidMount
   useEffect(() => {
-    // jquery程式碼寫在這裡
-    // 日夜開關
-    $("#day-night-switch").on("click", () => {
-      $(".switch-ball").toggleClass("switch");
-      $("#switch-text").toggleClass("switch");
-      if ($("#switch-text").text() === "day") {
-        $("#switch-text").text("night");
-      } else {
-        $("#switch-text").text("day");
-      }
-    });
     //手機版 導覽列 fix-bottom and top
     $(window).on("load resize", function () {
       if ($("body").width() <= 1043) {
@@ -114,7 +104,7 @@ function Header(props) {
           <div className="col nav d-flex align-items-center justify-content-between">
             <div className="logo">
               <NavLink exact to="/">
-                <Logo />
+                {isDay ? <LogoDay /> : <LogoNight />}
               </NavLink>
             </div>
             <div className="main-menu">
@@ -185,12 +175,12 @@ function Header(props) {
                 id="day-night-switch"
               >
                 <div
-                  className="position-absolute mx-auto text-white"
+                  className="position-absolute mx-auto switch-text"
                   id="switch-text"
                 >
                   day
                 </div>
-                <div className="switch-ball bg-white"></div>
+                <div className="switch-ball"></div>
               </div>
               <Link to="/carts">
                 <MdLocalMall className="header-icon mx-2" />
