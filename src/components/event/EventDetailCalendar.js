@@ -241,7 +241,7 @@ function EventDetailCalendar(props) {
                 <HollowStar />
                 <HollowStar />
               </div>
-              <span className="h4 m-0 mx-1 align-self-center">
+              <span className="detail-sale h4 m-0 mx-1 align-self-center">
                 &nbsp;|&nbsp;&nbsp;已售出&nbsp;&nbsp;{props.sales}
               </span>
             </div>

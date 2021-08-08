@@ -5,6 +5,7 @@ import { Carousel } from "react-responsive-carousel";
 import SetCardForHome from "../set/SetCardForHome";
 
 function Wizard(props) {
+  const { isDay } = props;
   const { auth } = props;
   const u_id = localStorage.getItem("u_id");
   const [isResult, setIsResult] = useState(false);
@@ -341,7 +342,11 @@ function Wizard(props) {
       <div className="row wizard-banner">
         <figure className="col-4 d-flex px-2">
           <img
-            src="http://localhost:8080/images/banner/light/scale.svg"
+            src={
+              isDay
+                ? "http://localhost:8080/images/banner/light/scale.svg"
+                : "http://localhost:8080/images/banner/dark/scale.svg"
+            }
             alt="小測驗橫幅"
             title="風光明媚的營地"
           />

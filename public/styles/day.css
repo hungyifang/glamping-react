@@ -693,11 +693,6 @@ ul {
     margin: 0 5px;
 }
 
-.event-price {
-    color: var(--c-pri);
-    font-weight: bold;
-    padding: 0 20px;
-}
 
 @media screen and (max-width: 940px) {
     .card-wrapper {
@@ -1211,7 +1206,7 @@ ul {
 
 .event-description {
     background: var(--c-bg-deep);
-    color: var(--c-bg-light);
+    color: var(--c-pri);
     padding: 30px 0;
 }
 
@@ -1219,15 +1214,22 @@ ul {
     color: var(--c-sec-mid);
 }
 
-.description-warning {
-    background: var(--c-pri-light);
-    border-radius: 20px;
-    color: var(--c-pri);
-}
 
-.consumer-review .description-title {
+.description-title {
     color: var(--c-pri);
     padding: 30px 0;
+}
+
+.description-title.review-grade {
+    background: var(--c-bg-deep);
+    color: var(--c-bg-light);
+    padding: 15px 20px;
+    border-radius: 20px;
+}
+
+.review-quantity {
+    color: var(--c-bg-deep);
+    margin-left: 50px;
 }
 
 .description-title.review-grade {
@@ -1289,4 +1291,9 @@ ul {
 .SingleDatePickerInput {
     display: inline-block;
     background: #fff
+}
+
+.review-title {
+    font-weight: bold;
+    color: var(--c-pri);
 }

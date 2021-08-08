@@ -441,6 +441,8 @@ input[type=number] {
 .suggestion {
     padding: 40px 0 60px 0;
     margin-top: 20px;
+    background: var(--c-pri-light);
+    color:var(--c-pri);
 }
 
 .suggestion-title {
@@ -636,4 +638,17 @@ input[type=number] {
 .event-modal-title {
     height: 56px;
     /* background: var(--c-bg-deep); */
+}
+
+/* 被覆蓋的樣式 */
+.price, .fw-bold, .detail-sale, .review-title, .review-innertext, .review-page-number{
+    color: var(--c-pri);
+}
+
+.review-timestamp{
+    color: var(--c-sec-light);
+}
+
+.review-page{
+    background: var(--c-pri-light);
 }

@@ -293,6 +293,9 @@ label {
   .back-icon {
     color: var(--c-bg-light);
   }
+  .nav-bg{
+    display: none;
+  }
 }
 
 /* RWD-main */

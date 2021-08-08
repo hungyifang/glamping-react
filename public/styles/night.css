@@ -1405,3 +1405,21 @@ ul {
         color: var(--c-bg-dark-night);
     }
 }
+
+/* 被覆蓋的樣式 */
+.price, .fw-bold, .detail-sale, .review-title, .review-innertext, .review-page-number{
+    color: var(--c-sec-light-night);
+}
+
+.review-timestamp{
+    color: var(--c-bg-mid-nigh);
+}
+
+.review-page-number.active, .review-page-number:hover{
+    background: var(--c-bg-light-night);
+}
+
+.suggestion{
+    background: var(--c-bg-light-night);
+    color:var(--c-sec-light-night)
+}
