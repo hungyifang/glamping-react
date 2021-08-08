@@ -196,6 +196,7 @@ a {
     height: 40px;
     border-radius: 50px;
     font-size: 0.875rem;
+    cursor: pointer;
 }
 
 .day-night-switch.night {
@@ -549,15 +550,10 @@ ul {
 
 /* 登場動畫 */
 
-/* .splash-screen {
-    position: absolute;
-    left: 0;
-    overflow: hidden;
-    z-index: 999999999;
-    width: 100vw;
+.splashing {
     height: 100vh;
-    background: red;
-} */
+    overflow: hidden;
+}
 
 /* 客製化月曆 */
 

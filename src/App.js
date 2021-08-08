@@ -17,7 +17,10 @@ import Checkout from "./pages/Checkout";
 function App() {
   const [auth, setAuth] = useState(true);
   const [isDay, setIsDay] = useState(true);
+  const [virgin, setVirgin] = useState();
   const [newCartsNum, setNewCartsNum] = useState();
+
+  const cssLink = isDay ? "day" : "night";
 
   function updateCartNum() {
     if (localStorage.getItem("orderData")) {
@@ -25,6 +28,28 @@ function App() {
     } else {
       setNewCartsNum(0);
     }
+  }
+
+  function updateVirginState() {
+    if (sessionStorage.getItem("virgin")) {
+      setVirgin(false);
+    } else {
+      setVirgin(true);
+    }
+  }
+
+  function mountThemeToggle() {
+    $(".day-night-switch").on("click", function () {
+      $(".day-night-switch").find(".switch-ball").toggleClass("switch");
+      $(".day-night-switch").find(".switch-text").toggleClass("switch");
+      if ($(".day-night-switch").find(".switch-text").text() === "day") {
+        $(".day-night-switch").find(".switch-text").text("night");
+        setIsDay(false);
+      } else {
+        $(".day-night-switch").find(".switch-text").text("day");
+        setIsDay(true);
+      }
+    });
   }
 
   async function checkIsLogin() {
@@ -46,26 +71,15 @@ function App() {
   }
 
   useEffect(() => {
-    updateCartNum();
-    checkIsLogin();
-  }, []);
+    mountThemeToggle();
+  }, [virgin]);
 
   useEffect(() => {
-    // 日夜開關
-    $(".day-night-switch").on("click", function () {
-      $(".day-night-switch").find(".switch-ball").toggleClass("switch");
-      $(".day-night-switch").find(".switch-text").toggleClass("switch");
-      if ($(".day-night-switch").find(".switch-text").text() === "day") {
-        $(".day-night-switch").find(".switch-text").text("night");
-        setIsDay(false);
-      } else {
-        $(".day-night-switch").find(".switch-text").text("day");
-        setIsDay(true);
-      }
-    });
+    checkIsLogin();
+    updateVirginState();
+    mountThemeToggle();
+    updateCartNum();
   }, []);
-
-  const cssLink = isDay ? "day" : "night";
 
   return (
     <>
@@ -83,10 +97,16 @@ function App() {
               auth={auth}
               setAuth={setAuth}
               isDay={isDay}
+              virgin={virgin}
               newCartsNum={newCartsNum}
             >
               <Route exact path="/">
-                <Home auth={auth} isDay={isDay} />
+                <Home
+                  auth={auth}
+                  isDay={isDay}
+                  virgin={virgin}
+                  setVirgin={setVirgin}
+                />
               </Route>
               <Route path="/event-detail/:i_id">
                 <EventDetail

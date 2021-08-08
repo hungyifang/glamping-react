@@ -1,8 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function Footer() {
-  return (
+function Footer(props) {
+  const { virgin } = props;
+  const display = (
     <>
       {/* <!--! footer --> */}
       <footer className="footer">
@@ -54,6 +55,8 @@ function Footer() {
       </footer>
     </>
   );
+
+  return !virgin && display;
 }
 
 export default Footer;

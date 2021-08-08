@@ -9,7 +9,7 @@ import "../index.css";
 
 function Header(props) {
   const u_id = localStorage.getItem("u_id");
-  const { auth, setAuth, newCartsNum, isDay } = props;
+  const { auth, setAuth, newCartsNum, isDay, virgin } = props;
   const [hamberger, setHamberger] = useState(true);
   const [modalIsOpen, setIsOpen] = useState(false);
   const [cartsNum, setCartsNum] = useState(0);
@@ -70,43 +70,7 @@ function Header(props) {
     </>
   );
 
-  // componentDidMount
-  useEffect(() => {
-    //手機版 導覽列 fix-bottom and top
-    $(window).on("load resize", function () {
-      if ($("body").width() <= 1043) {
-        $("nav").addClass("fixed-top");
-      } else {
-        $("nav").removeClass("fixed-top");
-      }
-    });
-  }, []);
-
-  useEffect(() => {
-    setCartsNum(newCartsNum);
-    if (cartsNum === 0) {
-      setShowBadge(false);
-    } else {
-      setShowBadge(true);
-    }
-  }, [cartsNum, newCartsNum]);
-
-  // RWD 側邊選單
-  function clickHamberger() {
-    let status = hamberger;
-    setHamberger(!status);
-    // if ($('body').width() >= 1043) setHamberger(false);
-    if ($("body").width() >= 1043) $(".main-menu").css("display", "none");
-    $(".main-menu").css("display", "flex");
-    if (hamberger) $(".main-menu").css("right", "0");
-    if (!hamberger) $(".main-menu").css("right", "-500px");
-  }
-
-  // useEffect(() => {
-  //   console.log(hamberger);
-  // }, [hamberger]);
-
-  return (
+  const display = (
     <>
       <nav className="nav-bg">
         <div className="container-fluid">
@@ -217,6 +181,44 @@ function Header(props) {
       />
     </>
   );
+
+  // componentDidMount
+  useEffect(() => {
+    //手機版 導覽列 fix-bottom and top
+    $(window).on("load resize", function () {
+      if ($("body").width() <= 1043) {
+        $("nav").addClass("fixed-top");
+      } else {
+        $("nav").removeClass("fixed-top");
+      }
+    });
+  }, []);
+
+  useEffect(() => {
+    setCartsNum(newCartsNum);
+    if (cartsNum === 0) {
+      setShowBadge(false);
+    } else {
+      setShowBadge(true);
+    }
+  }, [cartsNum, newCartsNum]);
+
+  // RWD 側邊選單
+  function clickHamberger() {
+    let status = hamberger;
+    setHamberger(!status);
+    // if ($('body').width() >= 1043) setHamberger(false);
+    if ($("body").width() >= 1043) $(".main-menu").css("display", "none");
+    $(".main-menu").css("display", "flex");
+    if (hamberger) $(".main-menu").css("right", "0");
+    if (!hamberger) $(".main-menu").css("right", "-500px");
+  }
+
+  // useEffect(() => {
+  //   console.log(hamberger);
+  // }, [hamberger]);
+
+  return !virgin && display;
 }
 
 export default Header;
