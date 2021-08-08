@@ -15,7 +15,9 @@ function MsgModal(props) {
         <h1 className="login-modal-h1 m-0">山角行</h1>
       </div>
 
-      <h2 className="col-12 text-center text-pri h2 my-4">{props.text}</h2>
+      <h2 className="col-12 text-center event-modal-text h2 my-4">
+        {props.text}
+      </h2>
       <div className="col-12 d-flex justify-content-center align-items-center">
         <div
           className="btn-outline d-flex justify-content-center align-items-center my-3"
@@ -24,7 +26,7 @@ function MsgModal(props) {
             props.onRequestClose();
           }}
         >
-          <span className="text-pri">關閉</span>
+          <span className="modal-close-btn">關閉</span>
         </div>
       </div>
     </Modal>

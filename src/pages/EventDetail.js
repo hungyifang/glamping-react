@@ -14,7 +14,7 @@ import MsgModal from "../components/event/MsgModal";
 const axios = require("axios").default;
 
 function EventDetail(props) {
-  const { auth, setNewCartsNum } = props;
+  const { auth, setNewCartsNum, isDay } = props;
   const i_id = +props.match.params.i_id;
   // console.log(i_id);
   // console.log(props.location);
@@ -139,6 +139,7 @@ function EventDetail(props) {
                   setIsOpen={setIsOpen}
                   setMsg={setMsg}
                   key={index + 1}
+                  isDay={isDay}
                 />
               </div>
               <div className="row" id="warning">
@@ -156,7 +157,12 @@ function EventDetail(props) {
             </section>
           </div>
           {/* 評論小卡 */}
-          <EventDetailReview i_id={i_id} parentStar={parentStar} key={i_id} />
+          <EventDetailReview
+            i_id={i_id}
+            parentStar={parentStar}
+            key={i_id}
+            isDay={isDay}
+          />
           <EventDetailSuggestion auth={auth} i_id={i_id} />
         </main>
         <MsgModal

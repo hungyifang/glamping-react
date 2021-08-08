@@ -18,6 +18,7 @@ function EventDetailCalendar(props) {
   const [upload, setUpload] = useState(false);
   const [goCart, setGoCart] = useState(false);
   const [last_oid, setLast_oid] = useState(0);
+  const starColor = props.isDay ? "var(--c-pri)" : "var(--c-sec-light-night)";
   // 要存在 localstorage, 資料庫的資料
   const [ordered, setOrdered] = useState({
     u_id: u_id,
@@ -210,7 +211,7 @@ function EventDetailCalendar(props) {
               <input
                 type="number"
                 name="population"
-                className="input-population text-pri h3"
+                className="input-population h3"
                 value={population}
                 onChange={(e) => {
                   let newPopulation = e.target.value;
@@ -219,17 +220,17 @@ function EventDetailCalendar(props) {
                 }}
               ></input>
             </div>
-            <div className="h1 col text-pri price m-0 my-3">
+            <div className="h1 col price m-0 my-3">
               TWD $ {props.price * population}
             </div>
-            <div className="col review d-flex align-items-end text-pri mb-4">
+            <div className="col review d-flex align-items-end mb-4">
               <span className="h2 m-0 me-2 fw-bold">
                 {star === 0 ? <FaRegQuestionCircle /> : star}
               </span>
               <div
                 className="star-rate-bg h5 d-block m-0"
                 style={{
-                  background: `linear-gradient(to right, var(--c-pri) ${
+                  background: `linear-gradient(to right, ${starColor} ${
                     star * 20
                   }%, transparent ${star * 20}%)`,
                 }}

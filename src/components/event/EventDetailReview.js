@@ -16,6 +16,7 @@ function EventDetailReview(props) {
   const [RWD, setRWD] = useState(false);
   const limit = 6;
   const totalPages = Math.ceil(totalReviews / limit);
+  const starColor = props.isDay ? "var(--c-pri)" : "var(--c-sec-light-night)";
 
   //算頁數
   async function countReview() {
@@ -50,7 +51,7 @@ function EventDetailReview(props) {
             <div
               className="star-rate-bg h5 d-block m-0 mx-3"
               style={{
-                background: `linear-gradient(to right, var(--c-pri) ${
+                background: `linear-gradient(to right, ${starColor} ${
                   review.score * 20
                 }%, transparent ${review.score * 20}%)`,
               }}
@@ -63,13 +64,9 @@ function EventDetailReview(props) {
             </div>
           </div>
           <div className="bg-mid row review-content">
-            <div className="col-12 review-title text-pri h2">
-              {review.title}
-            </div>
-            <div className="col-12 review-innertext text-bg-deep h4">
-              {review.article}
-            </div>
-            <div className="col-12 review-timestamp text-sec-deep text-end h5">
+            <div className="col-12 review-title h2">{review.title}</div>
+            <div className="col-12 review-innertext h4">{review.article}</div>
+            <div className="col-12 review-timestamp text-end h5">
               {review.created}&nbsp;由&nbsp;
               <EventReviewCardUserName u_id={review.u_id} />
               &nbsp;評價
@@ -145,14 +142,14 @@ function EventDetailReview(props) {
           </div>
           {/* 評論頁碼 */}
           {parseInt(totalReviews) === 0 ? (
-            <div className="col-12 text-pri h1 text-center my-5">
+            <div className="col-12 no-review-text h1 text-center my-5">
               快來參加吧!!
             </div>
           ) : (
             <div className="col-12 review-page-wrapper justify-content-center d-flex">
-              <div className="col-auto pri-light review-page d-flex">
+              <div className="col-auto review-page d-flex">
                 <div
-                  className="review-page-number text-pri fw-bolder h3 m-0 py-2 px-3 mx-1 d-flex align-items-center"
+                  className="review-page-number fw-bolder h3 m-0 py-2 px-3 mx-1 d-flex align-items-center"
                   onClick={() => {
                     let newCurrentPage = currentPage - 1;
                     if (newCurrentPage === 0) newCurrentPage = 1;
@@ -164,7 +161,7 @@ function EventDetailReview(props) {
                 </div>
                 {currentPage - 1 > 0 && (
                   <div
-                    className="review-page-number text-pri fw-bolder h3 m-0 py-2 px-4 mx-1 d-flex align-items-center"
+                    className="review-page-number fw-bolder h3 m-0 py-2 px-4 mx-1 d-flex align-items-center"
                     onClick={() => {
                       let newCurrentPage = currentPage - 1;
                       if (newCurrentPage === 0) {
@@ -177,12 +174,12 @@ function EventDetailReview(props) {
                     {currentPage - 1}
                   </div>
                 )}
-                <div className="review-page-number text-pri fw-bolder h3 m-0 py-2 px-4 mx-1 d-flex align-items-center active">
+                <div className="review-page-number fw-bolder h3 m-0 py-2 px-4 mx-1 d-flex align-items-center active">
                   {currentPage}
                 </div>
                 {currentPage + 1 <= totalPages && (
                   <div
-                    className="review-page-number text-pri fw-bolder h3 m-0 py-2 px-4 mx-1 d-flex align-items-center"
+                    className="review-page-number fw-bolder h3 m-0 py-2 px-4 mx-1 d-flex align-items-center"
                     onClick={() => {
                       let newCurrentPage = currentPage + 1;
                       if (newCurrentPage >= totalPages)
@@ -195,7 +192,7 @@ function EventDetailReview(props) {
                   </div>
                 )}
                 <div
-                  className="review-page-number text-pri fw-bolder h3 m-0 py-2 px-3 mx-1 d-flex align-items-center"
+                  className="review-page-number fw-bolder h3 m-0 py-2 px-3 mx-1 d-flex align-items-center"
                   onClick={() => {
                     let newCurrentPage = currentPage + 1;
                     if (newCurrentPage >= totalPages)

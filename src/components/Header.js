@@ -75,9 +75,9 @@ function Header(props) {
     //手機版 導覽列 fix-bottom and top
     $(window).on("load resize", function () {
       if ($("body").width() <= 1043) {
-        $("nav").addClass("fixed-top custom-bg-light");
+        $("nav").addClass("fixed-top");
       } else {
-        $("nav").removeClass("fixed-top custom-bg-light");
+        $("nav").removeClass("fixed-top");
       }
     });
   }, []);
@@ -108,7 +108,7 @@ function Header(props) {
 
   return (
     <>
-      <nav>
+      <nav className="nav-bg">
         <div className="container-fluid">
           <div className="col nav d-flex align-items-center justify-content-between">
             <div className="logo">

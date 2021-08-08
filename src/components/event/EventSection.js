@@ -32,7 +32,7 @@ function EventSection() {
             ? "活著是一種美好, 應該用盡全力去珍惜, 從生活中體驗學習, 快來報名活動 !"
             : "生活是否太繁忙需要喘口氣, 別猶豫快來放鬆一下找回自我 !"}
         </div>
-        <div className="card-wrapper d-flex flex-wrap col-auto justify-content-center mx-auto">
+        <div className="card-wrapper d-flex col-auto mx-auto">
           <EventCard c_id={section.c_id} suggestion={false} />
         </div>
       </section>
