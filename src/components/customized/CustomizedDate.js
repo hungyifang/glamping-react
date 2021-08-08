@@ -309,7 +309,7 @@ function CustomizedDate(props) {
         let weatherPictureArray = weatherArray[0].elementValue[0].value;
         // 設定天氣圖片狀態給父母元件
 
-        if (weatherPictureArray.includes("多雲時陰")) {
+        if (weatherPictureArray.includes("多雲")) {
           setWeatherPicture("cloudy");
         } else if (weatherPictureArray.includes("雷雨")) {
           setWeatherPicture("rainy");

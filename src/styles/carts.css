@@ -32,7 +32,7 @@
 
 .carts-order-image {
     width: 363px;
-    max-height: 250px;
+    height: 250px;
     border-radius: 20px;
     margin: 20px;
     overflow: hidden;
