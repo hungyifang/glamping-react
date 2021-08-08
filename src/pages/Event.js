@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-// import "../styles/event.css";
+import "../styles/event.css";
 import $ from "jquery";
 import { withRouter } from "react-router-dom";
 import EventQuickList from "../components/event/EventQuickList";

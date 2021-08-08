@@ -298,6 +298,10 @@ input[type=number] {
     mask: url('http://localhost:8080/images/star_black.svg') repeat-x;
 }
 
+.star-rate-bg svg {
+    fill: var(--c-pri);
+}
+
 @media screen and (max-width: 1064px) {
     .calendar-wrapper {
         display: none;

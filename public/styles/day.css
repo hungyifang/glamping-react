@@ -990,183 +990,197 @@ ul {
     justify-content: center;
 }
 
-/*! 活動詳細 */
+/* 首頁 */
 
-/* banner */
+/* 快速選單 */
 
-.banner-carousel {
-    height: 875px;
-    background: var(--c-bg-mid);
+.tabs {
+    padding: 4px;
+    background: var(--c-pri-light);
+    border-radius: var(--r-l);
+    gap: 4px;
 }
 
-.banner-title {
-    padding: 30px 4%;
-    font-weight: bold;
-    color: var(--c-sec-deep);
-}
-
-.carousel-wrapper {
-    margin: 0 auto;
-    height: 750px;
-    max-width: 1900px;
-    overflow: hidden;
-}
-
-@media screen and (max-width: 768px) {
-    .banner-title {
-        display: none;
-    }
-    .banner-carousel {
-        height: 530px;
-        margin-top: 80px;
-        padding: 20px 0;
-    }
-    .carousel-wrapper {
-        height: 490px;
-        max-width: 768px;
-        overflow: hidden;
-    }
-}
-
-.event-carousel {
-    display: flex;
-    height: 100%;
-    left: -1095.5px;
-    transition: 0.3s;
-}
-
-.carousel-parts {
-    width: 1350px;
-    height: 100%;
-    margin: 0 10px;
-    border-radius: 20px;
-    overflow: hidden;
-}
-
-.carousel-parts img {
-    border-radius: 20px;
-}
-
-.carousel-pages {
-    bottom: 20px;
-    margin: 0;
-    width: 100%;
-}
-
-.carousel-pages li {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: #eee;
-    margin: 0 10px;
-    opacity: 0.7;
-}
-
-.carousel-pages li:hover, .carousel-pages li.active {
-    opacity: 1;
-}
-
-.carousel-btn {
+.tabs-item {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 265px;
-    height: 100%;
-    font-size: 3rem;
-    opacity: 0.8;
-    cursor: pointer;
-    color: white;
-}
-
-.carousel-btn:hover {
-    color: white;
-    opacity: 1;
-}
-
-#btnNext {
-    right: 0
-}
-
-/* 主內容 */
-
-/* 商品標題 */
-
-.event-title {
-    margin: 20px 0;
-    color: var(--c-pri);
-}
-
-.event-name {
-    margin: 10px 0;
-}
-
-.event-name svg {
-    margin: 0 10px;
-}
-
-.event-name.favorite svg {
-    color: palevioletred;
-}
-
-.event-title i {
-    font-style: normal;
-}
-
-.event-subtitle {
-    margin: 10px 0;
-}
-
-.event-subtitle svg {
+    border-radius: var(--r-m);
     font-size: 1.25rem;
-}
-
-.event-subtitle span {
-    margin: 0 5px;
-}
-
-.event-subtitle i {
-    margin-right: 10px;
-}
-
-.event-title .ic-fav {
-    font-size: 3.5rem;
     font-weight: bold;
-    margin-left: 20px;
-}
-
-.event-title-text {
-    margin: 10px 5px;
-}
-
-#checkDate {
-    margin: 10px 0;
-}
-
-.rwd-menu {
-    height: 43px;
-}
-
-.rwd-menu, .rwd-calendar {
-    display: none;
-}
-
-.rwd-menu, .rwd-calendar {
-    background: var(--c-bg-mid);
-}
-
-.rwd-menu ul li {
-    margin: 5px 1%;
-    white-space: nowrap;
-    font-size: 1.25rem;
-}
-
-.rwd-menu ul li div {
     color: var(--c-pri);
 }
 
-.rwd-menu ul li:hover div {
-    color: var(--c-bg-deep);
-    border-bottom: var(--c-sec-light) solid 3px;
+.tabs-item.active, .tabs-item:hover {
+    background: var(--c-bg-light);
+    color: var(--c-pri);
+}
+
+.title {
+    padding-top: 20px;
+    margin-left: 90px;
+    color: var(--c-pri);
+}
+
+/* 商品卡片 */
+
+.event-card-forhome {
+    overflow: hidden;
+    border-radius: 50px;
+    background: var(--c-bg-mid);
+    transition: 0.2s;
+}
+
+.set-card-forhome {
+    height: 220px;
+    border-radius: 20px;
+    margin: 0 15px 30px 20px;
+    transition: .2s;
+    background: var(--c-pri-light);
+}
+
+/* 小測驗 */
+
+#wizard {
+    background: var(--c-pri);
+}
+
+.wizard-banner {
+    margin: 0;
+    height: 300px;
+    background: var(--c-pri);
+}
+
+.wizard-banner figure {
+    margin: 0;
+    padding: 0;
+    border-top-right-radius: var(--r-xl);
+    border-bottom-right-radius: var(--r-xl);
+    background: var(--c-pri-light);
+}
+
+.wizard-banner h3, .wizard-tips a {
+    color: var(--c-sec-mid);
+}
+
+.wizard-tips a:hover {
+    color: var(--c-sec-deep);
+}
+
+.wizard-banner h2 {
+    color: var(--c-bg-mid);
+}
+
+.wizard-result-card {
+    height: 300px;
+    display: flex;
+    background: var(--c-bg-mid);
+    border-radius: 20px;
+    color: var(--c-pri);
+}
+
+.wizard-carousel {
+    display: flex;
+    align-items: center;
+    background: var(--c-pri);
+}
+
+.wizard-form {
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    background: var(--c-bg-mid);
+    border-radius: 20px;
+}
+
+.wizard-form-range input[type="range"] {
+    -webkit-appearance: none;
+    /* overflow: hidden; */
+    width: 100%;
+    height: 20px;
+    outline: none;
+    background: var(--c-pri);
+    border-radius: 50px;
+}
+
+.wizard-form-range input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    position: relative;
+    width: 20px;
+    height: 40px;
+    background: var(--c-sec-deep);
+    /* border-radius: 50%; */
+}
+
+.wizard-btn {
+    position: absolute;
+    z-index: 2;
+    right: calc(50% - 75px);
+    bottom: 5%;
+    cursor: pointer;
+    background: var(--c-bg-mid);
+    color: var(--c-pri);
+}
+
+.wizard-tips {
+    height: 120px;
+    color: var(--c-bg-mid);
+    background: var(--c-pri);
+}
+
+.text-start {
+    color: var(--c-pri);
+}
+
+.quiz-text {
+    color: var(--c-pri);
+}
+
+/* 搜尋 */
+
+.home-search {
+    width: 600px;
+    height: 80px;
+    background: var(--c-bg-mid);
+    border-radius: 20px;
+    position: absolute;
+    right: 3%;
+    bottom: 3%;
+    z-index: 1;
+}
+
+.home-input {
+    width: 100% !important;
+    height: 56px;
+    border: none;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.home-input::placeholder {
+    color: var(--c-pri);
+}
+
+.home-input:focus {
+    border-color: var(--c-sec-mid);
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05), 0 0 8px #fab751;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05), 0 0 8px #fab751;
+}
+
+.search-icon {
+    cursor: pointer;
+    color: var(--c-pri);
+    margin-right: 15px;
+}
+
+.search-icon:hover {
+    color: var(--c-pri-deep);
+}
+
+.rwd-calendar input {
+    width: 500px;
+    border-radius: 10px;
 }
 
 .rwd-calendar {
@@ -1177,161 +1191,28 @@ ul {
     margin: 20px 0;
 }
 
-.rwd-calendar .population {
-    margin: 10px 0;
+.DateInput_input {
+    font-weight: 200;
+    font-size: 19px;
+    line-height: 24px;
+    color: #484848;
+    background: #fff;
+    width: 100%;
+    padding: 11px 11px 9px;
+    border: 0;
+    border-top: 0;
+    border-right: 0;
+    border-bottom: 2px solid transparent;
+    border-left: 0;
+    border-radius: 0
 }
 
-.rwd-calendar .price-wrapper {
-    height: 25px;
-}
-
-.rwd-calendar .price {
-    right: 15%;
-    bottom: -5px;
-}
-
-.rwd-calendar input {
-    width: 500px;
-    border-radius: 10px;
-}
-
-.rwd-calendar .population {
-    height: 55px;
-    border: transparent;
-    width: 549px;
-    padding-left: 60px;
-    font-size: 1.1875rem;
-}
-
-.rwd-calendar .user-icon {
-    top: 16px;
-    left: 3%;
-}
-
-.rwd-calendar .population-counter {
-    top: 22px;
-    right: 3%;
-}
-
-.datePicker {
-    margin-top: 50px;
-}
-
-.input-population {
-    width: 395px;
-    height: 50px;
-    border-radius: 10px;
-    border: none;
-    color: var(--c-pri);
-}
-
-.input-population:focus {
-    outline: none;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
-}
-
-input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-
-input[type=number] {
-    -moz-appearance: textfield;
-    outline: none;
-    box-shadow: none;
-}
-
-@media screen and (max-width: 1064px) {
-    .rwd-menu {
-        display: flex;
-        justify-content: center;
-    }
-    .rwd-menu ul li {
-        cursor: pointer;
-    }
-    .rwd-calendar {
-        display: block;
-    }
-    .rwd-title {
-        display: flex;
-        justify-content: center;
-    }
-}
-
-.calendar {
-    background: var(--c-bg-mid);
-    margin: 30px 0;
-    border-radius: 20px;
-}
-
-.calendar-wrapper .price, .calendar-wrapper .review {
-    padding: 0 13%;
-    color: var(--c-pri);
-}
-
-.calendar-wrapper .input-population {
-    padding-left: 185px;
-    padding-right: 100px;
-}
-
-.calendar-wrapper .population {
-    left: 16%;
-}
-
-.calendar-wrapper .population-counter {
-    right: 16%;
-}
-
-.btn-calendar {
-    border: 1px soild var(--c-pri);
-}
-
-/* 星星填入 % 顏色模組 */
-
-.star-rate-bg {
-    background: var(--c-pri);
-    background: linear-gradient(to right, var(--c-pri) 50%, transparent 50%);
-    mask: url('http://localhost:8080/images/star_black.svg') repeat-x;
-    color: var(--c-pri);
-}
-
-@media screen and (max-width: 1064px) {
-    .calendar-wrapper {
-        display: none;
-    }
-    .description-title {
-        text-align: center;
-        font-size: 1.75rem;
-    }
-}
-
-/* 商品資訊 */
+/* 活動詳細頁 */
 
 .event-description {
     background: var(--c-bg-deep);
     color: var(--c-bg-light);
     padding: 30px 0;
-}
-
-.description-title {
-    margin: 20px 0;
-}
-
-.event-description-content {
-    font-size: 1.125rem;
-    margin: 30px 20px;
-}
-
-.event-description-content li {
-    margin: 5px 0;
-}
-
-.event-description-content.warning li {
-    margin: 10px 0;
-}
-
-.event-description-content .description-subtitle {
-    margin: 30px 0;
 }
 
 .cancel-warning {
@@ -1343,8 +1224,6 @@ input[type=number] {
     border-radius: 20px;
     color: var(--c-pri);
 }
-
-/* 旅客評價 */
 
 .consumer-review .description-title {
     color: var(--c-pri);
@@ -1363,98 +1242,35 @@ input[type=number] {
     margin-left: 50px;
 }
 
-.review-avatar {
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    overflow: hidden;
-}
-
-.review-content {
-    margin: 15px 0;
-    border-radius: 20px;
-    padding: 5px 10px;
-}
-
-.review-content div {
-    margin: 5px;
-}
-
-.review-title {
-    font-weight: bold;
-    color: var(--c-pri);
-}
-
-.review-innertext {
-    color: var(--c-bg-deep);
-}
-
-.review-innertext {
-    color: var(--c-bg-deep);
-}
-
-.review-timestamp {
-    color: var(--c-sec-deep);
-}
-
-.review-page {
-    border-radius: 10px;
-    font-size: 1.125rem;
-    padding: 5px 10px;
-    margin-top: 20px;
-    margin-bottom: 50px;
-    background: var(--c-pri-light);
-}
-
-.review-page-number {
-    border-radius: 10px;
-    transition: 0.2s;
-    color: var(--c-pri);
-}
-
 .review-page-number.active, .review-page-number:hover {
     background: white;
 }
 
-.no-review-text {
+/* banner */
+
+.banner-carousel {
+    height: 875px;
+    background: var(--c-bg-mid);
+}
+
+.banner-title {
+    padding: 30px 4%;
+    font-weight: bold;
+    color: var(--c-sec-deep);
+}
+
+.event-title {
+    margin: 20px 0;
     color: var(--c-pri);
 }
-
-@media screen and (max-width: 1064px) {
-    .review-page-wrapper, .review-page {
-        display: none !important;
-    }
-    .review-card-wrapper {
-        display: flex;
-        flex-wrap: nowrap;
-        overflow: scroll;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
-        /* Firefox */
-    }
-    .review-card-wrapper::-webkit-scrollbar {
-        display: none;
-    }
-    .rwd-height {
-        height: 250px;
-        display: flex;
-    }
-    .review-title-wrapper {
-        justify-content: center;
-    }
-}
-
-/* 更多推薦 */
 
 .suggestion {
     padding: 40px 0 60px 0;
     margin-top: 20px;
-    background: var(--c-pri-light);
 }
 
 .suggestion-title {
     margin: 10px 0;
-    color: var(--c-pri);
 }
 
 .suggest-card-wrapper {
@@ -1462,49 +1278,15 @@ input[type=number] {
     justify-content: center;
 }
 
-@media screen and (max-width: 1064px) {
-    .suggestion {
-        padding: 10px 0 60px 0;
-    }
-    .suggest-card-wrapper {
-        overflow: scroll;
-        flex-wrap: nowrap;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
-        justify-content: flex-start;
-        /* Firefox */
-    }
-    .suggest-card-wrapper::-webkit-scrollbar {
-        display: none;
-    }
-    .suggestion-title {
-        margin: 20px 0;
-    }
-}
+/* 日曆 */
 
-.event-modal {
-    position: absolute;
-    top: 40%;
-    left: 30%;
-    right: 30%;
-    background: var(--c-bg-light);
+.calendar {
+    background: var(--c-bg-mid);
+    margin: 30px 0;
     border-radius: 20px;
-    overflow: hidden;
-    box-shadow: var(--shadow);
 }
 
-.event-modal:focus {
-    outline: none;
-}
-
-.event-modal-title {
-    height: 56px;
-}
-
-.event-modal-text {
-    color: var(--c-pri);
-}
-
-.modal-close-btn {
-    color: var(--c-pri);
+.SingleDatePickerInput {
+    display: inline-block;
+    background: #fff
 }

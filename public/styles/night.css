@@ -66,7 +66,7 @@ body {
     height: 60px;
     border: none;
     border-radius: 30px;
-    background: var(--c-pri);
+    background: var(--c-bg-light-night);
 }
 
 /* 小按鈕 */
@@ -91,7 +91,7 @@ body {
 /* 觸碰變色 */
 
 .btn-action:hover {
-    background: var(--c-bg-deep);
+    background: var(--c-bg-mid-night);
 }
 
 .btn-outline:hover {
@@ -111,11 +111,11 @@ body {
 /* ! 背景色 */
 
 .custom-bg-light {
-    background: var(--c-bg-light);
+    background: var( --c-bg-deep-night);
 }
 
 .bg-mid {
-    background: var(--c-bg-mid);
+    background: var(--c-bg-dark-night);
 }
 
 .bg-deep {
@@ -135,7 +135,7 @@ body {
 }
 
 .pri-light {
-    background: var(--c-pri-light);
+    background: var(--c-bg-light-night);
 }
 
 .bg-pri {
@@ -183,12 +183,12 @@ a {
 }
 
 .main-menu-a.active {
-    border-bottom: var(--c-sec-deep) 3px solid;
+    border-bottom: var(--c-pri-night) 3px solid;
 }
 
 .main-menu-a:hover {
     color: var(--c-sec-mid);
-    border-bottom: var(--c-sec-light) 3px solid;
+    border-bottom: var(--c-pri-night) 3px solid;
 }
 
 .day-night-switch {
@@ -261,15 +261,15 @@ a {
 }
 
 .text-bg-deep {
-    color: var(--c-bg-deep);
+    color: var(--c-sec-light-night);
 }
 
 .text-pri {
-    color: var(--c-pri);
+    color: var(--c-sec-light-night);
 }
 
 .text-sec-deep {
-    color: var(--c-sec-deep);
+    color: var(--c-sec-mid-night);
 }
 
 .cover-fit {
@@ -337,19 +337,22 @@ ul {
     }
     .main-menu-a.active {
         border: none;
-        color: var(--c-pri);
-        background: var(--c-pri-light);
+        color: var(--c-sec-light-night);
+        background: var(--c-pri-nigh);
     }
     .main-menu-a:hover {
-        background: var(--c-pri);
-        color: var(--c-bg-light);
+        background: var(--c-pri-night);
+        color: var(--c-sec-light-night);
         border-bottom: none;
     }
     .main-menu ul li .btn-outline.rwd {
         display: flex;
     }
     .main-menu ul li .btn-outline.rwd a {
-        color: var(--c-pri);
+        color: white;
+    }
+    .main-menu ul li .btn-outline.rwd:hover a {
+        color: var(--c-sec-mid-night);
     }
     .berger-list {
         display: flex;
@@ -997,331 +1000,144 @@ ul {
     color: var(--c-sec-light-night);
 }
 
-/*! 活動詳細 */
+/* 首頁 */
 
-/* banner */
+/* 快速選單 */
 
-.banner-carousel {
-    height: 875px;
+.tabs {
+    background: var(--c-bg-light-night);
+    border-radius: var(--r-l);
+}
+
+.tabs-item {
+    font-weight: bold;
+    color: var(--c-sec-light-night);
+}
+
+.tabs-item.active, .tabs-item:hover {
+    background: var(--c-bg-mid-night);
+    color: var(--c-sec-light-night);
+}
+
+.title {
+    color: var(--c-sec-light-night);
+}
+
+/* 商品卡片 */
+
+.event-card-forhome {
     background: var(--c-bg-dark-night);
 }
 
-.banner-title {
-    padding: 30px 4%;
-    font-weight: bold;
+.set-card-forhome {
+    background: var(--c-pri-night);
+}
+
+/* 小測驗 */
+
+#wizard {
+    background: var(--c-bg-mid-night);
+}
+
+.wizard-banner {
+    background: var(--c-bg-mid-night);
+}
+
+.wizard-banner figure {
+    background: var(--c-bg-light-night);
+}
+
+.wizard-banner h3, .wizard-tips a {
+    color: var(--c-sec-mid);
+}
+
+.wizard-result-card {
+    background: var(--c-bg-dark-night);
     color: var(--c-bg-light-night);
 }
 
-.carousel-wrapper {
-    margin: 0 auto;
-    height: 750px;
-    max-width: 1900px;
-    overflow: hidden;
+.wizard-carousel {
+    background: var(--c-bg-mid-night);
 }
 
-@media screen and (max-width: 768px) {
-    .banner-title {
-        display: none;
-    }
-    .banner-carousel {
-        height: 530px;
-        margin-top: 80px;
-        padding: 20px 0;
-    }
-    .carousel-wrapper {
-        height: 490px;
-        max-width: 768px;
-        overflow: hidden;
-    }
-}
-
-.event-carousel {
-    display: flex;
-    height: 100%;
-    left: -1095.5px;
-    transition: 0.3s;
-}
-
-.carousel-parts {
-    width: 1350px;
-    height: 100%;
-    margin: 0 10px;
-    border-radius: 20px;
-    overflow: hidden;
-}
-
-.carousel-parts img {
-    border-radius: 20px;
-}
-
-.carousel-pages {
-    bottom: 20px;
-    margin: 0;
-    width: 100%;
-}
-
-.carousel-pages li {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: #eee;
-    margin: 0 10px;
-    opacity: 0.7;
-}
-
-.carousel-pages li:hover, .carousel-pages li.active {
-    opacity: 1;
-}
-
-.carousel-btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 265px;
-    height: 100%;
-    font-size: 3rem;
-    opacity: 0.8;
-    cursor: pointer;
-    color: white;
-}
-
-.carousel-btn:hover {
-    color: white;
-    opacity: 1;
-}
-
-#btnNext {
-    right: 0
-}
-
-/* 主內容 */
-
-/* 商品標題 */
-
-.event-title {
-    margin: 20px 0;
-    color: var(--c-sec-light-night);
-}
-
-.event-name {
-    margin: 10px 0;
-    color: var(--c-sec-light-night);
-}
-
-.event-name svg {
-    margin: 0 10px;
-}
-
-.event-name.favorite svg {
-    color: palevioletred;
-}
-
-.event-title i {
-    font-style: normal;
-}
-
-.event-subtitle {
-    margin: 10px 0;
-}
-
-.event-subtitle svg {
-    font-size: 1.25rem;
-}
-
-.event-subtitle span {
-    margin: 0 5px;
-}
-
-.event-subtitle i {
-    margin-right: 10px;
-}
-
-.event-title .ic-fav {
-    font-size: 3.5rem;
-    font-weight: bold;
-    margin-left: 20px;
-}
-
-.event-title-text {
-    margin: 10px 5px;
-}
-
-#checkDate {
-    margin: 10px 0;
-}
-
-.rwd-menu {
-    height: 43px;
-}
-
-.rwd-menu, .rwd-calendar {
-    display: none;
-}
-
-.rwd-menu, .rwd-calendar {
+.wizard-form {
     background: var(--c-bg-dark-night);
 }
 
-.rwd-menu ul li {
-    margin: 5px 1%;
-    white-space: nowrap;
-    font-size: 1.25rem;
+.wizard-form-range input[type="range"] {
+    background: var(--c-bg-light-night);
 }
 
-.rwd-menu ul li div {
+.wizard-form-range input[type="range"]::-webkit-slider-thumb {
+    background: var(--c-sec-deep);
+}
+
+.wizard-btn {
+    background: var(--c-bg-dark-night);
+    /* color: var(--c-bg-light-night); */
+}
+
+.wizard-tips {
+    color: var(--c-bg-mid);
+    background: var(--c-bg-mid-night);
+}
+
+.text-start {
+    color: var(--c-bg-light-night);
+}
+
+.quiz-text {
+    color: var(--c-bg-light-night);
+}
+
+/* 搜尋 */
+
+.home-search {
+    background: var(--c-sec-light-night);
+}
+
+.home-input {
+    background: var(--c-pri-night);
+}
+
+.home-input::placeholder {
     color: var(--c-sec-light-night);
 }
 
-.rwd-menu ul li:hover div {
-    color: var(--c-sec-mid-night);
-    border-bottom: var(--c-sec-deep-night) solid 3px;
+.home-input:focus {
+    border-color: var(--c-sec-mid);
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05), 0 0 8px #fab751;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05), 0 0 8px #fab751;
 }
 
-.rwd-calendar {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: var(--c-sec-light-night);
-    padding: 10px 0;
-    margin: 20px 0;
+.search-icon {
+    color: var(--c-bg-deep-night);
 }
 
-.rwd-calendar .population {
-    margin: 10px 0;
-}
-
-.rwd-calendar .price-wrapper {
-    height: 25px;
-}
-
-.rwd-calendar .price {
-    right: 15%;
-    bottom: -5px;
+.search-icon:hover {
+    color: var(--c-pri-deep);
 }
 
 .rwd-calendar input {
-    width: 500px;
-    border-radius: 10px;
-}
-
-.rwd-calendar .population {
-    height: 55px;
-    border: transparent;
-    width: 549px;
-    padding-left: 60px;
-    font-size: 1.1875rem;
-}
-
-.rwd-calendar .user-icon {
-    top: 16px;
-    left: 3%;
-}
-
-.rwd-calendar .population-counter {
-    top: 22px;
-    right: 3%;
-}
-
-.datePicker {
-    margin-top: 50px;
-}
-
-.calendar .population, .calendar .population-counter {
-    color: var(--c-bg-dark-night);
-}
-
-.input-population {
-    width: 395px;
-    height: 50px;
-    border-radius: 10px;
-    border: none;
-    color: var(--c-bg-dark-night);
-}
-
-.input-population:focus {
-    outline: none;
-    box-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
-}
-
-input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-
-input[type=number] {
-    -moz-appearance: textfield;
-    outline: none;
-    box-shadow: none;
-}
-
-@media screen and (max-width: 1064px) {
-    .rwd-menu {
-        display: flex;
-        justify-content: center;
-    }
-    .rwd-menu ul li {
-        cursor: pointer;
-    }
-    .rwd-calendar {
-        display: block;
-    }
-    .rwd-title {
-        display: flex;
-        justify-content: center;
-    }
-}
-
-.calendar {
-    background: var(--c-bg-dark-night);
-    margin: 30px 0;
-    border-radius: 20px;
-}
-
-.calendar-wrapper .price, .calendar-wrapper .review {
-    padding: 0 13%;
+    background: var(--c-pri-night);
     color: var(--c-sec-light-night);
 }
 
-.calendar-wrapper .input-population {
-    padding-left: 185px;
-    padding-right: 100px;
+.rwd-calendar input::placeholder {
+    color: var(--c-sec-light-night);
 }
 
-.calendar-wrapper .population {
-    left: 16%;
+.rwd-calendar {
+    color: var(--c-pri-night);
 }
 
-.calendar-wrapper .population-counter {
-    right: 16%;
+.DateInput_input {
+    color: var(--c-sec-light-night);
+    background: #fff;
 }
 
-.btn-calendar {
-    border: 1px soild var(--c-pri-night);
-}
-
-/* 星星填入 % 顏色模組 */
-
-.star-rate-bg {
-    background: var(--c-sec-light-night);
-    background: linear-gradient(to right, var(--c-sec-light-night) 50%, transparent 50%);
-    mask: url('http://localhost:8080/images/star_black.svg') repeat-x;
-    /* color: var(--c-sec-light-night); */
-}
-
-.star-rate-bg svg {
-    fill: var(--c-sec-light-night);
-}
-
-@media screen and (max-width: 1064px) {
-    .calendar-wrapper {
-        display: none;
-    }
-    .description-title {
-        text-align: center;
-        font-size: 1.75rem;
-    }
-}
-
-/* 商品資訊 */
+/* 活動詳細頁 */
 
 .event-description {
     background: var(--c-pri-night);
@@ -1329,25 +1145,8 @@ input[type=number] {
     padding: 30px 0;
 }
 
-.description-title {
-    margin: 20px 0;
-}
-
-.event-description-content {
-    font-size: 1.125rem;
-    margin: 30px 20px;
-}
-
-.event-description-content li {
-    margin: 5px 0;
-}
-
-.event-description-content.warning li {
-    margin: 10px 0;
-}
-
-.event-description-content .description-subtitle {
-    margin: 30px 0;
+.review-content {
+    color: var(--c-sec-light-night);
 }
 
 .cancel-warning {
@@ -1360,168 +1159,249 @@ input[type=number] {
     color: var(--c-sec-mid-night);
 }
 
-/* 旅客評價 */
-
-/* .review-card-wrapper{
-    height: 620px;
-} */
-
 .consumer-review .description-title {
     color: var(--c-sec-light-night);
-    padding: 30px 0;
 }
 
 .description-title.review-grade {
     background: var(--c-pri-night);
     color: var(--c-sec-light-night);
-    padding: 15px 20px;
-    border-radius: 20px;
 }
 
 .review-quantity {
     color: var(--c-sec-light-night);
-    margin-left: 50px;
-}
-
-.review-avatar {
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    overflow: hidden;
-}
-
-.review-content {
-    margin: 15px 0;
-    border-radius: 20px;
-    padding: 5px 10px;
-}
-
-.review-innertext {
-    color: var(--c-sec-light-night);
-}
-
-.review-timestamp {
-    color: var(--c-sec-deep-night);
-}
-
-.review-content div {
-    margin: 5px;
-}
-
-.review-title {
-    font-weight: bold;
-    color: var(--c-sec-light-night);
 }
 
 .review-page {
-    border-radius: 10px;
-    font-size: 1.125rem;
-    padding: 5px 10px;
-    margin-top: 20px;
-    margin-bottom: 50px;
     background: var(--c-bg-mid-night);
-}
-
-.review-page-number {
-    border-radius: 10px;
-    transition: 0.2s;
-    color: var(--c-sec-light-night);
 }
 
 .review-page-number.active, .review-page-number:hover {
     background: var(--c-bg-light-night);
 }
 
-.no-review-text {
+.review-timestamp {
+    color: var(--c-sec-mid-night);
+}
+
+/* banner */
+
+.banner-carousel {
+    background: var(--c-bg-dark-night);
+}
+
+.banner-title {
+    color: var(--c-bg-light-night);
+}
+
+.event-title {
     color: var(--c-sec-light-night);
 }
 
-@media screen and (max-width: 1064px) {
-    .review-page-wrapper, .review-page {
-        display: none !important;
-    }
-    .review-card-wrapper {
-        display: flex;
-        flex-wrap: nowrap;
-        overflow: scroll;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
-        /* Firefox */
-    }
-    .review-card-wrapper::-webkit-scrollbar {
-        display: none;
-    }
-    .rwd-height {
-        height: 250px;
-        display: flex;
-    }
-    .review-title-wrapper {
-        justify-content: center;
-    }
+/* 日曆 */
+
+.calendar {
+    background: var(--c-bg-dark-night);
 }
 
-/* 更多推薦 */
+.input-population {
+    background: var(--c-pri-night);
+    color: var(--c-sec-light-night);
+}
 
-.suggestion {
-    padding: 40px 0 60px 0;
-    margin-top: 20px;
+/* 日曆RWD */
+
+.rwd-menu, .rwd-calendar {
+    background: var(--c-bg-dark-night);
+}
+
+.SingleDatePickerInput {
+    display: inline-block;
+    background: var(--c-pri-night)
+}
+
+.SingleDatePickerInput_calendarIcon_svg {
+    fill: #fefbe6;
+}
+
+.rwd-calendar {
+    color: var(--c-sec-light-night);
+}
+
+.rwd-menu ul li div {
+    color: var(--c-sec-light-night);
+}
+
+.rwd-menu ul li div:hover {
+    color: var(--c-sec-mid-night);
+}
+
+/* 星星 */
+
+.star-rate-bg {
+    background: var(--c-sec-light-night);
+    background: linear-gradient(to right, var(--c-sec-light-night) 50%, transparent 50%);
+    mask: url('http://localhost:8080/images/star_black.svg') repeat-x;
+}
+
+.star-rate-bg svg {
+    fill: var(--c-sec-light-night);
+}
+
+/* 會員管理 */
+
+.left-aside {
+    background: var(--c-bg-dark-night);
+}
+
+.nav-sub-menu {
+    background: var(--c-bg-dark-night);
+}
+
+.change-pic {
+    background: var(--c-bg-dark-night);
+}
+
+.article {
+    background: var(--c-bg-dark-night);
+}
+
+.member-section-title, .id-name, .nav-sub-menu ul a, .icon, .icon-camera, label {
+    color: var(--c-sec-light-night);
+}
+
+.nav-sub-menu ul a:hover, .nav-sub-menu ul a.active {
     background: var(--c-bg-light-night);
 }
 
-.suggestion-title {
-    margin: 10px 0;
+.section-title, .point-article-menu-a, .point-total, .point-requirement {
     color: var(--c-sec-light-night);
 }
 
-.suggest-card-wrapper {
-    flex-wrap: wrap;
-    justify-content: center;
+.point-article-menu-a:hover {
+    color: var(--c-sec-mid-night);
+}
+
+.point-date {
+    color: var(--c-bg-light-night);
+}
+
+.user-points {
+    background: var(--c-pri-night);
+}
+
+.trip-section-title, .article-menu-a {
+    color: var(--c-sec-light-night);
+}
+
+.article-menu-a:hover {
+    color: var(--c-sec-mid-night);
+}
+
+.trip-order-title, .order-info, .icon-order {
+    color: var(--c-sec-light-night);
+}
+
+.icon-order:hover {
+    color: var(--c-sec-mid-night);
+}
+
+.order {
+    background: var(--c-bg-mid-night);
+}
+
+.fav-section-title, .order-price, .icon-fav, .fav-order-title, .section-titleChange {
+    color: var(--c-sec-light-night);
+}
+
+.fav-order {
+    background: var(--c-bg-mid-night);
+}
+
+@media screen and (max-width: 768px) {
+    .mobile-rwd-title, .rwd-nav {
+        background: var(--c-bg-light-night);
+    }
+    .icon-text, .nav-check {
+        color: var(--c-sec-light-night);
+    }
+    .nav-check:hover {
+        background: var(--c-bg-mid-night);
+    }
+}
+
+.comment-left-aside, .comment-article {
+    background: var(--c-bg-dark-night);
+}
+
+.history-title, .history-info, .history-price, .history-price, .comment-text, .comment-section-title, .comment-title, .comment-content {
+    color: var(--c-sec-light-night);
+}
+
+.comment {
+    background: var(--c-bg-mid-night);
+}
+
+/* 購物車 */
+
+.cart-info {
+    background: var(--c-bg-dark-night);
+}
+
+.cart-title, .sum, .total, .input-all {
+    color: var(--c-sec-light-night);
+}
+
+.carts-order {
+    background: var(--c-bg-mid-night);
+}
+
+.carts-order-title, .carts-order-info, .carts-order-price, .carts-delete {
+    color: var(--c-sec-light-night);
+}
+
+.carts-input[type="checkbox"]:checked {
+    background: var(--c-bg-light-night);
+}
+
+/* 訂單 */
+
+.check-user-info {
+    background: var(--c-bg-dark-night);
+}
+
+.check-form-title, .check-deputy-title, .check-order-title, .check-order-info, .check-total-info, .check-point-info, .check-subtotal, .check-subtotal, .check-total, .check-sum, .check-label-text {
+    color: var(--c-sec-light-night);
+}
+
+.check-breadcrumb {
+    color: var(--c-bg-light-night);
+}
+
+@media screen and (max-width: 768px) {
+    .check-rwd-title {
+        background: var(--c-bg-light-night);
+    }
+}
+
+.checkout-input::placeholder {
+    color: var(--c-bg-deep-night);
+}
+
+.check-input-mail::placeholder {
+    color: var(--c-bg-deep-night);
+}
+
+.header-icon-badge {
+    background: var(--c-bg-light-night);
+    color: var(--c-sec-light-night);
 }
 
 @media screen and (max-width: 1064px) {
-    .suggestion {
-        padding: 10px 0 60px 0;
+    .main-menu ul {
+        background: linear-gradient(to bottom, #4c95ad 117px, #021335 117px);
     }
-    .suggest-card-wrapper {
-        overflow: scroll;
-        flex-wrap: nowrap;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
-        justify-content: flex-start;
-        /* Firefox */
+    .text-pri, .logout-icon svg {
+        color: var(--c-bg-dark-night);
     }
-    .suggest-card-wrapper::-webkit-scrollbar {
-        display: none;
-    }
-    .suggestion-title {
-        margin: 20px 0;
-    }
-}
-
-.event-modal {
-    position: absolute;
-    top: 40%;
-    left: 30%;
-    right: 30%;
-    /* bottom: 4%; */
-    background: var(--c-bg-dark-night);
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: var(--shadow);
-}
-
-.event-modal:focus {
-    outline: none;
-}
-
-.event-modal-title {
-    height: 56px;
-}
-
-.event-modal-text {
-    color: var(--c-sec-light-night);
-}
-
-.modal-close-btn {
-    color: white;
 }
