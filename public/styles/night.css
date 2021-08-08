@@ -66,7 +66,7 @@ body {
     height: 60px;
     border: none;
     border-radius: 30px;
-    background: var(--c-pri);
+    background: var(--c-bg-light-night);
 }
 
 /* 小按鈕 */
@@ -91,7 +91,7 @@ body {
 /* 觸碰變色 */
 
 .btn-action:hover {
-    background: var(--c-bg-deep);
+    background: var(--c-bg-mid-night);
 }
 
 .btn-outline:hover {
@@ -111,11 +111,11 @@ body {
 /* ! 背景色 */
 
 .custom-bg-light {
-    background: var(--c-bg-light);
+    background: var( --c-bg-deep-night);
 }
 
 .bg-mid {
-    background: var(--c-bg-mid);
+    background: var(--c-bg-dark-night);
 }
 
 .bg-deep {
@@ -135,7 +135,7 @@ body {
 }
 
 .pri-light {
-    background: var(--c-pri-light);
+    background: var(--c-bg-light-night);
 }
 
 .bg-pri {
@@ -179,12 +179,12 @@ a {
 }
 
 .main-menu-a.active {
-    border-bottom: var(--c-sec-deep) 3px solid;
+    border-bottom: var(--c-pri-night) 3px solid;
 }
 
 .main-menu-a:hover {
     color: var(--c-sec-mid);
-    border-bottom: var(--c-sec-light) 3px solid;
+    border-bottom: var(--c-pri-night) 3px solid;
 }
 
 .day-night-switch {
@@ -257,15 +257,15 @@ a {
 }
 
 .text-bg-deep {
-    color: var(--c-bg-deep);
+    color: var(--c-sec-light-night);
 }
 
 .text-pri {
-    color: var(--c-pri);
+    color: var(--c-sec-light-night);
 }
 
 .text-sec-deep {
-    color: var(--c-sec-deep);
+    color: var(--c-sec-mid-night);
 }
 
 .cover-fit {
@@ -333,12 +333,12 @@ ul {
     }
     .main-menu-a.active {
         border: none;
-        color: var(--c-pri);
-        background: var(--c-pri-light);
+        color: var(--c-sec-light-night);
+        background: var(--c-pri-nigh);
     }
     .main-menu-a:hover {
-        background: var(--c-pri);
-        color: var(--c-bg-light);
+        background: var(--c-pri-night);
+        color: var(--c-sec-light-night);
         border-bottom: none;
     }
     .main-menu ul li .btn-outline.rwd {
@@ -787,89 +787,90 @@ ul {
 }
 
 /* 客製化 */
-  .cus-main{
+
+.cus-main {
     background: var(--c-bg-dark-night);
-  }
+}
 
-  .cus-determine-submit {
+.cus-determine-submit {
     background: var(--c-bg-light-night);
-  }
+}
 
-  .cus-determine-submit {
+.cus-determine-submit {
     color: #fefbe6;
     background: var(--c-bg-light-night);
-  }
-  
-  .cus-determine-submit:hover {
+}
+
+.cus-determine-submit:hover {
     color: #fefbe6;
     background: var(--c-bg-mid-night)
-  }
+}
 
-  .cus-determine-total {
+.cus-determine-total {
     color: var(--c-bg-light-night)
-  }
+}
 
-  /* React Date Range */
+/* React Date Range */
 
-  .rdrDateDisplay {
+.rdrDateDisplay {
     color: transparent !important;
-  }
-  
-  .rdrStartEdge, .rdrEndEdge, .rdrInRange {
-    color: var(--c-bg-light-night) !important;
-  }
-  
-  .rdrDayToday .rdrDayNumber span:after {
-    background: var(--c-bg-light-night) !important;
-  }
-  
-  .rdrDateDisplayWrapper, .rdrNextPrevButton, .rdrPprevButton {
-    background: var(--c-bg-light-night);
-  }
+}
 
-  .cus-display-link li {
+.rdrStartEdge, .rdrEndEdge, .rdrInRange {
+    color: var(--c-bg-light-night) !important;
+}
+
+.rdrDayToday .rdrDayNumber span:after {
+    background: var(--c-bg-light-night) !important;
+}
+
+.rdrDateDisplayWrapper, .rdrNextPrevButton, .rdrPprevButton {
+    background: var(--c-bg-light-night);
+}
+
+.cus-display-link li {
     color: var(--c-bg-mid-night);
-  }
-  
-  .cus-display-link li:hover {
+}
+
+.cus-display-link li:hover {
     background: var(--c-pri-night);
     color: var(--c-bg-light);
-  }
-  
-  /* 商品紙娃娃系統 */
+}
+
+/* 商品紙娃娃系統 */
 
 .item-title {
     font-size: 36px;
     font-weight: bold;
     color: var(--c-sec-light-night);
     margin: 50px;
-  }
-  
-  .item-oddBackground {
+}
+
+.item-oddBackground {
     margin: 50px;
     background: var(--c-pri-night);
     border-radius: 20px;
-  }
-  
-  .item-evenBackground {
+}
+
+.item-evenBackground {
     margin: 50px;
     background: var(--c-bg-mid-night);
     border-radius: 20px;
-  }
+}
 
-  .cus-item-text h3 {
+.cus-item-text h3 {
     font-size: 36px;
     font-weight: bold;
     color: var(--c-sec-light-night);
     margin-bottom: 50px;
-  }
-  
-  .cus-item-text p {
+}
+
+.cus-item-text p {
     font-size: 24px;
     color: var(--c-sec-light-night);
-  }
+}
 
-  /* 套裝行程 */
+/* 套裝行程 */
 
 .set-select {
     /* width: 1085px; */
@@ -937,7 +938,6 @@ ul {
     background: var(--c-pri-night);
 }
 
-
 .set-main-tittle {
     color: var(--c-sec-mid-night);
     font-weight: bold;
@@ -966,6 +966,7 @@ ul {
 }
 
 /* 卡片 */
+
 .set-card {
     background: var(--c-bg-dark-night);
 }
@@ -980,4 +981,392 @@ ul {
 
 .set-card-icon {
     color: var(--c-sec-light-night);
+}
+
+/* 首頁 */
+
+/* 快速選單 */
+
+.tabs {
+    background: var(--c-bg-light-night);
+    border-radius: var(--r-l);
+}
+
+.tabs-item {
+    font-weight: bold;
+    color: var(--c-sec-light-night);
+}
+
+.tabs-item.active, .tabs-item:hover {
+    background: var(--c-bg-mid-night);
+    color: var(--c-sec-light-night);
+}
+
+.title {
+    color: var(--c-sec-light-night);
+}
+
+/* 商品卡片 */
+
+.event-card-forhome {
+    background: var(--c-bg-dark-night);
+}
+
+.set-card-forhome {
+    background: var(--c-pri-night);
+}
+
+/* 小測驗 */
+
+#wizard {
+    background: var(--c-bg-mid-night);
+}
+
+.wizard-banner {
+    background: var(--c-bg-mid-night);
+}
+
+.wizard-banner figure {
+    background: var(--c-bg-light-night);
+}
+
+.wizard-banner h3, .wizard-tips a {
+    color: var(--c-sec-mid);
+}
+
+.wizard-result-card {
+    background: var(--c-bg-dark-night);
+    color: var(--c-bg-light-night);
+}
+
+.wizard-carousel {
+    background: var(--c-bg-mid-night);
+}
+
+.wizard-form {
+    background: var(--c-bg-dark-night);
+}
+
+.wizard-form-range input[type="range"] {
+    background: var(--c-bg-light-night);
+}
+
+.wizard-form-range input[type="range"]::-webkit-slider-thumb {
+    background: var(--c-sec-deep);
+}
+
+.wizard-btn {
+    background: var(--c-bg-dark-night);
+    /* color: var(--c-bg-light-night); */
+}
+
+.wizard-tips {
+    color: var(--c-bg-mid);
+    background: var(--c-bg-mid-night);
+}
+
+.text-start {
+    color: var(--c-bg-light-night);
+}
+
+.quiz-text {
+    color: var(--c-bg-light-night);
+}
+
+/* 搜尋 */
+
+.home-search {
+    background: var(--c-sec-light-night);
+}
+
+.home-input {
+    background: var(--c-pri-night);
+}
+
+.home-input::placeholder {
+    color: var(--c-sec-light-night);
+}
+
+.home-input:focus {
+    border-color: var(--c-sec-mid);
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05), 0 0 8px #fab751;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05), 0 0 8px #fab751;
+}
+
+.search-icon {
+    color: var(--c-bg-deep-night);
+}
+
+.search-icon:hover {
+    color: var(--c-pri-deep);
+}
+
+.rwd-calendar input {
+    background: var(--c-pri-night);
+    color: var(--c-sec-light-night);
+}
+
+.rwd-calendar input::placeholder {
+    color: var(--c-sec-light-night);
+}
+
+.rwd-calendar {
+    color: var(--c-pri-night);
+}
+
+.DateInput_input {
+    color: var(--c-sec-light-night);
+    background: #fff;
+}
+
+/* 活動詳細頁 */
+
+.event-description {
+    background: var(--c-pri-night);
+    color: var(--c-sec-light-night);
+    padding: 30px 0;
+}
+
+.cancel-warning {
+    /* color: var(--c-bg-mid-nigh); */
+}
+
+.description-warning {
+    background: var(--c-bg-mid-night);
+    border-radius: 20px;
+    color: var(--c-sec-light-night);
+}
+
+.consumer-review .description-title {
+    color: var(--c-sec-light-night);
+}
+
+.description-title.review-grade {
+    background: var(--c-pri-night);
+    color: var(--c-sec-light-night);
+}
+
+.review-quantity {
+    color: var(--c-sec-light-night);
+}
+
+.review-page-number.active, .review-page-number:hover {
+    background: var(--c-bg-mid-night);
+}
+
+/* banner */
+
+.banner-carousel {
+    background: var(--c-bg-dark-night);
+}
+
+.banner-title {
+    color: var(--c-bg-light-night);
+}
+
+.event-title {
+    color: var(--c-sec-light-night);
+}
+
+/* 日曆 */
+
+.calendar {
+    background: var(--c-bg-dark-night);
+}
+
+.input-population {
+    background: var(--c-pri-night);
+}
+
+/* 日曆RWD */
+
+.rwd-menu, .rwd-calendar {
+    background: var(--c-bg-dark-night);
+}
+
+.SingleDatePickerInput {
+    display: inline-block;
+    background: var(--c-pri-night)
+}
+
+.SingleDatePickerInput_calendarIcon_svg {
+    fill: #fefbe6;
+}
+
+.rwd-calendar {
+    color: var(--c-sec-light-night);
+}
+
+.rwd-menu ul li div {
+    color: var(--c-sec-light-night);
+}
+
+.rwd-menu ul li div:hover {
+    color: var(--c-sec-mid-night);
+}
+
+/* 星星 */
+
+.star-rate-bg {
+    background: var(--c-sec-light-night);
+    background: linear-gradient(to right, var(--c-sec-light-night) 50%, transparent 50%);
+    mask: url('http://localhost:8080/images/star_black.svg') repeat-x;
+}
+
+/* 會員管理 */
+
+.left-aside {
+    background: var(--c-bg-dark-night);
+}
+
+.nav-sub-menu {
+    background: var(--c-bg-dark-night);
+}
+
+.change-pic {
+    background: var(--c-bg-dark-night);
+}
+
+.article {
+    background: var(--c-bg-dark-night);
+}
+
+.member-section-title, .id-name, .nav-sub-menu ul a, .icon, .icon-camera, label {
+    color: var(--c-sec-light-night);
+}
+
+.nav-sub-menu ul a:hover, .nav-sub-menu ul a.active {
+    background: var(--c-bg-light-night);
+}
+
+.section-title, .point-article-menu-a, .point-total, .point-requirement {
+    color: var(--c-sec-light-night);
+}
+
+.point-article-menu-a:hover {
+    color: var(--c-sec-mid-night);
+}
+
+.point-date {
+    color: var(--c-bg-light-night);
+}
+
+.user-points {
+    background: var(--c-pri-night);
+}
+
+.trip-section-title, .article-menu-a {
+    color: var(--c-sec-light-night);
+}
+
+.article-menu-a:hover {
+    color: var(--c-sec-mid-night);
+}
+
+.trip-order-title, .order-info, .icon-order {
+    color: var(--c-sec-light-night);
+}
+
+.icon-order:hover {
+    color: var(--c-sec-mid-night);
+}
+
+.order {
+    background: var(--c-bg-mid-night);
+}
+
+.fav-section-title, .order-price, .icon-fav, .fav-order-title, .section-titleChange {
+    color: var(--c-sec-light-night);
+}
+
+.fav-order {
+    background: var(--c-bg-mid-night);
+}
+
+@media screen and (max-width: 768px) {
+    .mobile-rwd-title, .rwd-nav {
+        background: var(--c-bg-light-night);
+    }
+    .icon-text, .nav-check {
+        color: var(--c-sec-light-night);
+    }
+    .nav-check:hover {
+        background: var(--c-bg-mid-night);
+    }
+}
+
+.comment-left-aside, .comment-article {
+    background: var(--c-bg-dark-night);
+}
+
+.history-title, .history-info, .history-price, .history-price, .comment-text, .comment-section-title, .comment-title, .comment-content {
+    color: var(--c-sec-light-night);
+}
+
+.comment {
+    background: var(--c-bg-mid-night);
+}
+
+/* 購物車 */
+
+.cart-info {
+    background: var(--c-bg-dark-night);
+}
+
+.cart-title, .sum, .total, .input-all {
+    color: var(--c-sec-light-night);
+}
+
+.carts-order {
+    background: var(--c-bg-mid-night);
+}
+
+.carts-order-title, .carts-order-info, .carts-order-price, .carts-delete {
+    color: var(--c-sec-light-night);
+}
+
+.carts-input[type="checkbox"]:checked {
+    background: var(--c-bg-light-night);
+}
+
+/* 訂單 */
+
+.check-user-info {
+    background: var(--c-bg-dark-night);
+}
+
+.check-form-title, .check-deputy-title, .check-order-title, .check-order-info, .check-total-info, .check-point-info, .check-subtotal, .check-subtotal, .check-total, .check-sum ,.check-label-text{
+    color: var(--c-sec-light-night);
+}
+
+.check-breadcrumb {
+    color: var(--c-bg-light-night);
+}
+
+@media screen and (max-width: 768px) {
+.check-rwd-title {
+    background: var(--c-bg-light-night);
+}
+}
+
+.checkout-input::placeholder {
+    color: var(--c-bg-deep-night);
+}
+
+.check-input-mail::placeholder {
+    color: var(--c-bg-deep-night);
+}
+
+.header-icon-badge{
+    background:var(--c-bg-light-night) ;
+    color: var(--c-sec-light-night);
+}
+@media screen and (max-width: 1064px){
+    .main-menu ul{
+        background: linear-gradient(to bottom, #ffefc4 117px, #021335 117px);
+    }
+    .text-pri,.logout-icon svg{
+        color: var(--c-bg-dark-night);
+    }
 }

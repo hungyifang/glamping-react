@@ -201,7 +201,7 @@ h1 {
 .home-search {
     width: 600px;
     height: 80px;
-    background: #fff;
+    background: var(--c-bg-mid);
     border-radius: 20px;
     position: absolute;
     right: 3%;

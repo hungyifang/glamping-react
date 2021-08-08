@@ -945,6 +945,7 @@ ul {
 }
 
 /* 卡片 */
+
 .set-card {
     max-width: 430px;
     height: 600px;
@@ -974,3 +975,289 @@ ul {
     display: flex;
     justify-content: center;
 }
+
+/* 首頁 */
+
+/* 快速選單 */
+
+.tabs {
+    padding: 4px;
+    background: var(--c-pri-light);
+    border-radius: var(--r-l);
+    gap: 4px;
+}
+
+.tabs-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: var(--r-m);
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: var(--c-pri);
+}
+
+.tabs-item.active, .tabs-item:hover {
+    background: var(--c-bg-light);
+    color: var(--c-pri);
+}
+
+.title {
+    padding-top: 20px;
+    margin-left: 90px;
+    color: var(--c-pri);
+}
+
+/* 商品卡片 */
+
+.event-card-forhome {
+    overflow: hidden;
+    border-radius: 50px;
+    background: var(--c-bg-mid);
+    transition: 0.2s;
+}
+
+.set-card-forhome {
+    height: 220px;
+    border-radius: 20px;
+    margin: 0 15px 30px 20px;
+    transition: .2s;
+    background: var(--c-pri-light);
+}
+
+/* 小測驗 */
+
+#wizard {
+    background: var(--c-pri);
+}
+
+.wizard-banner {
+    margin: 0;
+    height: 300px;
+    background: var(--c-pri);
+}
+
+.wizard-banner figure {
+    margin: 0;
+    padding: 0;
+    border-top-right-radius: var(--r-xl);
+    border-bottom-right-radius: var(--r-xl);
+    background: var(--c-pri-light);
+}
+
+.wizard-banner h3, .wizard-tips a {
+    color: var(--c-sec-mid);
+}
+
+.wizard-tips a:hover {
+    color: var(--c-sec-deep);
+}
+
+.wizard-banner h2 {
+    color: var(--c-bg-mid);
+}
+
+.wizard-result-card {
+    height: 300px;
+    display: flex;
+    background: var(--c-bg-mid);
+    border-radius: 20px;
+    color: var(--c-pri);
+}
+
+.wizard-carousel {
+    display: flex;
+    align-items: center;
+    background: var(--c-pri);
+}
+
+.wizard-form {
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    background: var(--c-bg-mid);
+    border-radius: 20px;
+}
+
+.wizard-form-range input[type="range"] {
+    -webkit-appearance: none;
+    /* overflow: hidden; */
+    width: 100%;
+    height: 20px;
+    outline: none;
+    background: var(--c-pri);
+    border-radius: 50px;
+}
+
+.wizard-form-range input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    position: relative;
+    width: 20px;
+    height: 40px;
+    background: var(--c-sec-deep);
+    /* border-radius: 50%; */
+}
+
+.wizard-btn {
+    position: absolute;
+    z-index: 2;
+    right: calc(50% - 75px);
+    bottom: 5%;
+    cursor: pointer;
+    background: var(--c-bg-mid);
+    color: var(--c-pri);
+}
+
+.wizard-tips {
+    height: 120px;
+    color: var(--c-bg-mid);
+    background: var(--c-pri);
+}
+
+.text-start {
+    color: var(--c-pri);
+}
+
+.quiz-text {
+    color: var(--c-pri);
+}
+
+/* 搜尋 */
+
+.home-search {
+    width: 600px;
+    height: 80px;
+    background: var(--c-bg-mid);
+    border-radius: 20px;
+    position: absolute;
+    right: 3%;
+    bottom: 3%;
+    z-index: 1;
+}
+
+.home-input {
+    width: 100% !important;
+    height: 56px;
+    border: none;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.home-input::placeholder {
+    color: var(--c-pri);
+}
+
+.home-input:focus {
+    border-color: var(--c-sec-mid);
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05), 0 0 8px #fab751;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05), 0 0 8px #fab751;
+}
+
+.search-icon {
+    cursor: pointer;
+    color: var(--c-pri);
+    margin-right: 15px;
+}
+
+.search-icon:hover {
+    color: var(--c-pri-deep);
+}
+
+.rwd-calendar input {
+    width: 500px;
+    border-radius: 10px;
+}
+
+.rwd-calendar {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--c-pri);
+    padding: 10px 0;
+    margin: 20px 0;
+}
+
+.DateInput_input {
+    font-weight: 200;
+    font-size: 19px;
+    line-height: 24px;
+    color: #484848;
+    background: #fff;
+    width: 100%;
+    padding: 11px 11px 9px;
+    border: 0;
+    border-top: 0;
+    border-right: 0;
+    border-bottom: 2px solid transparent;
+    border-left: 0;
+    border-radius: 0
+  }
+
+  /* 活動詳細頁 */
+.event-description {
+    background: var(--c-bg-deep);
+    color: var(--c-bg-light);
+    padding: 30px 0;
+}
+
+.cancel-warning {
+    color: var(--c-sec-mid);
+}
+
+.description-warning {
+    background: var(--c-pri-light);
+    border-radius: 20px;
+    color: var(--c-pri);
+}
+
+.consumer-review .description-title {
+    color: var(--c-pri);
+    padding: 30px 0;
+}
+
+.description-title.review-grade {
+    background: var(--c-bg-deep);
+    color: var(--c-bg-light);
+    padding: 15px 20px;
+    border-radius: 20px;
+}
+
+.review-quantity {
+    color: var(--c-bg-deep);
+    margin-left: 50px;
+}
+
+.review-page-number.active, .review-page-number:hover {
+    background: white;
+}
+
+/* banner */
+.banner-carousel {
+    height: 875px;
+    background: var(--c-bg-mid);
+}
+
+.banner-title {
+    padding: 30px 4%;
+    font-weight: bold;
+    color: var(--c-sec-deep);
+}
+
+.event-title {
+    margin: 20px 0;
+    color: var(--c-pri);
+}
+
+/* 日曆 */
+
+.calendar {
+    background: var(--c-bg-mid);
+    margin: 30px 0;
+    border-radius: 20px;
+}
+
+.SingleDatePickerInput {
+    display: inline-block;
+    background: #fff
+  }
+  
