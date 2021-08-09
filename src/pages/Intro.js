@@ -5,9 +5,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-function Intro(props) {
-  const { isDay } = props;
-
+function Intro() {
   let animationContainer = createRef();
   let animationContainerNight = createRef();
   // let animationContainermap = createRef();
