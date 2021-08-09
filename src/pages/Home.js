@@ -75,26 +75,28 @@ function Home(props) {
         setVirgin(false);
         sessionStorage.setItem("virgin", false);
       });
-    } else if (isDay) {
-      const hero = lottie.loadAnimation({
+    } else {
+      // 淺色動畫
+      const heroDay = lottie.loadAnimation({
         container: dayHeroAnimationContainer.current,
         renderer: "svg",
         loop: true,
         autoplay: true,
         path: "/animations/hero_day.json",
       });
-      hero.setSpeed(0.8);
-      hero.playSegments([150, 450], false);
-    } else {
-      const hero = lottie.loadAnimation({
+      heroDay.setSpeed(0.8);
+      heroDay.playSegments([150, 450], false);
+
+      // 深色動畫
+      const heroNight = lottie.loadAnimation({
         container: nightHeroAnimationContainer.current,
         renderer: "svg",
         loop: true,
         autoplay: true,
         path: "/animations/hero_night.json",
       });
-      hero.setSpeed(0.8);
-      hero.playSegments([150, 450], false);
+      heroNight.setSpeed(0.8);
+      heroNight.playSegments([150, 450], false);
     }
   }, [
     isDay,
