@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { withRouter, useLocation } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 
-import OrdersDetail from "../components/checkout/CheckoutDetail";
+import CheckoutDetail from "../components/checkout/CheckoutDetail";
 import "../styles/checkout.css";
 
 function Checkout(props) {
+  const u_id = localStorage.getItem("u_id");
   const orderedData = JSON.parse(localStorage.getItem("orderData"));
   console.log(orderedData);
   // 訂購人資料
@@ -20,6 +21,30 @@ function Checkout(props) {
 
   const [checkSame, setCheckSame] = useState(false);
   const [textArea, setTextArea] = useState("");
+  const [points, setPoints] = useState(0);
+
+  // 訂購人資料
+  async function getUserDataFromServer(u_id) {
+    const url = `http://localhost:8080/api/users/${u_id}`;
+    // 注意header資料格式要設定，伺服器才知道是json格式
+    const request = new Request(url, {
+      method: "GET",
+      headers: new Headers({
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      }),
+    });
+
+    const response = await fetch(request);
+    const data = await response.json();
+    console.log(data);
+    setInputTextFirst(data.first_name);
+    setInputTextLast(data.last_name);
+    setInputTextNumber(data.tel);
+    setInputTextMail(data.email);
+    setPoints(data.points);
+  }
+
   let resultTotal = 0;
   for (let i = 0; i < orderedData.length; i++) {
     resultTotal += orderedData[i].total;
@@ -28,7 +53,6 @@ function Checkout(props) {
   const [allTotal, setAllTotal] = useState(0);
 
   const [newTotal, setNewTotal] = useState(resultTotal);
-  const [points, setPoints] = useState(0);
   const [pointGet, setPointGet] = useState(0);
   const [o_idArray, setO_idArray] = useState([]);
 
@@ -41,34 +65,16 @@ function Checkout(props) {
       result.push(e.o_id);
     });
     setO_idArray(result);
-    console.log(result)
+    console.log(result);
   }
-  // 拿到點數
-  async function pointGetFromSever() {
-    const url = "http://localhost:8080/api/users";
-    // 注意header資料格式要設定，伺服器才知道是json格式
-    const request = new Request(url, {
-      method: "GET",
-      headers: new Headers({
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      }),
-    });
-    const response = await fetch(request);
-    const data = await response.json();
-    let userData = data.filter(
-      (e) => e.u_id === parseInt(localStorage.getItem("u_id"))
-    );
-    setPoints(userData[0].points);
-    // console.log(points);
-  }
+
   // 設定得到點數
   function pointGetFrom() {
     let result = Math.floor(resultTotal / 100);
     setPointGet(result);
   }
-  // 設定總價
 
+  // 設定總價
   function total() {
     let result = 0;
 
@@ -77,10 +83,12 @@ function Checkout(props) {
       setAllTotal(result);
     }
   }
+
   // 獲得新點數
   function newPoints() {
     setPointGet(Math.floor(newTotal / 100));
   }
+
   // 更改ordered資料表s_id to 10  及 u_id
   async function changeS_idToSever() {
     let objData = [];
@@ -105,6 +113,7 @@ function Checkout(props) {
     const data = await response.json();
     console.log(data);
   }
+
   // 更改rooms資料表stay to 1
   async function changeStayToSever() {
     let objData = [];
@@ -126,6 +135,7 @@ function Checkout(props) {
     const data = await response.json();
     console.log(data);
   }
+
   // 更改user資料表point
   async function pointsUpdateToSever() {
     let objData = [
@@ -147,13 +157,15 @@ function Checkout(props) {
     const data = await response.json();
     console.log(data);
   }
+
   // 清除localstorage
   function clearStorage() {
     localStorage.removeItem("orderData");
   }
   useEffect(() => {
     document.title = "山角行 - 結帳";
-    pointGetFromSever();
+    getUserDataFromServer(u_id);
+    // pointGetFromSever();
     pointGetFrom();
     total();
     setO_id();
@@ -186,11 +198,11 @@ function Checkout(props) {
                   className="checkout-input"
                   type="text"
                   placeholder=" 姓氏"
-                  aria-label="First name"
-                  name="First name"
-                  value={inputTextFirst}
+                  aria-label="Last name"
+                  name="last_name"
+                  value={inputTextLast}
                   onChange={(e) => {
-                    setInputTextFirst(e.target.value);
+                    setInputTextLast(e.target.value);
                   }}
                 />
               </div>
@@ -202,11 +214,11 @@ function Checkout(props) {
                   className="checkout-input"
                   type="text"
                   placeholder=" 名字"
-                  aria-label="Last name"
-                  name="Last name"
-                  value={inputTextLast}
+                  aria-label="First name"
+                  name="first_name"
+                  value={inputTextFirst}
                   onChange={(e) => {
-                    setInputTextLast(e.target.value);
+                    setInputTextFirst(e.target.value);
                   }}
                 />
               </div>
@@ -249,7 +261,6 @@ function Checkout(props) {
         </div>
         <div className="check-user-info">
           <p className="h1 check-form-title">旅客資料</p>
-          {/* <OrdersDetail /> */}
           <p className="h3 check-deputy-title">旅客代表人</p>
           <form action="" className="check-order-form h4">
             <div className="row check-form-input">
@@ -261,11 +272,11 @@ function Checkout(props) {
                   className="checkout-input"
                   type="text"
                   placeholder=" 姓氏"
-                  aria-label="First name"
-                  name="First name"
-                  value={inputTextFirstOther}
+                  aria-label="Last name"
+                  name="last_name_other"
+                  value={inputTextLastOther}
                   onChange={(e) => {
-                    setInputTextFirstOther(e.target.value);
+                    setInputTextLastOther(e.target.value);
                   }}
                 />
               </div>
@@ -277,11 +288,11 @@ function Checkout(props) {
                   className="checkout-input"
                   type="text"
                   placeholder=" 名字"
-                  aria-label="Last name"
-                  name="Last name"
-                  value={inputTextLastOther}
+                  aria-label="First name"
+                  name="first_name_other"
+                  value={inputTextFirstOther}
                   onChange={(e) => {
-                    setInputTextLastOther(e.target.value);
+                    setInputTextFirstOther(e.target.value);
                   }}
                 />
               </div>
@@ -340,7 +351,8 @@ function Checkout(props) {
                     }
                   }}
                 />
-                <span>與訂購人相同</span>
+                <span>帶入訂購人資料</span>
+                {/* <span>與訂購人相同</span> */}
               </label>
               <div className="col d-flex justify-content-between mb-5">
                 <div className="d-flex flex-column">
@@ -372,7 +384,7 @@ function Checkout(props) {
         <div className="check-user-info">
           <p className="h1 check-form-title">付款明細</p>
           {orderedData.map((element) => (
-            <OrdersDetail key={element.o_id} element={element} />
+            <CheckoutDetail key={element.o_id} element={element} />
           ))}
 
           {/* <!-- 付款 --> */}

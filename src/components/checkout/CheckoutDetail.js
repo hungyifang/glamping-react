@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { FaUser } from "react-icons/fa";
 import { BsClock } from "react-icons/bs";
 
-function OrdersDetail(props) {
+function CheckoutDetail(props) {
   const { element } = props;
   const [style, setStyle] = useState("");
   const [food, setFood] = useState("");
@@ -96,7 +96,7 @@ function OrdersDetail(props) {
         {element.prime === 4 ? (
           <img
             className="check-order-image"
-            src={`http://localhost:8080/images/pic/event/${element.src}`}
+            src={`http://localhost:8080/images/pic/event/${element.img_src}`}
             alt=""
           />
         ) : (
@@ -170,4 +170,4 @@ function OrdersDetail(props) {
   );
 }
 
-export default OrdersDetail;
+export default CheckoutDetail;
