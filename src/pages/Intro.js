@@ -7,6 +7,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 function Intro() {
   let animationContainer = createRef();
+  let animationContainerNight = createRef();
   // let animationContainermap = createRef();
 
   // const headerRef = useRef(null);
@@ -21,6 +22,15 @@ function Intro() {
     });
     anim.setSpeed(0.5);
 
+    const animnight = lottie.loadAnimation({
+      container: animationContainerNight.current,
+      renderer: "svg",
+      loop: true,
+      autoplay: true,
+      path: "/animations/intro_banner_night.json", // JSON文件路徑
+    });
+    animnight.setSpeed(0.5);
+
     LottieScrollTrigger({
       target: "#map",
       path: "/animations/intro_main.json",
@@ -31,6 +41,7 @@ function Intro() {
       markers: false,
       toggleActions: "play none none reverse",
     });
+
     function LottieScrollTrigger(vars) {
       let playhead = { frame: 0 },
         target = gsap.utils.toArray(vars.target)[0],
@@ -73,7 +84,8 @@ function Intro() {
         className="container-fluid
       p-0"
       >
-        <div ref={animationContainer}></div>
+        <div ref={animationContainer} className="intro-map"></div>
+        <div ref={animationContainerNight} className="intro-map-night"></div>
         <article id="map" className="mt-4"></article>
       </main>
     </>

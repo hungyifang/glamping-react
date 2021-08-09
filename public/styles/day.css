@@ -1295,3 +1295,13 @@ ul {
     font-weight: bold;
     color: var(--c-pri);
 }
+
+/* 動畫 */
+
+.intro-map-night {
+    display: none;
+}
+
+.hero-ani-night {
+    display: none;
+}

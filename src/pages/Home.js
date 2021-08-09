@@ -1,57 +1,26 @@
-import React, { createRef, useEffect, useState } from "react";
+import React, { createRef, useEffect } from "react";
 import { withRouter } from "react-router-dom";
 import lottie from "lottie-web";
-import BnBDateRangePicker from "../components/BnBDateRangePicker";
+import Slot from "../components/home/Slot";
 import EventCardForHome from "../components/event/EventCardForHome";
 import Wizard from "../components/home/Wizard";
 import "../styles/home.css";
-import { FaRegCalendarAlt, FaSearch } from "react-icons/fa";
 import { AiOutlineSchedule } from "react-icons/ai";
 import { GoFlame } from "react-icons/go";
-import { HiUsers } from "react-icons/hi";
 
 function Home(props) {
-  const { auth, virgin, setVirgin } = props;
-  const [persons, setPersons] = useState(1);
+  const { auth, isDay, virgin, setVirgin } = props;
 
   const virginAnimationContainer = createRef();
-  const heroAnimationContainer = createRef();
+  const dayHeroAnimationContainer = createRef();
+  const nightHeroAnimationContainer = createRef();
 
   const home = (
     <main className="container-fluid p-0">
       <section className="hero bg-deep">
-        <div ref={heroAnimationContainer}>
-          <div className="rwd-calendar home-search d-flex align-items-center justify-content-center row m-0 p-0">
-            <FaRegCalendarAlt className="col px-2" size="2rem" />
-            <div className="col-5 m-0 p-0 pe-2">
-              <BnBDateRangePicker type={"home"} />
-            </div>
-            <HiUsers className="col p-0" size="2rem" />
-            <div className="col-5 m-0 p-0 pe-2">
-              <input
-                className="home-input h4 ps-3"
-                placeholder="人數"
-                min="1"
-                max="8"
-                type="number"
-                value={persons}
-                onChange={(e) => {
-                  setPersons(e.target.value);
-                }}
-              />
-            </div>
-            <FaSearch
-              className="search-icon col m-0"
-              size="1.5rem"
-              onClick={() => {
-                props.history.push({
-                  pathname: "/customized",
-                  state: { quickPersons: persons },
-                });
-              }}
-            />
-          </div>
-        </div>
+        <Slot />
+        <div ref={dayHeroAnimationContainer} className="hero-ani-day"></div>
+        <div ref={nightHeroAnimationContainer} className="hero-ani-night"></div>
       </section>
 
       <section id="trending">
@@ -77,7 +46,7 @@ function Home(props) {
       </section>
 
       <section id="wizard">
-        <Wizard auth={auth} />
+        <Wizard auth={auth} isDay={isDay} />
       </section>
 
       {/* <section id="museum" className="bg-pri">
@@ -93,7 +62,6 @@ function Home(props) {
     document.title = "山角行";
 
     if (virgin) {
-      console.log(555);
       const splashing = lottie.loadAnimation({
         container: virginAnimationContainer.current,
         renderer: "svg",
@@ -108,17 +76,36 @@ function Home(props) {
         sessionStorage.setItem("virgin", false);
       });
     } else {
-      const hero = lottie.loadAnimation({
-        container: heroAnimationContainer.current,
+      // 淺色動畫
+      const heroDay = lottie.loadAnimation({
+        container: dayHeroAnimationContainer.current,
         renderer: "svg",
         loop: true,
         autoplay: true,
-        path: "/animations/home.json",
+        path: "/animations/hero_day.json",
       });
-      hero.setSpeed(0.8);
-      hero.playSegments([150, 450], false);
+      heroDay.setSpeed(0.8);
+      heroDay.playSegments([150, 450], false);
+
+      // 深色動畫
+      const heroNight = lottie.loadAnimation({
+        container: nightHeroAnimationContainer.current,
+        renderer: "svg",
+        loop: true,
+        autoplay: true,
+        path: "/animations/hero_night.json",
+      });
+      heroNight.setSpeed(0.8);
+      heroNight.playSegments([150, 450], false);
     }
-  }, [virgin, setVirgin, virginAnimationContainer, heroAnimationContainer]);
+  }, [
+    isDay,
+    virgin,
+    setVirgin,
+    virginAnimationContainer,
+    dayHeroAnimationContainer,
+    nightHeroAnimationContainer,
+  ]);
 
   return virgin ? splashing : home;
 }
