@@ -1297,3 +1297,8 @@ ul {
     font-weight: bold;
     color: var(--c-pri);
 }
+
+/* intro動畫 */
+.intro-map-night{
+    display: none;
+}

@@ -1112,11 +1112,11 @@ ul {
 }
 
 .search-icon {
-    color: var(--c-bg-deep-night);
+    color: var(--c-sec-light-night);
 }
 
 .search-icon:hover {
-    color: var(--c-pri-deep);
+    color: var(--c-bg-light-night);
 }
 
 .rwd-calendar input {
@@ -1422,4 +1422,9 @@ ul {
 .suggestion{
     background: var(--c-bg-light-night);
     color:var(--c-sec-light-night)
+}
+
+/* intro動畫 */
+.intro-map{
+    display: none;
 }
