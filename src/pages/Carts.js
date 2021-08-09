@@ -125,6 +125,7 @@ function Carts(props) {
       deleteToSever();
       // 重製選擇到的checkbox
       setCheckboxArray([]);
+
       // console.log(checkboxArray);
       // 更新localstorage
       localStorage.setItem("orderData", JSON.stringify(newData));
@@ -137,6 +138,9 @@ function Carts(props) {
       // 重製選擇到的checkbox
       setCheckboxArray([]);
       // 更新localstorage
+      setAllTotal(0);
+      setAllAgree(false);
+
       localStorage.removeItem("orderData");
     }
     if (localStorage.getItem("orderData")) {

@@ -56,7 +56,7 @@ function Header(props) {
     <>
       <Link to="/member" className="avatar mx-2">
         <img
-          className="img-fluid"
+          className="img-fluid avatar"
           src={`http://localhost:8080/images/avatar/${u_id}.jpeg`}
           alt="個人資料相片"
         />

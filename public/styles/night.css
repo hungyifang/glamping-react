@@ -1364,6 +1364,10 @@ ul {
     background: var(--c-bg-light-night);
 }
 
+.carts-delete:hover{
+    color:var(--c-bg-light-night);
+}
+
 /* 訂單 */
 
 .check-user-info {

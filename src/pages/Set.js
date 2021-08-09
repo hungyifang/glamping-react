@@ -30,6 +30,7 @@ function Set(props) {
 
     const response = await fetch(request);
     const data = await response.json();
+    console.log(data);
     // 篩選奢華露營
     let luxurious = data.filter((e) => e.c_id === 3);
     // 篩選超值露營
