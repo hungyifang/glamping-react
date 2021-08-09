@@ -5,8 +5,7 @@ import { Carousel } from "react-responsive-carousel";
 import SetCardForHome from "../set/SetCardForHome";
 
 function Wizard(props) {
-  const { isDay } = props;
-  const { auth } = props;
+  const { auth, isDay } = props;
   const u_id = localStorage.getItem("u_id");
   const [isResult, setIsResult] = useState(false);
   const [qa1, setQa1] = useState(5);
