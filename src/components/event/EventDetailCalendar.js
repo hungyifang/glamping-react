@@ -4,11 +4,12 @@ import { ReactComponent as HollowStar } from "../star_border.svg";
 import { FaRegQuestionCircle } from "react-icons/fa";
 import { HiOutlineMinus, HiOutlinePlus } from "react-icons/hi";
 import BnBDateRangePicker from "../BnBDateRangePicker";
+import StarRanker from "./StarRanker";
 import $ from "jquery";
 const axios = require("axios").default;
 
 function EventDetailCalendar(props) {
-  const { auth, setNewCartsNum } = props;
+  const { auth, setNewCartsNum, isDay } = props;
   const history = useHistory();
   const eventStartTime = props.time;
   const i_id = +props.match.params.i_id;
@@ -18,7 +19,8 @@ function EventDetailCalendar(props) {
   const [upload, setUpload] = useState(false);
   const [goCart, setGoCart] = useState(false);
   const [last_oid, setLast_oid] = useState(0);
-  const starColor = props.isDay ? "var(--c-pri)" : "var(--c-sec-light-night)";
+  // const starColor = isDay ? "var(--c-pri)" : "var(--c-sec-light-night)";
+  // console.log(starColor);
   // 要存在 localstorage, 資料庫的資料
   const [ordered, setOrdered] = useState({
     u_id: u_id,
@@ -143,7 +145,7 @@ function EventDetailCalendar(props) {
   }, []);
   useEffect(() => {
     loadStar();
-  }, [i_id]);
+  }, [i_id, isDay]);
   //提交表單(更新ordered)後,送資料庫
   useEffect(() => {
     // console.log(upload);
@@ -227,7 +229,8 @@ function EventDetailCalendar(props) {
               <span className="h2 m-0 me-2 fw-bold">
                 {star === 0 ? <FaRegQuestionCircle /> : star}
               </span>
-              <div
+              <StarRanker star={star} isDay={isDay} />
+              {/* <div
                 className="star-rate-bg h5 d-block m-0"
                 style={{
                   background: `linear-gradient(to right, ${starColor} ${
@@ -240,7 +243,7 @@ function EventDetailCalendar(props) {
                 <HollowStar />
                 <HollowStar />
                 <HollowStar />
-              </div>
+              </div> */}
               <span className="detail-sale h4 m-0 mx-1 align-self-center">
                 &nbsp;|&nbsp;&nbsp;已售出&nbsp;&nbsp;{props.sales}
               </span>

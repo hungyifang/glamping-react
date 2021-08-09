@@ -342,7 +342,7 @@ input[type=number] {
 }
 
 .cancel-warning {
-    color: var(--c-sec-mid);
+    color: var(--c-bg-light);
 }
 
 .description-warning {
@@ -358,7 +358,7 @@ input[type=number] {
 } */
 
 .consumer-review .description-title {
-    color: var(--c-pri);
+    color: var(--c-bg-light);
     padding: 30px 0;
 }
 
@@ -442,7 +442,7 @@ input[type=number] {
     padding: 40px 0 60px 0;
     margin-top: 20px;
     background: var(--c-pri-light);
-    color:var(--c-pri);
+    color: var(--c-pri);
 }
 
 .suggestion-title {
@@ -641,14 +641,15 @@ input[type=number] {
 }
 
 /* 被覆蓋的樣式 */
-.price, .fw-bold, .detail-sale, .review-title, .review-innertext, .review-page-number{
+
+.price, .fw-bold, .detail-sale, .review-title, .review-innertext, .review-page-number {
     color: var(--c-pri);
 }
 
-.review-timestamp{
+.review-timestamp {
     color: var(--c-sec-light);
 }
 
-.review-page{
+.review-page {
     background: var(--c-pri-light);
 }

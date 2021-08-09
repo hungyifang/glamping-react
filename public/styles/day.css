@@ -693,7 +693,6 @@ ul {
     margin: 0 5px;
 }
 
-
 @media screen and (max-width: 940px) {
     .card-wrapper {
         padding: 0;
@@ -1206,17 +1205,16 @@ ul {
 
 .event-description {
     background: var(--c-bg-deep);
-    color: var(--c-pri);
+    color: var(--c-bg-light);
     padding: 30px 0;
 }
 
 .cancel-warning {
-    color: var(--c-sec-mid);
+    color: var(--c-bg-light);
 }
 
-
 .description-title {
-    color: var(--c-pri);
+    color: var(--c-bg-light);
     padding: 30px 0;
 }
 

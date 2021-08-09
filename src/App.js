@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { Helmet } from "react-helmet";
+// import { Helmet } from "react-helmet";
 import $ from "jquery";
 import ScrollToTop from "./components/ScrollToTop";
 import Layout from "./components/Layout";
@@ -20,7 +20,7 @@ function App() {
   const [virgin, setVirgin] = useState();
   const [newCartsNum, setNewCartsNum] = useState();
 
-  const cssLink = isDay ? "day" : "night";
+  // const cssLink = isDay ? "day" : "night";
 
   function updateCartNum() {
     if (localStorage.getItem("orderData")) {
@@ -83,13 +83,13 @@ function App() {
 
   return (
     <>
-      <Helmet>
+      {/* <Helmet>
         <link
           type="text/css"
           rel="stylesheet"
           href={`./styles/${cssLink}.css`}
         />
-      </Helmet>
+      </Helmet> */}
       <Router>
         <ScrollToTop>
           <Switch>

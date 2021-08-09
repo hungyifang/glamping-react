@@ -3,6 +3,7 @@ import { withRouter } from "react-router-dom";
 import { ReactComponent as HollowStar } from "../star_border.svg";
 import { BiCaretLeft, BiCaretRight } from "react-icons/bi";
 import EventReviewCardUserName from "./EventReviewCardUserName";
+import StarRanker from "./StarRanker";
 import $ from "jquery";
 const axios = require("axios").default;
 
@@ -16,7 +17,8 @@ function EventDetailReview(props) {
   const [RWD, setRWD] = useState(false);
   const limit = 6;
   const totalPages = Math.ceil(totalReviews / limit);
-  const starColor = props.isDay ? "var(--c-pri)" : "var(--c-sec-light-night)";
+  const isDay = props.isDay;
+  // const starColor = isDay ? "var(--c-pri)" : "var(--c-sec-light-night)";
 
   //算頁數
   async function countReview() {
@@ -48,7 +50,8 @@ function EventDetailReview(props) {
                 className="w-100 h-100 cover-fit"
               />
             </div>
-            <div
+            <StarRanker star={review.score} isDay={isDay} />
+            {/* <div
               className="star-rate-bg h5 d-block m-0 mx-3"
               style={{
                 background: `linear-gradient(to right, ${starColor} ${
@@ -61,7 +64,7 @@ function EventDetailReview(props) {
               <HollowStar />
               <HollowStar />
               <HollowStar />
-            </div>
+            </div> */}
           </div>
           <div className="bg-mid row review-content">
             <div className="col-12 review-title h2">{review.title}</div>
@@ -119,7 +122,7 @@ function EventDetailReview(props) {
     countReview();
     loadReview();
     // console.log(currentPage);
-  }, [i_id, props.parentStar]);
+  }, [i_id, props.parentStar, isDay]);
   return (
     <>
       <div className="container rwd-review" id="review">

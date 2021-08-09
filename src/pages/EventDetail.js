@@ -11,6 +11,7 @@ import EventDetailQuickListRWD from "../components/event/EventDetailQuickListRWD
 import EventDetailReview from "../components/event/EventDetailReview";
 import EventDetailSuggestion from "../components/event/EventDetailSuggestion";
 import MsgModal from "../components/event/MsgModal";
+// import CSShelmet from "../components/CSShelmet";
 const axios = require("axios").default;
 
 function EventDetail(props) {
@@ -83,6 +84,7 @@ function EventDetail(props) {
   const display = events.map((result, index) => {
     return (
       <>
+        {/* <CSShelmet isDay={isDay} /> */}
         <header>
           <div className="banner-carousel">
             <div className="h3 banner-title col-auto">{result.title}</div>
