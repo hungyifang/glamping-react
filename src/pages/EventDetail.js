@@ -114,7 +114,7 @@ function EventDetail(props) {
               title={result.title}
               time={result.time}
               level={result.level}
-              src={result.img_src}
+              img_src={result.img_src}
               i_id={i_id}
               auth={auth}
               key={index}
@@ -134,7 +134,7 @@ function EventDetail(props) {
                   title={result.title}
                   level={result.level}
                   time={result.time}
-                  src={result.img_src}
+                  img_src={result.img_src}
                   i_id={i_id}
                   auth={auth}
                   setParentStar={setParentStar}

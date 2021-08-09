@@ -5,6 +5,7 @@ import { FaRegQuestionCircle } from "react-icons/fa";
 import { HiOutlineMinus, HiOutlinePlus } from "react-icons/hi";
 import BnBDateRangePicker from "../BnBDateRangePicker";
 import StarRanker from "./StarRanker";
+
 import $ from "jquery";
 const axios = require("axios").default;
 
@@ -34,6 +35,7 @@ function EventDetailCalendar(props) {
     prime: 4, //prime = 3 = 客製化 prime = 4 = 活動
     title: props.title, //props.title
     message: "",
+    img_src: props.img_src,
   });
   const [ordered_detail, setOrdered_detail] = useState({
     o_id: 0,
@@ -46,7 +48,7 @@ function EventDetailCalendar(props) {
     title: props.title,
     prime: 4,
     total: 0,
-    src: props.src,
+    img_src: props.img_src,
   });
 
   //點擊"加入購物車", 提交表單

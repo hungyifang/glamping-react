@@ -46,7 +46,7 @@ function FavoriteList(props) {
 
   return (
     <>
-      <Link to={`/event-detail/${value.i_id}`}>
+      <Link to={`/event-detail/$`}>
         <div className="fav-order d-flex justify-content-between ">
           <img
             className="fav-order-image"

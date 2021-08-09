@@ -126,7 +126,7 @@ function CartsCheckbox(props) {
           {value.prime === 4 ? (
             <img
               className="carts-order-image"
-              src={`http://localhost:8080/images/pic/event/${value.src}`}
+              src={`http://localhost:8080/images/pic/event/${value.img_src}`}
               alt=""
             />
           ) : (
