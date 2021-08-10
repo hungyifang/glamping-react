@@ -569,3 +569,7 @@ ul {
     right: 96px;
     width: 240px;
 }
+
+.signup-text {
+    color: var(--c-pri);
+}

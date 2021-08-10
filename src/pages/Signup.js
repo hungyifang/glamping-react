@@ -49,7 +49,7 @@ function Signup(props) {
     </main>
   );
   const afterSignup = (
-    <main className="container-fluid d-flex flex-column justify-content-center p-5 position-relative">
+    <main className="signup-text container-fluid d-flex flex-column justify-content-center p-5 position-relative">
       <img
         className="login-hint position-absolute top-0"
         src="http://localhost:8080/images/login_hint.png"
