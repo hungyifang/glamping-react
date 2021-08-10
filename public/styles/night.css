@@ -1467,8 +1467,17 @@ input[type="checkbox"]:checked {
   color: var(--c-bg-deep-night);
 }
 
+
+@media screen and (min-width: 1430px) {
+  .checkout-input-mail::placeholder {
+      opacity: 0;
+  }
+}
+
+@media screen and (max-width: 1430px) {
 .check-input-mail::placeholder {
   color: var(--c-bg-deep-night);
+}
 }
 
 .header-icon-badge {

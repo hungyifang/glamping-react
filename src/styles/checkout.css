@@ -91,6 +91,9 @@ label {
     .checkout-input::placeholder {
         opacity: 0;
     }
+    .check-input-mail::placeholder {
+        opacity: 0;
+    }
 }
 
 @media screen and (max-width: 768px) {
