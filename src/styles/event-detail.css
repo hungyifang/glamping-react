@@ -407,6 +407,7 @@ input[type=number] {
 .review-page-number {
     border-radius: 10px;
     transition: 0.2s;
+    cursor: pointer;
 }
 
 .review-page-number.active, .review-page-number:hover {
