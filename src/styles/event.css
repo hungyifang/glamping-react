@@ -288,3 +288,6 @@
         left: -50px;
     }
 }
+.no-review-text{
+    color: var(--c-pri);
+}
