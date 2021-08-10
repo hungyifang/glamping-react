@@ -136,7 +136,7 @@ function App() {
                 <Checkout isDay={isDay} />
               </Route>
               <Route path="/member">
-                <Member auth={auth} isDay={isDay} />
+                <Member isDay={isDay} />
               </Route>
               <Route path="/intro">
                 <Intro isDay={isDay} />

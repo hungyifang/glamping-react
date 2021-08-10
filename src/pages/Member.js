@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
 import "../styles/member.css";
 import MemberLayout from "../components/MemberLayout";
@@ -8,9 +8,32 @@ import RewardPoints from "../components/point/RewardPoints";
 import Myfav from "../components/fav/Myfav";
 import Comment from "./Comment";
 
-function Member(props) {
-  const { auth } = props;
+function Member() {
   const u_id = localStorage.getItem("u_id");
+  const [memberAuth, setMemberAuth] = useState(true);
+
+  async function checkIsLogin() {
+    const url = `http://localhost:8080/api/auth/check`;
+    const request = new Request(url, {
+      method: "GET",
+      withCredentials: true,
+      credentials: "include",
+    });
+    const response = await fetch(request);
+    const isLogin = await response.json();
+    console.log("登入與否？", isLogin);
+    if (isLogin) {
+      setMemberAuth(true);
+    } else {
+      localStorage.removeItem("u_id");
+      setMemberAuth(false);
+    }
+  }
+
+  useEffect(() => {
+    checkIsLogin();
+  }, [memberAuth]);
+
   const display = (
     <Switch>
       <Route path="/member/comment/:id">
@@ -33,7 +56,7 @@ function Member(props) {
     </Switch>
   );
 
-  return <>{auth ? display : <Redirect to="/" />}</>;
+  return <>{memberAuth ? display : <Redirect to="/" />}</>;
 }
 
 export default Member;

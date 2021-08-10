@@ -68,6 +68,7 @@ function Header(props) {
         />
       </Link>
       <Link
+        to="/"
         className="fw-bold main-menu-a mx-2 d-none-rwd"
         onClick={() => logout()}
       >
