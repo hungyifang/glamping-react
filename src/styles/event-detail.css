@@ -379,6 +379,7 @@ input[type=number] {
     width: 50px;
     height: 50px;
     overflow: hidden;
+    margin-right: 15px;
 }
 
 .review-content {
@@ -591,10 +592,24 @@ input[type=number] {
     padding: 0 20px;
 }
 
-@media screen and (max-width: 1064px) {
+/* @media screen and (max-width: 1064px) { */
+
+@media screen and (max-width: 940px) {
     .card-wrapper {
         padding: 0;
         /* max-width: 1840px; */
+    }
+    .card-wrapper {
+        padding: 0;
+        overflow: scroll;
+        flex-wrap: nowrap;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        justify-content: flex-start;
+        padding-bottom: 80px;
+    }
+    .card-wrapper::-webkit-scrollbar {
+        display: none;
     }
     .card-img {
         width: 300px;
@@ -638,6 +653,17 @@ input[type=number] {
 .event-modal-title {
     height: 56px;
     /* background: var(--c-bg-deep); */
+}
+
+.event-modal .login-modal-h1 {
+    font-size: 2rem;
+    color: var(--c-sec-deep);
+    text-align: center;
+    font-weight: bold;
+}
+
+.event-modal-text {
+    color: var(--c-pri);
 }
 
 /* 被覆蓋的樣式 */

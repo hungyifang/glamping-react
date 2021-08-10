@@ -693,50 +693,6 @@ ul {
     margin: 0 5px;
 }
 
-@media screen and (max-width: 940px) {
-    .card-wrapper {
-        padding: 0;
-        overflow: scroll;
-        flex-wrap: nowrap;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
-        justify-content: flex-start;
-        padding-bottom: 80px;
-    }
-    .card-wrapper::-webkit-scrollbar {
-        display: none;
-    }
-    .event-card {
-        width: 350px;
-        height: 490px;
-        border-radius: 50px;
-        background: var(--c-bg-mid);
-        margin: 0 10px 20px 10px;
-        padding: 25px;
-    }
-    .card-img {
-        width: 300px;
-        height: 300px;
-        border-radius: 50px;
-    }
-    .card-tag-hot::before {
-        padding: 0 5px;
-        left: -50px;
-    }
-    .card-tag-new::after {
-        padding: 0 5px;
-        left: -50px;
-    }
-    .card-tag-new.card-tag-hot::before {
-        padding: 0 5px;
-        left: -50px;
-    }
-    .card-tag-hot.card-tag-new::after {
-        padding: 0 5px;
-        left: -50px;
-    }
-}
-
 /* 客製化 */
 
 .cus-main {
@@ -1244,6 +1200,38 @@ ul {
 
 .review-page-number.active, .review-page-number:hover {
     background: white;
+}
+
+.event-modal {
+    position: absolute;
+    top: 40%;
+    left: 30%;
+    right: 30%;
+    /* bottom: 4%; */
+    background: var(--c-bg-light);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.event-modal:focus {
+    outline: none;
+}
+
+.event-modal-title {
+    height: 56px;
+    /* background: var(--c-bg-deep); */
+}
+
+.event-modal-text {
+    color: var(--c-pri);
+}
+
+.event-modal .login-modal-h1 {
+    font-size: 2rem;
+    color: var(--c-sec-deep);
+    text-align: center;
+    font-weight: bold;
 }
 
 /* banner */

@@ -40,15 +40,12 @@ function EventDetailReview(props) {
     });
     result = result.data[0];
     let reviewCards = result.map((review, index) => {
+      const url = `http://localhost:8080/images/avatar/${review.u_id}.jpeg`;
       return (
         <div className="col-md-6 col-12 my-2 review-card" key={index}>
           <div className="d-flex align-items-center">
             <div className="review-avatar ">
-              <img
-                src="http://localhost:8080/images/jules-a-lmydvgKiorI-unsplash.jpg"
-                alt=""
-                className="w-100 h-100 cover-fit"
-              />
+              <img src={url} alt="" className="w-100 h-100 cover-fit" />
             </div>
             <StarRanker star={review.score} isDay={isDay} />
             {/* <div

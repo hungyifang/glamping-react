@@ -1364,8 +1364,8 @@ ul {
     background: var(--c-bg-light-night);
 }
 
-.carts-delete:hover{
-    color:var(--c-bg-light-night);
+.carts-delete:hover {
+    color: var(--c-bg-light-night);
 }
 
 /* 訂單 */
@@ -1427,6 +1427,38 @@ ul {
 .suggestion {
     background: var(--c-bg-light-night);
     color: var(--c-sec-light-night)
+}
+
+.event-modal {
+    position: absolute;
+    top: 40%;
+    left: 30%;
+    right: 30%;
+    /* bottom: 4%; */
+    background: var(--c-bg-dark-night);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.event-modal:focus {
+    outline: none;
+}
+
+.event-modal-title {
+    height: 56px;
+    /* background: var(--c-bg-deep); */
+}
+
+.event-modal-text {
+    color: var(--c-sec-light-night)
+}
+
+.event-modal .login-modal-h1 {
+    font-size: 2rem;
+    color: var(--c-sec-deep);
+    text-align: center;
+    font-weight: bold;
 }
 
 /* 動畫動畫 */
