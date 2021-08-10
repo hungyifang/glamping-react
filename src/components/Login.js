@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
+import { withRouter } from "react-router-dom";
 import "../styles/login.css";
 
 function Login(props) {
   const [isWrong, setIsWrong] = useState(false);
+  const [errorMsg, setErrorMsg] = useState();
   const wrongBtn = (
     <button className="login-btn-wrong login-btn h2" type="reset">
-      帳號或密碼錯誤
+      {errorMsg}
     </button>
   );
   const loginBtn = (
@@ -18,12 +20,15 @@ function Login(props) {
   async function login(e) {
     e.preventDefault();
     const formdata = new FormData(e.target);
-    let username = formdata.get("username");
-    let password = formdata.get("password");
-    const url = `http://localhost:8080/api/auth/login?username=${username}&password=${password}`;
+    const url = `http://localhost:8080/api/auth/login`;
 
     const request = new Request(url, {
       method: "POST",
+      body: JSON.stringify({
+        username: formdata.get("username"),
+        password: formdata.get("password"),
+        totp: formdata.get("totp"),
+      }),
       withCredentials: true,
       credentials: "include",
       headers: new Headers({
@@ -41,6 +46,7 @@ function Login(props) {
       props.setAuth(true);
       props.onRequestClose();
     } else if (data.status === 0) {
+      setErrorMsg(data.msg);
       setIsWrong(true);
     }
   }
@@ -91,9 +97,27 @@ function Login(props) {
           placeholder="密碼"
           name="password"
         />
+        <input
+          className="col-10 login-input"
+          type="tel"
+          maxLength="6"
+          placeholder="兩步驟驗證（選填）"
+          pattern="[0-9]{6}"
+          name="totp"
+        />
         <div className="login-btn-group col-10 row d-flex justify-content-between p-0">
           <button className="login-btn-link login-btn h2">忘記密碼</button>
-          <button className="login-btn-link login-btn h2">註冊</button>
+          <button
+            className="login-btn-link login-btn h2"
+            onClick={() => {
+              props.onRequestClose();
+              props.history.push({
+                pathname: "/signup",
+              });
+            }}
+          >
+            註冊
+          </button>
           {isWrong ? wrongBtn : loginBtn}
         </div>
       </form>
@@ -101,4 +125,4 @@ function Login(props) {
   );
 }
 
-export default Login;
+export default withRouter(Login);

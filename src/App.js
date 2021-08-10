@@ -13,9 +13,10 @@ import Set from "./pages/Set";
 import Customized from "./pages/Customized";
 import Carts from "./pages/Carts";
 import Checkout from "./pages/Checkout";
+import Signup from "./pages/Signup";
 
 function App() {
-  const [auth, setAuth] = useState(true);
+  const [auth, setAuth] = useState();
   const [isDay, setIsDay] = useState(true);
   const [virgin, setVirgin] = useState();
   const [newCartsNum, setNewCartsNum] = useState();
@@ -139,6 +140,9 @@ function App() {
               </Route>
               <Route path="/intro">
                 <Intro isDay={isDay} />
+              </Route>
+              <Route path="/signup">
+                <Signup auth={auth} />
               </Route>
             </Layout>
           </Switch>

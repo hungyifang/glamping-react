@@ -562,3 +562,10 @@ ul {
     width: 100% !important;
     height: 100%;
 }
+
+/* 登入提示 */
+
+.login-hint {
+    right: 96px;
+    width: 240px;
+}
