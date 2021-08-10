@@ -88,7 +88,7 @@ label {
 }
 
 @media screen and (min-width: 1430px) {
-    ::placeholder {
+    .checkout-input::placeholder {
         opacity: 0;
     }
 }
@@ -137,6 +137,7 @@ input[type="checkbox"] {
 input[type="checkbox"]:checked {
     background: var(--c-pri);
     border-color: var(--c-pri);
+    mask: url('http://localhost:8080/images/check_box.svg') no-repeat center center;
 }
 
 .check-comment {
