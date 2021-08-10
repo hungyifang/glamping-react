@@ -43,6 +43,11 @@ function Header(props) {
     }
   }
 
+  function handleAvatarError(e) {
+    e.target.onerror = null;
+    e.target.src = "http://localhost:8080/images/example.jpg";
+  }
+
   const loginBtn = (
     <div
       className="btn-outline d-none-rwd d-flex justify-content-center align-items-center mx-2"
@@ -59,6 +64,7 @@ function Header(props) {
           className="img-fluid avatar"
           src={`http://localhost:8080/images/avatar/${u_id}.jpeg`}
           alt="個人資料相片"
+          onError={handleAvatarError}
         />
       </Link>
       <Link
