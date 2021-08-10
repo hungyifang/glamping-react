@@ -9,7 +9,6 @@ const axios = require("axios").default;
 
 function EventDetailReview(props) {
   const i_id = +props.match.params.i_id;
-  // console.log(props.parentStar);
   const [reviews, setReviews] = useState([]);
   const [totalReviews, setTotalReviews] = useState(0);
   const [currentPage, setCurrentPage] = useState(0);
@@ -18,7 +17,6 @@ function EventDetailReview(props) {
   const limit = 6;
   const totalPages = Math.ceil(totalReviews / limit);
   const isDay = props.isDay;
-  // const starColor = isDay ? "var(--c-pri)" : "var(--c-sec-light-night)";
 
   //算頁數
   async function countReview() {
@@ -48,20 +46,6 @@ function EventDetailReview(props) {
               <img src={url} alt="" className="w-100 h-100 cover-fit" />
             </div>
             <StarRanker star={review.score} isDay={isDay} />
-            {/* <div
-              className="star-rate-bg h5 d-block m-0 mx-3"
-              style={{
-                background: `linear-gradient(to right, ${starColor} ${
-                  review.score * 20
-                }%, transparent ${review.score * 20}%)`,
-              }}
-            >
-              <HollowStar />
-              <HollowStar />
-              <HollowStar />
-              <HollowStar />
-              <HollowStar />
-            </div> */}
           </div>
           <div className="bg-mid row review-content">
             <div className="col-12 review-title h2">{review.title}</div>

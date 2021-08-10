@@ -3,7 +3,6 @@ import EventCard from "./EventCard";
 
 function EventDetailSuggestion(props) {
   const auth = props.auth;
-  // const [auth, setAuth] = useState(login);
 
   return (
     <div className="container-fluid suggestion">

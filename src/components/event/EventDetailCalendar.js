@@ -20,8 +20,6 @@ function EventDetailCalendar(props) {
   const [upload, setUpload] = useState(false);
   const [goCart, setGoCart] = useState(false);
   const [last_oid, setLast_oid] = useState(0);
-  // const starColor = isDay ? "var(--c-pri)" : "var(--c-sec-light-night)";
-  // console.log(starColor);
   // 要存在 localstorage, 資料庫的資料
   const [ordered, setOrdered] = useState({
     u_id: u_id,
@@ -232,20 +230,6 @@ function EventDetailCalendar(props) {
                 {star === 0 ? <FaRegQuestionCircle /> : star}
               </span>
               <StarRanker star={star} isDay={isDay} />
-              {/* <div
-                className="star-rate-bg h5 d-block m-0"
-                style={{
-                  background: `linear-gradient(to right, ${starColor} ${
-                    star * 20
-                  }%, transparent ${star * 20}%)`,
-                }}
-              >
-                <HollowStar />
-                <HollowStar />
-                <HollowStar />
-                <HollowStar />
-                <HollowStar />
-              </div> */}
               <span className="detail-sale h4 m-0 mx-1 align-self-center">
                 &nbsp;|&nbsp;&nbsp;已售出&nbsp;&nbsp;{props.sales}
               </span>

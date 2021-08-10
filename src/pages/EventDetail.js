@@ -11,14 +11,11 @@ import EventDetailQuickListRWD from "../components/event/EventDetailQuickListRWD
 import EventDetailReview from "../components/event/EventDetailReview";
 import EventDetailSuggestion from "../components/event/EventDetailSuggestion";
 import MsgModal from "../components/event/MsgModal";
-// import CSShelmet from "../components/CSShelmet";
 const axios = require("axios").default;
 
 function EventDetail(props) {
   const { auth, setNewCartsNum, isDay } = props;
   const i_id = +props.match.params.i_id;
-  // console.log(i_id);
-  // console.log(props.location);
   const u_id = localStorage.getItem("u_id");
   const [login, setLogin] = useState(false);
   const [events, setEvents] = useState([]);
@@ -84,7 +81,6 @@ function EventDetail(props) {
   const display = events.map((result, index) => {
     return (
       <>
-        {/* <CSShelmet isDay={isDay} /> */}
         <header>
           <div className="banner-carousel">
             <div className="h3 banner-title col-auto">{result.title}</div>
@@ -165,7 +161,12 @@ function EventDetail(props) {
             key={i_id}
             isDay={isDay}
           />
-          <EventDetailSuggestion auth={auth} i_id={i_id} />
+          <EventDetailSuggestion
+            auth={auth}
+            i_id={i_id}
+            u_id={u_id}
+            key={index + 2}
+          />
         </main>
         <MsgModal
           modalIsOpen={modalIsOpen}

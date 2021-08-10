@@ -61,10 +61,6 @@ function EventDetailTitle(props) {
     let curAuth = props.auth;
     setLogin(curAuth);
   }
-  function recheckFav() {
-    let curFav = props.fav;
-    setFav(curFav);
-  }
 
   useEffect(() => {
     checkAuth();

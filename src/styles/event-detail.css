@@ -666,6 +666,10 @@ input[type=number] {
     color: var(--c-pri);
 }
 
+.no-review-text {
+    color: var(--c-pri);
+}
+
 /* 被覆蓋的樣式 */
 
 .price, .fw-bold, .detail-sale, .review-title, .review-innertext, .review-page-number {

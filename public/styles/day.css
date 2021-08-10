@@ -1202,6 +1202,10 @@ ul {
     background: white;
 }
 
+.no-review-text {
+    color: var(--c-pri);
+}
+
 .event-modal {
     position: absolute;
     top: 40%;

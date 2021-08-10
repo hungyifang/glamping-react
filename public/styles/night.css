@@ -1378,7 +1378,7 @@ input[type="checkbox"]:checked {
 
 /* 訂單 */
 
-.check-order{
+.check-order {
     background: var(--c-bg-mid-night);
 }
 
@@ -1438,7 +1438,11 @@ input[type="checkbox"]:checked {
 
 .suggestion {
     background: var(--c-bg-light-night);
-    color: var(--c-sec-light-night)
+    color: var(--c-sec-light-night);
+}
+
+.no-review-text {
+    color: var(--c-sec-light-night);
 }
 
 .event-modal {
@@ -1483,6 +1487,6 @@ input[type="checkbox"]:checked {
     display: none;
 }
 
-.check-check-label{
+.check-check-label {
     color: var(--c-sec-light-night);
 }

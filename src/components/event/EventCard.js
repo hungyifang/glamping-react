@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import { MdStar, MdLocationOn } from "react-icons/md";
 import EventCardReview from "./EventCardReview";
 import moment from "moment";
@@ -8,7 +9,6 @@ const axios = require("axios").default;
 function EventCard(props) {
   const auth = props.auth;
   const u_id = localStorage.getItem("u_id");
-  const [login, setLogin] = useState(false);
   const [events, setEvents] = useState([]);
   const [hotTags, setHotTags] = useState([]);
   const [newTags, setNewTags] = useState([]);
@@ -62,8 +62,7 @@ function EventCard(props) {
   //取使用者 deg_1~3
   async function loadUserDeg() {
     if (!auth) return "未登入";
-    // let u_id = props.u_id;
-    // let u_id = 1;
+    if (degrees.length > 0) return countAbs();
     let userDeg = await axios.get(
       "http://localhost:8080/api/event/card/userDeg",
       {
@@ -115,19 +114,15 @@ function EventCard(props) {
       setDegRank(DegRank);
     }
   }
-  //更新Auth狀態
-  function checkAuth() {
-    let curAuth = props.auth;
-    setLogin(curAuth);
-  }
 
   /*eslint-disable */
   useEffect(() => {
-    checkAuth();
+    // checkAuth();
     loadEventCard();
     loadNewTag();
     loadHotTag();
     loadUserDeg();
+    countAbs();
   }, []);
 
   useEffect(() => {
@@ -136,7 +131,7 @@ function EventCard(props) {
 
   useEffect(() => {
     countAbs();
-  }, [degrees]);
+  }, [degrees, events]);
   /*eslint-enable */
 
   // useEffect(() => {
@@ -265,4 +260,4 @@ function EventCard(props) {
   return <>{display}</>;
 }
 
-export default EventCard;
+export default withRouter(EventCard);

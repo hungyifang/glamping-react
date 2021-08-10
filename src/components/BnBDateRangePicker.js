@@ -13,9 +13,9 @@ function BnBDateRangePicker(props) {
   const [startDate, setStartDate] = useState(moment());
   const [endDate, setEndDate] = useState(moment());
   const [focusedInput, setFocusedInput] = useState("startDate");
-  useEffect(() => {
-    console.log(startDate);
-  }, [startDate]);
+  // useEffect(() => {
+  //   console.log(startDate);
+  // }, [startDate]);
   // useEffect(() => {
   //   console.log(date);
   // }, [date]);
