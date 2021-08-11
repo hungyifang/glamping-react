@@ -358,7 +358,7 @@ input[type=number] {
 } */
 
 .consumer-review .description-title {
-    color: var(--c-bg-light);
+    color: var(--c-pri);
     padding: 30px 0;
 }
 
