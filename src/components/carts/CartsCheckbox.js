@@ -15,6 +15,7 @@ function CartsCheckbox(props) {
   const [food, setFood] = useState("");
   const [film, setFilm] = useState("");
   const [item, setItem] = useState("");
+  const [done, setDone] = useState(false);
   const selectProducts = {
     1: "http://localhost:8080/images/postcard/human/1.svg",
     2: "http://localhost:8080/images/postcard/human/2.svg",
@@ -102,11 +103,14 @@ function CartsCheckbox(props) {
           console.log("沒料");
       }
     }
+    setDone(true);
   }
   useEffect(() => {
     getPictureDataFromServer();
   }, []);
-
+  useEffect(() => {
+    getPictureDataFromServer();
+  }, [done]);
   useEffect(() => {
     allCheck();
   }, [allAgree]);
