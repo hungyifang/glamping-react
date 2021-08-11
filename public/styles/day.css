@@ -1241,7 +1241,7 @@ ul {
 /* banner */
 
 .banner-carousel {
-    height: 875px;
+    /* height: 875px; */
     background: var(--c-bg-mid);
 }
 
