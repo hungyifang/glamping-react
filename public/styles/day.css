@@ -298,7 +298,7 @@ ul {
     color: var(--c-pri);
 }
 
-/* @media screen and (max-width: 1064px) {
+@media screen and (max-width: 1064px) {
     .main-menu {
         display: none;
         position: fixed;
@@ -381,7 +381,7 @@ ul {
     .d-none-rwd {
         display: none !important;
     }
-} */
+}
 
 /* footer共用 */
 
