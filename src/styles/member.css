@@ -271,6 +271,7 @@ label {
     display: none;
   }
   .mobile-rwd-title {
+    margin-top: 80px;
     height: 100px;
     background: var(--c-pri);
   }
@@ -293,9 +294,9 @@ label {
   .back-icon {
     color: var(--c-bg-light);
   }
-  .nav-bg{
+  /* .nav-bg{
     display: none;
-  }
+  } */
 }
 
 /* RWD-main */

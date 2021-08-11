@@ -166,6 +166,7 @@
     display: none;
   }
   .mobile-rwd-title {
+    margin-top: 80px;
     height: 100px;
     background: var(--c-pri);
   }
