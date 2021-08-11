@@ -89,6 +89,11 @@ function EventCarousel(props) {
         $(".carousel-parts").width() -
         ($(".carousel-wrapper").width() - $(".carousel-parts").width()) / 2 +
         20;
+      //前後按鈕感應區域
+      $(".carousel-btn").css(
+        "width",
+        ($(".carousel-wrapper").width() - $(".carousel-parts").width()) / 2
+      );
       carouselIndex = $("#carousel-dot-pages li.active").index() + 1;
       carouselRun(firstCarouselWidth, carouselIndex, carouselWidth);
     });
