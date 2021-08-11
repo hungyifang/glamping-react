@@ -7,10 +7,11 @@ import { FaRegHeart } from "react-icons/fa";
 import { MdPhotoCamera } from "react-icons/md";
 import { Modal, Form } from "react-bootstrap";
 
-function MemberNav(props) {
+function MemberNav() {
   const u_id = localStorage.getItem("u_id");
   const [show, setShow] = useState(false);
   const [userData, setUserData] = useState([]);
+  const [urlAction, setUrlAction] = useState("view");
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -96,10 +97,12 @@ function MemberNav(props) {
         const response = await fetch(request);
         const data = await response.json();
         if (data.status === 1) {
+          urlAction === "view" ? setUrlAction("purge") : setUrlAction("view");
           handleClose();
         }
       } catch (err) {
         console.error(err);
+        handleClose();
       }
     }
   }
@@ -115,7 +118,7 @@ function MemberNav(props) {
         <img
           className="avatar-img"
           // src="https://picsum.photos/200/200?random=1"
-          src={`http://localhost:8080/images/avatar/${u_id}.jpeg`}
+          src={`http://localhost:8080/images/avatar/${u_id}.jpeg?action=${urlAction}`}
           alt="個人資料圖片"
           onError={handleAvatarError}
         />
