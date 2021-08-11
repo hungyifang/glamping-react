@@ -5,6 +5,7 @@ import CheckoutDetail from "../components/checkout/CheckoutDetail";
 import "../styles/checkout.css";
 
 function Checkout(props) {
+  const { setNewCartsNum } = props;
   const u_id = localStorage.getItem("u_id");
   const orderedData = JSON.parse(localStorage.getItem("orderData"));
   console.log(orderedData);
@@ -160,7 +161,7 @@ function Checkout(props) {
 
   // 清除localstorage
   function clearStorage() {
-    localStorage.removeItem("orderData");
+    localStorage.setItem("orderData", "[]");
   }
   useEffect(() => {
     document.title = "山角行 - 結帳";
@@ -490,6 +491,7 @@ function Checkout(props) {
               await changeStayToSever();
               await pointsUpdateToSever();
               await clearStorage();
+              setNewCartsNum(0);
               props.history.push({
                 pathname: "/member/order",
               });

@@ -133,7 +133,7 @@ function App() {
                 />
               </Route>
               <Route exact path="/checkout">
-                <Checkout isDay={isDay} />
+                <Checkout isDay={isDay} setNewCartsNum={setNewCartsNum} />
               </Route>
               <Route path="/member">
                 <Member isDay={isDay} />
