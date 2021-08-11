@@ -175,7 +175,7 @@ input[type="checkbox"]:checked {
 
 .check-order-image {
     width: 363px;
-    min-height: 250px;
+    height: 250px;
     border-radius: 20px;
     margin: 40px;
     overflow: hidden;

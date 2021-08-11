@@ -549,7 +549,7 @@ ul {
     padding-left: 3.2%;
 }
 
-@media screen and (max-width: 1064px) {
+/* @media screen and (max-width: 1064px) {
     .event-section-title, .event-section-subtitle {
         text-align: center;
     }
@@ -562,7 +562,7 @@ ul {
         justify-content: center;
         padding-bottom: 30px;
     }
-}
+} */
 
 /* 卡片 */
 
